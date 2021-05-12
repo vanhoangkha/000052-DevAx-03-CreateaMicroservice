@@ -1,0 +1,210 @@
+AWSTemplateFormatVersion: 2010-09-09
+Transform:
+  - AWS::Serverless-2016-10-31
+  - AWS::CodeStar
+
+Parameters:
+  ProjectId:
+    Type: String
+    Description: AWS CodeStar projectID used to associate new resources to team members
+  CodeDeployRole:
+    Type: String
+    Description: IAM role to allow AWS CodeDeploy to manage deployment of AWS Lambda functions
+    Default: ""
+  InstanceType:
+    Type: String
+    Description: The type of Amazon EC2 Linux instances that will be launched for this project.
+  KeyPairName:
+    Type: String
+    Description: The name of an existing Amazon EC2 key pair in the region where the project is created, which you can use to SSH into the new Amazon EC2 Linux instances.
+  VpcId:
+    Type: String
+    Description: The ID of the Amazon Virtual Private Cloud (VPC) used for the new Amazon EC2 Linux instances.
+  SubnetId:
+    Type: String
+    Description: The name of the VPC subnet used for the new Amazon EC2 Linux instances launched for this project.
+  SolutionStackName:
+    Type: String
+    Description: The software stack used to launch environments and configure instances in AWS Elastic Beanstalk.
+  EBTrustRole:
+    Type: String
+    Description: The service role in IAM for AWS Elastic Beanstalk to be created for this project.
+  EBInstanceProfile:
+    Type: String
+    Description: The IAM role that will be created for the Amazon EC2 Linux instances.
+  Stage:
+    Type: String
+    Description: The name for a project pipeline stage, such as Staging or Prod, for which resources are provisioned and deployed.
+    Default: ""
+
+Resources:
+  RestAPI:
+    Type: "AWS::Serverless::Api"
+    Properties:
+      StageName: Prod
+      DefinitionUri: swagger.yml
+      Variables:
+        LambdaFlightSpecials: !Ref GetFlightSpecials
+        LambdaHotelSpecials: !Ref GetHotelSpecials
+  GetHotelSpecials:
+    Type: AWS::Serverless::Function
+    DependsOn: devloungeHotelSpecialsLambdaExecRole
+    Properties:
+      CodeUri: target/flightspecials-1.0.0.jar
+      Handler: devlounge.lambda.FlightSpecialsHandler
+      Runtime: java8
+      Description: Returns a list of the current flight specials as JSON
+      Role: !GetAtt devloungeFlightSpecialsLambdaExecRole.Arn
+      Timeout: 30
+      MemorySize: 1024
+      VpcConfig:
+        SecurityGroupIds:
+          - sg-0e0d85b7d97702bf9
+        SubnetIds:
+          - subnet-0c12cbfe30d3c418f
+          - subnet-04411b29b9f4b5453
+      Environment:
+        Variables:
+          JDBC_CONNECTION_STRING: jdbc:mysql://dd45kjok483y7a.c2ptsxlgmgjw.us-east-2.rds.amazonaws.com:3306/travelbuddy?useSSL=false&serverTimezone=UTC&autoReconnect=true
+          JDBC_UID: root
+          JDBC_PWD: labpassword
+      Events:
+        GetEvent:
+          Type: Api
+          Properties:
+            Path: /hotelspecials
+            Method: get
+            RestApiId: !Ref RestAPI
+    
+  GetFlightSpecials:
+    Type: AWS::Serverless::Function
+    DependsOn: devloungeFlightSpecialsLambdaExecRole
+    Properties:
+      CodeUri: target/flightspecials-1.0.0.jar
+      Handler: devlounge.lambda.FlightSpecialsHandler
+      Runtime: java8
+      Description: Returns a list of the current flight specials as JSON
+      Role: !GetAtt devloungeFlightSpecialsLambdaExecRole.Arn
+      Timeout: 30
+      MemorySize: 1024
+      VpcConfig:
+        SecurityGroupIds:
+          - sg-0e0d85b7d97702bf9
+        SubnetIds:
+          - subnet-0c12cbfe30d3c418f
+          - subnet-04411b29b9f4b5453
+      Environment:
+        Variables:
+          JDBC_CONNECTION_STRING: jdbc:mysql://dd45kjok483y7a.c2ptsxlgmgjw.us-east-2.rds.amazonaws.com:3306/travelbuddy?useSSL=false&serverTimezone=UTC&autoReconnect=true
+          JDBC_UID: root
+          JDBC_PWD: labpassword
+      Events:
+        GetEvent:
+          Type: Api
+          Properties:
+            Path: /flightspecials
+            Method: get
+            RestApiId: !Ref RestAPI
+ 
+  devloungeFlightSpecialsLambdaExecRole:
+    Type: "AWS::IAM::Role"
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: "Allow"
+            Principal:
+              Service:
+                - "lambda.amazonaws.com"
+            Action:
+              - "sts:AssumeRole"
+      Path: "/"
+      Policies:
+        - PolicyName: "LambdaFunctionsAccess"
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: "Allow"
+                Action: "dynamodb:*"
+                Resource: "*"
+              - Effect: "Allow"
+                Action:
+                  - "xray:PutTraceSegments"
+                  - "xray:PutTelemetryRecords"
+                Resource: "*"
+              - Effect: "Allow"
+                Action:
+                  - "logs:CreateLogGroup"
+                  - "logs:CreateLogStream"
+                  - "logs:PutLogEvents"
+                Resource: "*"
+              - Effect: "Allow"
+                Action:
+                  - "iam:GetRole"
+                  - "iam:CreateRole"
+                  - "iam:DeleteRole"
+                  - "iam:PassRole"
+                  - "iam:PutRolePolicy"
+                  - "iam:DeleteRolePolicy"
+                  - "lambda:ListTags"
+                  - "lambda:TagResource"
+                  - "lambda:UntagResource"
+                  - "ec2:DescribeSecurityGroups"
+                  - "ec2:DescribeSubnets"
+                  - "ec2:DescribeVpcs"
+                  - "ec2:CreateNetworkInterface"
+                  - "ec2:AttachNetworkInterface"
+                  - "ec2:DescribeNetworkInterfaces"
+                  - "ec2:DeleteNetworkInterface"
+                Resource: "*"
+  devloungeHotelSpecialsLambdaExecRole:
+    Type: "AWS::IAM::Role"
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: "Allow"
+            Principal:
+              Service:
+                - "lambda.amazonaws.com"
+            Action:
+              - "sts:AssumeRole"
+      Path: "/"
+      Policies:
+        - PolicyName: "LambdaFunctionsAccess"
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: "Allow"
+                Action: "dynamodb:*"
+                Resource: "*"
+              - Effect: "Allow"
+                Action:
+                  - "xray:PutTraceSegments"
+                  - "xray:PutTelemetryRecords"
+                Resource: "*"
+              - Effect: "Allow"
+                Action:
+                  - "logs:CreateLogGroup"
+                  - "logs:CreateLogStream"
+                  - "logs:PutLogEvents"
+                Resource: "*"
+              - Effect: "Allow"
+                Action:
+                  - "iam:GetRole"
+                  - "iam:CreateRole"
+                  - "iam:DeleteRole"
+                  - "iam:PassRole"
+                  - "iam:PutRolePolicy"
+                  - "iam:DeleteRolePolicy"
+                  - "lambda:ListTags"
+                  - "lambda:TagResource"
+                  - "lambda:UntagResource"
+                  - "ec2:DescribeSecurityGroups"
+                  - "ec2:DescribeSubnets"
+                  - "ec2:DescribeVpcs"
+                  - "ec2:CreateNetworkInterface"
+                  - "ec2:AttachNetworkInterface"
+                  - "ec2:DescribeNetworkInterfaces"
+                  - "ec2:DeleteNetworkInterface"
+                Resource: "*"

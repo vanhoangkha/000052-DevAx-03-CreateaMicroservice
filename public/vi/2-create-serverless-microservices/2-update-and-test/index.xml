@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tải lên và kiểm tra hàm Lambda trong AWS Lambda on DevAx - Chuyển đổi Monoliths sang Microservices - Tạo một Microservice</title>
+    <link>/vi/2-create-serverless-microservices/2-update-and-test/</link>
+    <description>Recent content in Tải lên và kiểm tra hàm Lambda trong AWS Lambda on DevAx - Chuyển đổi Monoliths sang Microservices - Tạo một Microservice</description>
+    <generator>Hugo -- gohugo.io</generator>
+    
+	<atom:link href="/vi/2-create-serverless-microservices/2-update-and-test/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+  </channel>
+</rss>

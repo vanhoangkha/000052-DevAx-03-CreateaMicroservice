@@ -1,0 +1,40 @@
+﻿17. Thêm đoạn code sau vào sau dòng thứ 12 trong tập tin template.yml
+```
+    Default: ""
+  InstanceType:
+    Type: String
+    Description: The type of Amazon EC2 Linux instances that will be launched for this project.
+  KeyPairName:
+    Type: String
+    Description: The name of an existing Amazon EC2 key pair in the region where the project is created, which you can use to SSH into the new Amazon EC2 Linux instances.
+  VpcId:
+    Type: String
+    Description: The ID of the Amazon Virtual Private Cloud (VPC) used for the new Amazon EC2 Linux instances.
+  SubnetId:
+    Type: String
+    Description: The name of the VPC subnet used for the new Amazon EC2 Linux instances launched for this project.
+  SolutionStackName:
+    Type: String
+    Description: The software stack used to launch environments and configure instances in AWS Elastic Beanstalk.
+  EBTrustRole:
+    Type: String
+    Description: The service role in IAM for AWS Elastic Beanstalk to be created for this project.
+  EBInstanceProfile:
+    Type: String
+    Description: The IAM role that will be created for the Amazon EC2 Linux instances.
+```
+![FixError](../../../images/4/fixerror.png?width=90pc)
+18. Thêm đoạn code sau vào tập tin pom.yml để khai báo dependency bị thiếu
+```
+<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-api</artifactId>
+			<version>5.5.0</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+	        <groupId>org.springframework.boot</groupId>
+	        <artifactId>spring-boot-starter-web</artifactId>
+	        <version>1.3.2.RELEASE</version>
+		</dependency>
+```
