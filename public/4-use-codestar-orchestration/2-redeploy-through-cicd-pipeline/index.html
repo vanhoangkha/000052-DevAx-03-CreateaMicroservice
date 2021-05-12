@@ -12,21 +12,21 @@
     <title>Triển khai lại thông qua CI/CD pipeline :: DevAx - Monoliths to Microservices - Create A Microservice</title>
 
     
-    <link href="/css/nucleus.css?1620786960" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1620786960" rel="stylesheet">
-    <link href="/css/hybrid.css?1620786960" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1620786960" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1620786960" rel="stylesheet">
-    <link href="/css/auto-complete.css?1620786960" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1620786960" rel="stylesheet">
-    <link href="/css/theme.css?1620786960" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1620786960" rel="stylesheet">
+    <link href="/css/nucleus.css?1620833413" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1620833413" rel="stylesheet">
+    <link href="/css/hybrid.css?1620833413" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1620833413" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1620833413" rel="stylesheet">
+    <link href="/css/auto-complete.css?1620833413" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1620833413" rel="stylesheet">
+    <link href="/css/theme.css?1620833413" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1620833413" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1620786960" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1620833413" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1620786960"></script>
+    <script src="/js/jquery-3.3.1.min.js?1620833413"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1620786960"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1620786960"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1620833413"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1620833413"></script>
 <script type="text/javascript">
     
         var baseurl = "";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1620786960"></script>
+<script type="text/javascript" src="/js/search.js?1620833413"></script>
 
     
   </div>
@@ -514,13 +514,13 @@
  
   
     
-    <li data-nav-id="/6-conclustion/" title="Kết luận" class="dd-item 
+    <li data-nav-id="/5-challenge/" title="Thử thách - Expose microservice API" class="dd-item 
         
         
         
         ">
-      <a href="/6-conclustion/">
-          <b>6. </b>Kết luận
+      <a href="/5-challenge/">
+          <b>5. </b>Thử thách - Expose microservice API
           
             <i class="fas fa-check read-icon"></i>
           
@@ -540,13 +540,13 @@
  
   
     
-    <li data-nav-id="/5-challenge/" title="Thử thách - Expose microservice API" class="dd-item 
+    <li data-nav-id="/6-conclustion/" title="Kết luận" class="dd-item 
         
         
         
         ">
-      <a href="/5-challenge/">
-          <b>6. </b>Thử thách - Expose microservice API
+      <a href="/6-conclustion/">
+          <b>6. </b>Kết luận
           
             <i class="fas fa-check read-icon"></i>
           
@@ -767,7 +767,8 @@
 
 3. Trong Eclipse IDE, nhấp chuột phải vào project. chọn <strong>Show In</strong> và chọn <strong>System Explorer</strong>.<br>
 4. Sao chép nội dung trong thư mục FlightSpecials vào thư mục vừa mở.
-Bạn có thể sử dụng tập tin <strong>copy_files.sh</strong> để sao chép. Sử dụng lệnh <strong>copy_files.sh /path/to/your/working/folder</strong>.<br>
+Bạn nên sử dụng tập tin <strong>copy_files.sh</strong> để sao chép. Sử dụng lệnh <strong>copy_files.sh /path/to/your/working/folder</strong>.<br>
+Hoặc xóa nội dung trong hai thư mục <strong>/src</strong> và <strong>/target</strong> của project sample trước khi copy đè lên.
 5. Nhấp chuột phải vào thư mục root của dự án, chọn <strong>Maven | Update Project</strong>, chọn <strong>OK</strong>.<br>
 <img src="../../../images/4/11.png?width=90pc" alt="Redeploy">
 Sau khi hoàn tất, bạn sẽ thấy cấu trúc thư mục như sau:
@@ -818,31 +819,7 @@ Khi thêm vai trò <strong>CodeStarWorker-dev-flight-svc-CloudFormation</strong>
 <img src="../../../images/4/18.png?width=90pc" alt="RDSEndpoint">
 16. Khi hoàn tất, bạn sẽ có VPCConfig section như sau:
 <img src="../../../images/4/19.png?width=90pc" alt="VPCConfig">
-17. Thêm đoạn code sau vào sau dòng thứ 12 trong tập tin template.yml</p>
-<pre><code>    Default: &quot;&quot;
-  InstanceType:
-    Type: String
-    Description: The type of Amazon EC2 Linux instances that will be launched for this project.
-  KeyPairName:
-    Type: String
-    Description: The name of an existing Amazon EC2 key pair in the region where the project is created, which you can use to SSH into the new Amazon EC2 Linux instances.
-  VpcId:
-    Type: String
-    Description: The ID of the Amazon Virtual Private Cloud (VPC) used for the new Amazon EC2 Linux instances.
-  SubnetId:
-    Type: String
-    Description: The name of the VPC subnet used for the new Amazon EC2 Linux instances launched for this project.
-  SolutionStackName:
-    Type: String
-    Description: The software stack used to launch environments and configure instances in AWS Elastic Beanstalk.
-  EBTrustRole:
-    Type: String
-    Description: The service role in IAM for AWS Elastic Beanstalk to be created for this project.
-  EBInstanceProfile:
-    Type: String
-    Description: The IAM role that will be created for the Amazon EC2 Linux instances.
-</code></pre><p><img src="../../../images/4/fixerror.png?width=90pc" alt="FixError">
-18. Thêm đoạn code sau vào tập tin pom.yml để khai báo dependency bị thiếu</p>
+17. Thêm đoạn code sau vào tập tin pom.yml để khai báo dependency bị thiếu</p>
 <pre><code>&lt;dependency&gt;
 			&lt;groupId&gt;org.junit.jupiter&lt;/groupId&gt;
 			&lt;artifactId&gt;junit-jupiter-api&lt;/artifactId&gt;
@@ -1186,19 +1163,19 @@ Khi thêm vai trò <strong>CodeStarWorker-dev-flight-svc-CloudFormation</strong>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1620786960"></script>
-    <script src="/js/perfect-scrollbar.min.js?1620786960"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1620786960"></script>
-    <script src="/js/jquery.sticky.js?1620786960"></script>
-    <script src="/js/featherlight.min.js?1620786960"></script>
-    <script src="/js/highlight.pack.js?1620786960"></script>
+    <script src="/js/clipboard.min.js?1620833413"></script>
+    <script src="/js/perfect-scrollbar.min.js?1620833413"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1620833413"></script>
+    <script src="/js/jquery.sticky.js?1620833413"></script>
+    <script src="/js/featherlight.min.js?1620833413"></script>
+    <script src="/js/highlight.pack.js?1620833413"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1620786960"></script>
-    <script src="/js/learn.js?1620786960"></script>
-    <script src="/js/hugo-learn.js?1620786960"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1620833413"></script>
+    <script src="/js/learn.js?1620833413"></script>
+    <script src="/js/hugo-learn.js?1620833413"></script>
 
-    <link href="/mermaid/mermaid.css?1620786960" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1620786960"></script>
+    <link href="/mermaid/mermaid.css?1620833413" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1620833413"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

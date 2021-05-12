@@ -12,21 +12,21 @@
     <title>Tự động hóa Serverless Microservice :: DevAx - Monoliths to Microservices - Create A Microservice</title>
 
     
-    <link href="/css/nucleus.css?1620786960" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1620786960" rel="stylesheet">
-    <link href="/css/hybrid.css?1620786960" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1620786960" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1620786960" rel="stylesheet">
-    <link href="/css/auto-complete.css?1620786960" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1620786960" rel="stylesheet">
-    <link href="/css/theme.css?1620786960" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1620786960" rel="stylesheet">
+    <link href="/css/nucleus.css?1620833413" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1620833413" rel="stylesheet">
+    <link href="/css/hybrid.css?1620833413" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1620833413" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1620833413" rel="stylesheet">
+    <link href="/css/auto-complete.css?1620833413" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1620833413" rel="stylesheet">
+    <link href="/css/theme.css?1620833413" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1620833413" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1620786960" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1620833413" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1620786960"></script>
+    <script src="/js/jquery-3.3.1.min.js?1620833413"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1620786960"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1620786960"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1620833413"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1620833413"></script>
 <script type="text/javascript">
     
         var baseurl = "";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1620786960"></script>
+<script type="text/javascript" src="/js/search.js?1620833413"></script>
 
     
   </div>
@@ -514,13 +514,13 @@
  
   
     
-    <li data-nav-id="/6-conclustion/" title="Kết luận" class="dd-item 
+    <li data-nav-id="/5-challenge/" title="Thử thách - Expose microservice API" class="dd-item 
         
         
         
         ">
-      <a href="/6-conclustion/">
-          <b>6. </b>Kết luận
+      <a href="/5-challenge/">
+          <b>5. </b>Thử thách - Expose microservice API
           
             <i class="fas fa-check read-icon"></i>
           
@@ -540,13 +540,13 @@
  
   
     
-    <li data-nav-id="/5-challenge/" title="Thử thách - Expose microservice API" class="dd-item 
+    <li data-nav-id="/6-conclustion/" title="Kết luận" class="dd-item 
         
         
         
         ">
-      <a href="/5-challenge/">
-          <b>6. </b>Thử thách - Expose microservice API
+      <a href="/6-conclustion/">
+          <b>6. </b>Kết luận
           
             <i class="fas fa-check read-icon"></i>
           
@@ -764,9 +764,41 @@ Resources:
       BucketName: !Sub idevelop-imagemanager-${AWS::AccountId}
 </code></pre><p><img src="../../../images/3/15.png?width=90pc" alt="Creattemplate">
 Mẫu này biểu diễn tả một S3 bucket sẽ kích hoạt hàm Lambda của chúng ta bất cứ khi nào có một tập tin được tải lên thư mục <strong>uploads</strong> - tương tự như S3 bucket mà chúng ta đã tạo ở phần trước.<br>
-2. Tạo một artìact triển khai cho hàm Lambda - một tập tin <strong>JAR</strong> chứa hàm Lambda và tất cả các phụ thuộc của nó. Chúng ta có thể sử dụng commandline để làm điều này.</p>
+2. Tạo một artifact triển khai cho hàm Lambda - một tập tin <strong>JAR</strong> chứa hàm Lambda và tất cả các phụ thuộc của nó. Chúng ta có thể sử dụng commandline để làm điều này.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mvn package shade:shade -DskipTests<span style="color:#f92672">=</span>true
-</code></pre></div><p><img src="../../../images/3/16.png?width=90pc" alt="CreateJarfile">
+</code></pre></div>
+<div class="notices tip" ><p>Nếu bị thiếu maven, bạn có thể download và giải nén file chứa maven dưới đây.
+Sau đó tiến hành cấu hình biến môi trường MVN_HOME tới <strong>đường dẫn đã giải nén\bin</strong> ví dụ : <strong>C:\apache-maven-3.8.1\bin</strong></p>
+</div>
+
+<p><strong>File Apache Maven:</strong>
+
+<section class="attachments ">
+	<label>
+		<i class="fas fa-paperclip" aria-hidden="true"></i>
+		Attachments
+	</label>
+	
+		
+	
+	<div class="attachments-files">
+	
+		
+		
+			<li>
+				<a href="/3-extending-serverless-microservices/2-automating-your-microservice/_index.files/apache-maven-3.8.1-bin.zip" >
+					apache-maven-3.8.1-bin.zip
+				</a>
+				(9410 ko)
+			</li>
+		
+	
+	<div>
+	
+</section>
+
+</p>
+<p><img src="../../../images/3/16.png?width=90pc" alt="CreateJarfile">
 Kết quả trả về một tập tin có tên <strong>s3handler-1.0.0.jar</strong> trong thư mục <strong>target</strong>
 <img src="../../../images/3/17.png?width=90pc" alt="UploadJarfile">
 3. Tiếp theo, chúng ta sẽ sử dụng AWS CLI để đẩy tập tin này lên S3 bucket nơi mà nó có thể được triển khai. Chúng ta sẽ sử dụng lệnh <strong>aws cloudformation package</strong></p>
@@ -775,13 +807,13 @@ Kết quả trả về một tập tin có tên <strong>s3handler-1.0.0.jar</str
 <strong>Note:</strong> Nếu bạn thấy một thông báo lỗi <strong>‘NoneType’ object has no attribute ‘items’</strong> hãy kiểm tra lại format của tập tin YAML.</p>
 <p>Câu lệnh <strong>aws cloudformation package</strong> sẽ lấy mẫu AWS SAM được cung cấp và viết lại nó trong định nghĩa của artifact được tự động tải lên S3 bucket. Trong trường hợp này,<strong>deploy-template.yaml</strong> được tạo và chứa giá trị <strong>CodeUri</strong>trỏ đến tập tin zip triển khai trong Amazon S3. Mẫu này đại diện cho ứng dụng serverless của bạn.\</p>
 <ol>
-<li>Bây giờ bạn đã sẵn sàng triển khai tập tin JAR dưới dạng một hàm Lambda và kết nối S3 trigger vào một S3 bucket mới. Bạn sẽ nhận thấy kết quả từ lệnh trước đó hướng dẫn chúng ta những gì cần chạy để triển khai mẫu đóng gói. Trong cửa sổ dòng lệnh, sao chép lệnh và dán lại vào dòng lệnh. Thay đổi giá trị &lt;YOUR_STACK_NAME&gt; thành ImageManagerDemovà thêm vào tùy chọn &ndash;profile aws-lab-env để cho phép CloudFormation tạo vai trò IAM thay mặt bạn. Lệnh của bạn sẽ giống như sau:</li>
+<li>Bây giờ bạn đã sẵn sàng triển khai tập tin JAR dưới dạng một hàm Lambda và kết nối S3 trigger vào một S3 bucket mới. Bạn sẽ nhận thấy kết quả từ lệnh trước đó hướng dẫn chúng ta những gì cần chạy để triển khai mẫu đóng gói. Trong cửa sổ dòng lệnh, sao chép lệnh và dán lại vào dòng lệnh. Thay đổi giá trị &lt;YOUR_STACK_NAME&gt; thành ImageManagerDemo và thêm vào tùy chọn &ndash;profile aws-lab-env để cho phép CloudFormation tạo vai trò IAM thay mặt bạn. Lệnh của bạn sẽ giống như sau:</li>
 </ol>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">aws cloudformation deploy --template-file deploy-template.yaml --stack-name ImageManagerDemo --profile aws-lab-env
 </code></pre></div><p><img src="../../../images/3/19.png?width=90pc" alt="DeployCF">
 Khi bạn chạy lệnh <strong>aws cloudformation deploy</strong> nó sẽ tạo một <strong>AWS CloudFormation ChangeSet</strong> và triển khai chúng, đây là danh sách các thay đổi đối với AWS CloudFormation stack. Một vài mẫu stack có thể bao gồm các tài nguyên ảnh hưởng đến quyền trong tài khoản AWS, chẳng hạn như bằng cách tạo một AWS Identity and Access Management (IAM) user mới. Đối với các stack đó, bạn phải công nhận các khả năng của nó bằng các chỉ định tham số -capabilities. Để biết thêm thông tin, xem CreateChangeSet trong AWS CloudFormation API Reference.
 
-<div class="notices tip" ><p>Bạn có thể xem quá trình tạo tài nguyên trực tiếpp trong bảng điều khiển CloudFormation</p>
+<div class="notices tip" ><p>Bạn có thể xem quá trình tạo tài nguyên trực tiếp trong bảng điều khiển CloudFormation</p>
 </div>
 
 Để kiểm tra kết quả, mở AWS CloudFormation console để xem stack mới nhất được tạo và vào Lambda console để xem hàm của bạn.
@@ -1129,19 +1161,19 @@ Nếu bạn tải tập tin không phải hình ảnh lên, tập tin sẽ bị 
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1620786960"></script>
-    <script src="/js/perfect-scrollbar.min.js?1620786960"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1620786960"></script>
-    <script src="/js/jquery.sticky.js?1620786960"></script>
-    <script src="/js/featherlight.min.js?1620786960"></script>
-    <script src="/js/highlight.pack.js?1620786960"></script>
+    <script src="/js/clipboard.min.js?1620833413"></script>
+    <script src="/js/perfect-scrollbar.min.js?1620833413"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1620833413"></script>
+    <script src="/js/jquery.sticky.js?1620833413"></script>
+    <script src="/js/featherlight.min.js?1620833413"></script>
+    <script src="/js/highlight.pack.js?1620833413"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1620786960"></script>
-    <script src="/js/learn.js?1620786960"></script>
-    <script src="/js/hugo-learn.js?1620786960"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1620833413"></script>
+    <script src="/js/learn.js?1620833413"></script>
+    <script src="/js/hugo-learn.js?1620833413"></script>
 
-    <link href="/mermaid/mermaid.css?1620786960" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1620786960"></script>
+    <link href="/mermaid/mermaid.css?1620833413" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1620833413"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

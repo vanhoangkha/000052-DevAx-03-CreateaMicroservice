@@ -12,21 +12,21 @@
     <title>Triển khai hàm Lambda ImageManager :: DevAx - Monoliths to Microservices - Create A Microservice</title>
 
     
-    <link href="/css/nucleus.css?1620786960" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1620786960" rel="stylesheet">
-    <link href="/css/hybrid.css?1620786960" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1620786960" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1620786960" rel="stylesheet">
-    <link href="/css/auto-complete.css?1620786960" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1620786960" rel="stylesheet">
-    <link href="/css/theme.css?1620786960" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1620786960" rel="stylesheet">
+    <link href="/css/nucleus.css?1620833413" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1620833413" rel="stylesheet">
+    <link href="/css/hybrid.css?1620833413" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1620833413" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1620833413" rel="stylesheet">
+    <link href="/css/auto-complete.css?1620833413" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1620833413" rel="stylesheet">
+    <link href="/css/theme.css?1620833413" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1620833413" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1620786960" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1620833413" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1620786960"></script>
+    <script src="/js/jquery-3.3.1.min.js?1620833413"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1620786960"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1620786960"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1620833413"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1620833413"></script>
 <script type="text/javascript">
     
         var baseurl = "";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1620786960"></script>
+<script type="text/javascript" src="/js/search.js?1620833413"></script>
 
     
   </div>
@@ -514,13 +514,13 @@
  
   
     
-    <li data-nav-id="/6-conclustion/" title="Kết luận" class="dd-item 
+    <li data-nav-id="/5-challenge/" title="Thử thách - Expose microservice API" class="dd-item 
         
         
         
         ">
-      <a href="/6-conclustion/">
-          <b>6. </b>Kết luận
+      <a href="/5-challenge/">
+          <b>5. </b>Thử thách - Expose microservice API
           
             <i class="fas fa-check read-icon"></i>
           
@@ -540,13 +540,13 @@
  
   
     
-    <li data-nav-id="/5-challenge/" title="Thử thách - Expose microservice API" class="dd-item 
+    <li data-nav-id="/6-conclustion/" title="Kết luận" class="dd-item 
         
         
         
         ">
-      <a href="/5-challenge/">
-          <b>6. </b>Thử thách - Expose microservice API
+      <a href="/6-conclustion/">
+          <b>6. </b>Kết luận
           
             <i class="fas fa-check read-icon"></i>
           
@@ -829,7 +829,7 @@ Bạn sẽ cần thêm các triển khai của 2 xử lý này. Ví dụ:</p>
 	System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;     Done!&#34;</span><span style="color:#f92672">);</span>
 <span style="color:#f92672">}</span>
 </code></pre></div><p><img src="../../../images/3/2.png?width=90pc" alt="ChangeCode">
-Hai xử lý này nên được thêm vào lớp <em>LambdaFunctionHandler</em> như là private method. Bạn nên thêm những đoạn code này vào cuối tập tin, trước dấu đóng ngoặc.
+Hai xử lý này nên được thêm vào lớp <em>LambdaFunctionHandler</em> như là private method. Bạn nên thêm những đoạn code này vào phần import ở đầu file <strong>LambdaFunctionHandler.java</strong>
 Bạn cần thêm vào các import sau:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">import</span> java.awt.AlphaComposite<span style="color:#f92672">;</span>
 <span style="color:#f92672">import</span> java.awt.Graphics2D<span style="color:#f92672">;</span>
@@ -840,7 +840,7 @@ Bạn cần thêm vào các import sau:</p>
 <span style="color:#f92672">import</span> javax.imageio.ImageIO<span style="color:#f92672">;</span>
 </code></pre></div><p><img src="../../../images/3/3.png?width=90pc" alt="ChangeCode">
 Hoặc sử dụng Eclipse IDE helper <strong>Source | Organise Imports</strong> để sửa lỗi thiếu class.<br>
-3. Tải lại hàm Lambda sử dụng IDE. Nhấp chuột phải vào project, chọn <strong>Upload function to AWS Lambda…</strong>, chọn <strong>Choose an existing Lambda function</strong>
+3. Tải lại hàm Lambda sử dụng IDE. Nhấp chuột phải vào project <strong>TestLambda</strong> , chọn <strong>Upload function to AWS Lambda…</strong>, chọn <strong>Choose an existing Lambda function</strong>
 <img src="../../../images/3/4.png?width=90pc" alt="Redeploy">
 Chọn <strong>Next</strong>
 <img src="../../../images/3/5.png?width=90pc" alt="Redeploy">
@@ -1194,19 +1194,19 @@ Truy cập lại vào tập tin trên trình duyệt web. Bây giờ ta đã có
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1620786960"></script>
-    <script src="/js/perfect-scrollbar.min.js?1620786960"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1620786960"></script>
-    <script src="/js/jquery.sticky.js?1620786960"></script>
-    <script src="/js/featherlight.min.js?1620786960"></script>
-    <script src="/js/highlight.pack.js?1620786960"></script>
+    <script src="/js/clipboard.min.js?1620833413"></script>
+    <script src="/js/perfect-scrollbar.min.js?1620833413"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1620833413"></script>
+    <script src="/js/jquery.sticky.js?1620833413"></script>
+    <script src="/js/featherlight.min.js?1620833413"></script>
+    <script src="/js/highlight.pack.js?1620833413"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1620786960"></script>
-    <script src="/js/learn.js?1620786960"></script>
-    <script src="/js/hugo-learn.js?1620786960"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1620833413"></script>
+    <script src="/js/learn.js?1620833413"></script>
+    <script src="/js/hugo-learn.js?1620833413"></script>
 
-    <link href="/mermaid/mermaid.css?1620786960" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1620786960"></script>
+    <link href="/mermaid/mermaid.css?1620833413" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1620833413"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
