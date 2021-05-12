@@ -13,10 +13,12 @@ Tập tin **swagger.yml** định nghĩa API được dùng cho microservice th�
 ![UpdateSwaggerFile](../../../images/4/20.png?width=90pc)
 4. Lưu tập tin.
 5. Sử dụng commandline để cập nhật thay đổi lên git branch **new-implementation** và commit thay đổi.
-{{%notice tip%}}
+
+Trước đó bạn sẽ cần cấu hình email và username cho git.
+```
 C:\Users\Administrator\git\dev-flight-svc>git config --global user.email "youremail"
 C:\Users\Administrator\git\dev-flight-svc>git config --global user.name "awsstudent"
-{{%/notice%}}
+```
 
 ![Gitcommand](../../../images/4/21.png?width=90pc)
 
