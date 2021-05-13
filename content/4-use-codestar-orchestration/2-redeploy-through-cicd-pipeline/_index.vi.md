@@ -18,8 +18,7 @@ git checkout -b "new-implementation"
 {{%attachments /%}}
 3. Trong Eclipse IDE, nhấp chuột phải vào project. chọn **Show In** và chọn **System Explorer**.\
 4. Sao chép nội dung trong thư mục FlightSpecials vào thư mục vừa mở.
-Bạn nên sử dụng tập tin **copy_files.sh** để sao chép. Sử dụng lệnh **copy_files.sh /path/to/your/working/folder**.\
-Hoặc xóa nội dung trong hai thư mục **/src** và **/target** của project sample trước khi copy đè lên.  
+Bạn cần xóa nội dung trong hai thư mục **/src** và **/target** của project sample trước khi copy đè lên.  
 {{%notice warning%}}
 Nếu bạn không xóa nội dung hai thư mục **/src** và **/target** trước khi copy code mới vào thì quá trình build sẽ bị lỗi vì chúng ta không cấu hình cho **HelloWorldController / Handler**.
 {{%/notice%}}
