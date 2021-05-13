@@ -118,10 +118,17 @@ import java.io.InputStream;
 import javax.imageio.ImageIO;
 ```
 ![ChangeCode](../../../images/3/3.png?width=90pc)
-Hoặc sử dụng Eclipse IDE helper **Source | Organise Imports** để sửa lỗi thiếu class.\
-3. Tải lại hàm Lambda sử dụng IDE. Nhấp chuột phải vào project **TestLambda** , chọn **Upload function to AWS Lambda…**, chọn **Choose an existing Lambda function**
+
+{{%notice tip%}}
+Nếu gặp khó khăn, bạn có thể tham khảo file **LambdaFunctionHandler.java** mẫu dưới đây.
+{{%/notice%}}
+
+{{%attachments /%}}
+
+3. Nhấp chuột phải bên trong cửa sổ chứa mã nguồn của **LambdaFunctionHandler.java** class trong src/main/java/idevelop.lambda.s3handler. Từ menu **AWS Lambda**,
+chọn **Upload function to AWS Lambda**. Chọn **Choose an existing Lambda function**
 ![Redeploy](../../../images/3/4.png?width=90pc)
-Chọn **Next**
+Click **Next**. Click **Finish**.
 ![Redeploy](../../../images/3/5.png?width=90pc)
 4. Khi quá trình tải lên thành công, bạn sẽ sẵn sàng để kiểm tra lại các tập tin được tải lên S3 bucket. Đầy tiên, tải ảnh **Puppy.jpg** lên thư mục **uploads** và xác nhận rằng hình ảnh thu nhỏ được tạo và lưu trữ tại thư mục **processed/**. Thư mục **processed/** sẽ được tạo tự động bởi hàm Lambda khi nó tạo các hình ảnh thu nhỏ. 
 ![TestDeploy](../../../images/3/6.png?width=90pc)

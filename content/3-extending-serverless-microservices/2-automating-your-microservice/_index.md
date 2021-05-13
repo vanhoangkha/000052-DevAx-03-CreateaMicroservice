@@ -7,13 +7,13 @@ pre = "<b>3.2. </b>"
 
 Trong bài tập trước, bạn đã sử dụng IDE Eclipse để tạo và cập nhật một hàm Lambda bằng Bộ công cụ AWS cho Eclipse. Điều này cho phép bạn khởi tạo việc tự động tải lên hàm Lambda của mình theo cách thủ công. Tuy nhiên, cơ chế này có thể không thuận tiện cho việc tự động hóa các bước triển khai cho các hàm hoặc phối hợp triển khai và cập nhật cho các phần tử khác của ứng dụng serverless, chẳng hạn như event sources và downstream resources. Ví dụ: IDE Eclipse không cung cấp cho bạn khả năng triển khai và cập nhật S3 bucket và kết nối S3 PUT OBJECT trigger, cùng với hàm Lambda của bạn như một đơn vị triển khai.
 
-Bạn có thể sử dụng **AWS CloudFormation** để dễ dàng chỉ định, triển khai và định cấu hình các ứng dụng serverless. AWS CloudFormation là một dịch vụ giúp bạn lập mô hình và thiết lập các tài nguyên Amazon Web Services để bạn có thể dành ít thời gian hơn cho việc quản lý các tài nguyên đó và nhiều thời gian hơn để tập trung vào các ứng dụng chạy trong AWS của bạn. Bạn tạo một mẫu mô tả tất cả các tài nguyên AWS mà bạn muốn (như các hàm Lambda và nhóm S3) và AWS CloudFormation sẽ đảm nhận việc cung cấp và cấu hình các tài nguyên đó cho bạn.
+Bạn có thể sử dụng **AWS CloudFormation** để dễ dàng chỉ định, triển khai và định cấu hình các ứng dụng serverless. AWS CloudFormation là một dịch vụ giúp bạn lập mô hình và thiết lập các tài nguyên Amazon Web Services để bạn có thể dành ít thời gian hơn cho việc quản lý các tài nguyên đó và nhiều thời gian hơn để tập trung vào các ứng dụng chạy trong AWS của bạn. Bạn tạo một mẫu mô ( **Template** ) mô tả tất cả các tài nguyên AWS mà bạn muốn (như các hàm Lambda và nhóm S3) và AWS CloudFormation sẽ đảm nhận việc cung cấp và cấu hình các tài nguyên đó cho bạn.
 
 Ngoài ra, bạn có thể sử dụng **AWS Serverless Application Model (SAM)** để thể hiện các tài nguyên bao gồm ứng dụng serverless. Các loại tài nguyên này, chẳng hạn như các hàm và API của AWS Lambda, được AWS CloudFormation hỗ trợ đầy đủ và giúp bạn xác định và triển khai ứng dụng serverless của mình dễ dàng hơn.
 
 Trong bài tập này, bạn sẽ sử dụng **AWS CLI** và **AWS CloudFormation/SAM** để đóng gói ứngd dụng và triển khai nó từ đầu mà không cần phải tạo hoặc định cấu hình bất kỳ phần phụ thuộc nào theo cách thủ công.
 
-1. Tạo một tập tin SAM/CloudFormation YAML có tên **template.yaml** trong thư mục chứa tập tin **pom.xml** của hàm TestLambda ở bài tập trước. Nội dung của tập tin **template.yaml** như sau:
+1. Right click vào Project **TestLambda** trong panel Project Explorer. Chọn **Create New File**. Đặt tên File Name là **template.yaml** file này sẽ nằm cùng cấp với file **pom.xml** của hàm **TestLambda** ở bài tập trước. Sau đó chúng ta chỉnh sửa nội dung file **template.yaml** như dưới đây.
 ```
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: 'AWS::Serverless-2016-10-31'
@@ -50,17 +50,21 @@ Resources:
 ```
 ![Creattemplate](../../../images/3/15.png?width=90pc)
 Mẫu này biểu diễn tả một S3 bucket sẽ kích hoạt hàm Lambda của chúng ta bất cứ khi nào có một tập tin được tải lên thư mục **uploads** - tương tự như S3 bucket mà chúng ta đã tạo ở phần trước.\
-2. Tạo một artifact triển khai cho hàm Lambda - một tập tin **JAR** chứa hàm Lambda và tất cả các phụ thuộc của nó. Chúng ta có thể sử dụng commandline để làm điều này.
-```bash
-mvn package shade:shade -DskipTests=true
-```
+
 {{%notice tip%}}
-Nếu bị thiếu maven, bạn có thể download và giải nén file chứa maven dưới đây.
-Sau đó tiến hành cấu hình biến môi trường MVN_HOME tới **đường dẫn đã giải nén\bin** ví dụ : **C:\apache-maven-3.8.1\bin**
+Chúng ta sẽ cần cài maven , bạn có thể download và giải nén file chứa maven dưới đây.
+Sau đó tiến hành cấu hình biến môi trường MVN_HOME tới **đường dẫn đã giải nén\bin**.  Ví dụ : **C:\apache-maven-3.8.1\bin**
 {{%/notice%}}
 
 **File Apache Maven:**
 {{%attachments /%}}
+![MavenInstall](../../../images/3/maven.jpg?width=90pc)
+
+2. Tạo một artifact triển khai cho hàm Lambda - một tập tin **JAR** chứa hàm Lambda và tất cả các phụ thuộc của nó. Chúng ta có thể sử dụng commandline để làm điều này.
+```bash
+mvn package shade:shade -DskipTests=true
+```
+
 
 ![CreateJarfile](../../../images/3/16.png?width=90pc)
 Kết quả trả về một tập tin có tên **s3handler-1.0.0.jar** trong thư mục **target**

@@ -12,21 +12,21 @@
     <title>Tải lên và kiểm tra hàm Lambda trong AWS Lambda :: DevAx - Chuyển đổi Monoliths sang Microservices - Tạo một Microservice</title>
 
     
-    <link href="/css/nucleus.css?1620834822" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1620834822" rel="stylesheet">
-    <link href="/css/hybrid.css?1620834822" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1620834822" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1620834822" rel="stylesheet">
-    <link href="/css/auto-complete.css?1620834822" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1620834822" rel="stylesheet">
-    <link href="/css/theme.css?1620834822" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1620834822" rel="stylesheet">
+    <link href="/css/nucleus.css?1620894974" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1620894974" rel="stylesheet">
+    <link href="/css/hybrid.css?1620894974" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1620894974" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1620894974" rel="stylesheet">
+    <link href="/css/auto-complete.css?1620894974" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1620894974" rel="stylesheet">
+    <link href="/css/theme.css?1620894974" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1620894974" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1620834822" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1620894974" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1620834822"></script>
+    <script src="/js/jquery-3.3.1.min.js?1620894974"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1620834822"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1620834822"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1620894974"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1620894974"></script>
 <script type="text/javascript">
     
         var baseurl = "\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1620834822"></script>
+<script type="text/javascript" src="/js/search.js?1620894974"></script>
 
     
   </div>
@@ -733,7 +733,7 @@
 
 	<h4 id="tải-và-kiểm-tra-hàm-lambda-trong-aws-lambda">Tải và kiểm tra hàm Lambda trong AWS Lambda</h4>
 <ol>
-<li>Chúng ta sẽ triển khai hàm Lambda và kiểm tra chúng. Nhấp chuột phải vào <strong>LambdaFunctionHandler.java</strong> class trong <em>src/main/java/idevelop.lambda.s3handler</em>. Từ menu Amazon Web Services, chọn <strong>Run function on AWS Lambda…</strong>
+<li>Chúng ta sẽ triển khai hàm Lambda và kiểm tra chúng. Nhấp chuột phải bên trong cửa sổ chứa mã nguồn của <strong>LambdaFunctionHandler.java</strong> class trong src/main/java/idevelop.lambda.s3handler. Từ menu <strong>AWS Lambda</strong>, chọn <strong>Run function on AWS Lambda</strong>…
 <img src="../../../images/2/8.png?width=90pc" alt="UpdateLambda"></li>
 <li>Chọn <strong>Upload now</strong>
 <img src="../../../images/2/9.png?width=90pc" alt="UpdateLambda"></li>
@@ -751,8 +751,7 @@
 <img src="../../../images/2/13.png?width=90pc" alt="UpdateLambda"></li>
 <li>Tại mục <strong>Bucket</strong> chọn bucket mà bạn đã tạo để chứa hình ảnh tải lên (idevelop-imagemanager-yourinitials)</li>
 <li>Tại mục <strong>Event type</strong> chọn <strong>All Object create events</strong></li>
-<li>Tại mục <strong>Prefix</strong> nhập <strong>uploads/</strong>. Không đặt giá trị <strong>Filter pattern</strong></li>
-<li>Đảm bảo rằng <strong>Enable trigger</strong> checkbox được chọn</li>
+<li>Tại mục <strong>Prefix</strong> nhập <strong>uploads/</strong>. Không đặt giá trị <strong>Suffix</strong>.</li>
 <li>Xác nhận tại mục <strong>Recursive invocation</strong> và chọn <strong>Add</strong>
 <img src="../../../images/2/14.png?width=90pc" alt="UpdateLambda"></li>
 <li>Bây giờ chúng ta sẽ cùng kiểm tra hàm Lambda. Truy cập <strong>S3 console</strong> và mở thư mục chứa hình ảnh được tải lên (idevelop-imagemanager-initials).</li>
@@ -1127,19 +1126,19 @@ Lưu ý rằng bạn sẽ thấy <strong>CONTENT TYPE</strong> output khác nhau
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1620834822"></script>
-    <script src="/js/perfect-scrollbar.min.js?1620834822"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1620834822"></script>
-    <script src="/js/jquery.sticky.js?1620834822"></script>
-    <script src="/js/featherlight.min.js?1620834822"></script>
-    <script src="/js/highlight.pack.js?1620834822"></script>
+    <script src="/js/clipboard.min.js?1620894974"></script>
+    <script src="/js/perfect-scrollbar.min.js?1620894974"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1620894974"></script>
+    <script src="/js/jquery.sticky.js?1620894974"></script>
+    <script src="/js/featherlight.min.js?1620894974"></script>
+    <script src="/js/highlight.pack.js?1620894974"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1620834822"></script>
-    <script src="/js/learn.js?1620834822"></script>
-    <script src="/js/hugo-learn.js?1620834822"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1620894974"></script>
+    <script src="/js/learn.js?1620894974"></script>
+    <script src="/js/hugo-learn.js?1620894974"></script>
 
-    <link href="/mermaid/mermaid.css?1620834822" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1620834822"></script>
+    <link href="/mermaid/mermaid.css?1620894974" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1620894974"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

@@ -9,7 +9,7 @@ Trong bài tập này, bạn sẽ cập nhật mã nguồn trong Eclipse, ghi đ
 
 #### Thêm code microservice vào nhánh mới
 
-1. Dùng câu lệnh sau để tạo nhánh mới:
+1. Chuyển đường dẫn vào thư mục gốc của CodeStar Project chúng ta vừa import. Dùng câu lệnh sau để tạo nhánh mới:
 ```bash
 git checkout -b "new-implementation"
 ```

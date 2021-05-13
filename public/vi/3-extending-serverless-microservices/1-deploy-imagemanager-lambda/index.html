@@ -12,21 +12,21 @@
     <title>Triển khai hàm Lambda ImageManager :: DevAx - Chuyển đổi Monoliths sang Microservices - Tạo một Microservice</title>
 
     
-    <link href="/css/nucleus.css?1620834822" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1620834822" rel="stylesheet">
-    <link href="/css/hybrid.css?1620834822" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1620834822" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1620834822" rel="stylesheet">
-    <link href="/css/auto-complete.css?1620834822" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1620834822" rel="stylesheet">
-    <link href="/css/theme.css?1620834822" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1620834822" rel="stylesheet">
+    <link href="/css/nucleus.css?1620894974" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1620894974" rel="stylesheet">
+    <link href="/css/hybrid.css?1620894974" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1620894974" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1620894974" rel="stylesheet">
+    <link href="/css/auto-complete.css?1620894974" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1620894974" rel="stylesheet">
+    <link href="/css/theme.css?1620894974" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1620894974" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1620834822" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1620894974" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1620834822"></script>
+    <script src="/js/jquery-3.3.1.min.js?1620894974"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1620834822"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1620834822"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1620894974"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1620894974"></script>
 <script type="text/javascript">
     
         var baseurl = "\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1620834822"></script>
+<script type="text/javascript" src="/js/search.js?1620894974"></script>
 
     
   </div>
@@ -838,22 +838,54 @@ Bạn cần thêm vào các import sau:</p>
 <span style="color:#f92672">import</span> java.io.File<span style="color:#f92672">;</span>
 <span style="color:#f92672">import</span> java.io.InputStream<span style="color:#f92672">;</span>
 <span style="color:#f92672">import</span> javax.imageio.ImageIO<span style="color:#f92672">;</span>
-</code></pre></div><p><img src="../../../images/3/3.png?width=90pc" alt="ChangeCode">
-Hoặc sử dụng Eclipse IDE helper <strong>Source | Organise Imports</strong> để sửa lỗi thiếu class.<br>
-3. Tải lại hàm Lambda sử dụng IDE. Nhấp chuột phải vào project <strong>TestLambda</strong> , chọn <strong>Upload function to AWS Lambda…</strong>, chọn <strong>Choose an existing Lambda function</strong>
+</code></pre></div><p><img src="../../../images/3/3.png?width=90pc" alt="ChangeCode"></p>
+
+<div class="notices tip" ><p>Nếu gặp khó khăn, bạn có thể tham khảo file <strong>LambdaFunctionHandler.java</strong> mẫu dưới đây.</p>
+</div>
+
+
+<section class="attachments ">
+	<label>
+		<i class="fas fa-paperclip" aria-hidden="true"></i>
+		Attachments
+	</label>
+	
+		
+	
+	<div class="attachments-files">
+	
+		
+		
+			<li>
+				<a href="/3-extending-serverless-microservices/1-deploy-imagemanager-lambda/_index.vi.files/LambdaFunctionHandler.java" >
+					LambdaFunctionHandler.java
+				</a>
+				(5 ko)
+			</li>
+		
+	
+	<div>
+	
+</section>
+
+
+<ol start="3">
+<li>Nhấp chuột phải bên trong cửa sổ chứa mã nguồn của <strong>LambdaFunctionHandler.java</strong> class trong src/main/java/idevelop.lambda.s3handler. Từ menu <strong>AWS Lambda</strong>,
+chọn <strong>Upload function to AWS Lambda</strong>. Chọn <strong>Choose an existing Lambda function</strong>
 <img src="../../../images/3/4.png?width=90pc" alt="Redeploy">
-Chọn <strong>Next</strong>
-<img src="../../../images/3/5.png?width=90pc" alt="Redeploy">
-4. Khi quá trình tải lên thành công, bạn sẽ sẵn sàng để kiểm tra lại các tập tin được tải lên S3 bucket. Đầy tiên, tải ảnh <strong>Puppy.jpg</strong> lên thư mục <strong>uploads</strong> và xác nhận rằng hình ảnh thu nhỏ được tạo và lưu trữ tại thư mục <strong>processed/</strong>. Thư mục <strong>processed/</strong> sẽ được tạo tự động bởi hàm Lambda khi nó tạo các hình ảnh thu nhỏ. 
+Click <strong>Next</strong>. Click <strong>Finish</strong>.
+<img src="../../../images/3/5.png?width=90pc" alt="Redeploy"></li>
+<li>Khi quá trình tải lên thành công, bạn sẽ sẵn sàng để kiểm tra lại các tập tin được tải lên S3 bucket. Đầy tiên, tải ảnh <strong>Puppy.jpg</strong> lên thư mục <strong>uploads</strong> và xác nhận rằng hình ảnh thu nhỏ được tạo và lưu trữ tại thư mục <strong>processed/</strong>. Thư mục <strong>processed/</strong> sẽ được tạo tự động bởi hàm Lambda khi nó tạo các hình ảnh thu nhỏ. 
 <img src="../../../images/3/6.png?width=90pc" alt="TestDeploy">
 Kiểm tra CloudWatch logs để xem quá trình trên diễn ra như thế nào
-<img src="../../../images/3/7.png?width=90pc" alt="Viewlogs">
-5. Tải lên một tập tin không phải hình ảnh vào thư mục <strong>uploads/</strong>
+<img src="../../../images/3/7.png?width=90pc" alt="Viewlogs"></li>
+<li>Tải lên một tập tin không phải hình ảnh vào thư mục <strong>uploads/</strong>
 <img src="../../../images/3/8.png?width=90pc" alt="Uploadfile">
 Ta nhận rằng tập tin vừa tải lên không được xử lý và bị xóa. 
 <img src="../../../images/3/9.png?width=90pc" alt="TestDeploy">
 Xem CloudWatch log để xem quá trình thực hiện như thế nào.
-<img src="../../../images/3/10.png?width=90pc" alt="Viewlogs"></p>
+<img src="../../../images/3/10.png?width=90pc" alt="Viewlogs"></li>
+</ol>
 <h4 id="cập-nhật-quyền-để-có-thể-truy-cập-tập-tin-đã-tải-lên">Cập nhật quyền để có thể truy cập tập tin đã tải lên</h4>
 <ol start="6">
 <li>Trong S3 bucket đã tải lên, nếu truy cập vào một hình ảnh trong thư mục <strong>processed/</strong> và thử mở tập tin này, bạn sẽ nhận được thông báo <strong>Access Denied</strong>.
@@ -1194,19 +1226,19 @@ Truy cập lại vào tập tin trên trình duyệt web. Bây giờ ta đã có
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1620834822"></script>
-    <script src="/js/perfect-scrollbar.min.js?1620834822"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1620834822"></script>
-    <script src="/js/jquery.sticky.js?1620834822"></script>
-    <script src="/js/featherlight.min.js?1620834822"></script>
-    <script src="/js/highlight.pack.js?1620834822"></script>
+    <script src="/js/clipboard.min.js?1620894974"></script>
+    <script src="/js/perfect-scrollbar.min.js?1620894974"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1620894974"></script>
+    <script src="/js/jquery.sticky.js?1620894974"></script>
+    <script src="/js/featherlight.min.js?1620894974"></script>
+    <script src="/js/highlight.pack.js?1620894974"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1620834822"></script>
-    <script src="/js/learn.js?1620834822"></script>
-    <script src="/js/hugo-learn.js?1620834822"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1620894974"></script>
+    <script src="/js/learn.js?1620894974"></script>
+    <script src="/js/hugo-learn.js?1620894974"></script>
 
-    <link href="/mermaid/mermaid.css?1620834822" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1620834822"></script>
+    <link href="/mermaid/mermaid.css?1620894974" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1620894974"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

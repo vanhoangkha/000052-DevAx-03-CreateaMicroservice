@@ -6,7 +6,7 @@ pre = "<b>4.1. </b>"
 +++
 
 Bây giờ bạn đã có kinh nghiệm thực tế về việc tạo và triển khai các hàm AWS Lambda, đã đến lúc quay lại ứng dụng TravelBuddy monolithic của chúng ta và triển khai một microservice trên AWS Lambda được quản lý thông qua CI/CD pipeline được tạo bằng AWS CodeStar.
-1. Mở AWS Code Star console và chọn **Create Project**
+1. Mở AWS Code Star console và chọn **Create Project**.Chúng ta sẽ cần tạo service role cho code star trong lần đầu tiên sử dụng. Click "Create service role"
 ![CreateCodeStarproject](../../../images/4/1.png?width=90pc)
 2. Bạn sẽ thấy nhiều thẻ template
 3. Bởi vì mã nguồn chương trình được viết bằng Java, do đó, chúng ta sẽ chọn những tùy chọn sau:
@@ -16,7 +16,7 @@ Bây giờ bạn đã có kinh nghiệm thực tế về việc tạo và triể
 ![CreateCodeStarproject](../../../images/4/2.png?width=90pc)
 Đánh dấu chọn Java Spring và chọn **Next**
 4. Tại mục Project name, nhập **dev-flight-svc**
-5. Chọn **CodeCommit** và chọn **Create Project**
+5. Chọn Code Commit , click **Next** và click **Create Project**.
 ![CreateCodeStarproject](../../../images/4/3.png?width=90pc)
 6. Chọn **Team**, chọn **Add team member** và thêm user **awsstudent** với quyền owner
 ![CreateCodeStarproject](../../../images/4/4.png?width=90pc)

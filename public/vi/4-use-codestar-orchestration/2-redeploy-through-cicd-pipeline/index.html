@@ -12,21 +12,21 @@
     <title>Triển khai lại thông qua CI/CD pipeline :: DevAx - Chuyển đổi Monoliths sang Microservices - Tạo một Microservice</title>
 
     
-    <link href="/css/nucleus.css?1620834822" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1620834822" rel="stylesheet">
-    <link href="/css/hybrid.css?1620834822" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1620834822" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1620834822" rel="stylesheet">
-    <link href="/css/auto-complete.css?1620834822" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1620834822" rel="stylesheet">
-    <link href="/css/theme.css?1620834822" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1620834822" rel="stylesheet">
+    <link href="/css/nucleus.css?1620894974" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1620894974" rel="stylesheet">
+    <link href="/css/hybrid.css?1620894974" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1620894974" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1620894974" rel="stylesheet">
+    <link href="/css/auto-complete.css?1620894974" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1620894974" rel="stylesheet">
+    <link href="/css/theme.css?1620894974" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1620894974" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1620834822" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1620894974" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1620834822"></script>
+    <script src="/js/jquery-3.3.1.min.js?1620894974"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1620834822"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1620834822"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1620894974"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1620894974"></script>
 <script type="text/javascript">
     
         var baseurl = "\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1620834822"></script>
+<script type="text/javascript" src="/js/search.js?1620894974"></script>
 
     
   </div>
@@ -734,7 +734,7 @@
 	<p>Trong bài tập này, bạn sẽ cập nhật mã nguồn trong Eclipse, ghi đè lên mẫu Hello World! microservice và thay thế nó bằng mã TravelBuddy FlightService. Sau đó, bạn sẽ commit thay đổi mã vào CodeCommit để kích hoạt triển khai vào môi trường AWS Lambda của bạn và cập nhật cấu hình Amazon API Gateway để phù hợp.</p>
 <h4 id="thêm-code-microservice-vào-nhánh-mới">Thêm code microservice vào nhánh mới</h4>
 <ol>
-<li>Dùng câu lệnh sau để tạo nhánh mới:</li>
+<li>Chuyển đường dẫn vào thư mục gốc của CodeStar Project chúng ta vừa import. Dùng câu lệnh sau để tạo nhánh mới:</li>
 </ol>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git checkout -b <span style="color:#e6db74">&#34;new-implementation&#34;</span>
 </code></pre></div><p><img src="../../../images/4/10.png?width=90pc" alt="Createbranch">
@@ -1163,19 +1163,19 @@ Khi thêm vai trò <strong>CodeStarWorker-dev-flight-svc-CloudFormation</strong>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1620834822"></script>
-    <script src="/js/perfect-scrollbar.min.js?1620834822"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1620834822"></script>
-    <script src="/js/jquery.sticky.js?1620834822"></script>
-    <script src="/js/featherlight.min.js?1620834822"></script>
-    <script src="/js/highlight.pack.js?1620834822"></script>
+    <script src="/js/clipboard.min.js?1620894974"></script>
+    <script src="/js/perfect-scrollbar.min.js?1620894974"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1620894974"></script>
+    <script src="/js/jquery.sticky.js?1620894974"></script>
+    <script src="/js/featherlight.min.js?1620894974"></script>
+    <script src="/js/highlight.pack.js?1620894974"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1620834822"></script>
-    <script src="/js/learn.js?1620834822"></script>
-    <script src="/js/hugo-learn.js?1620834822"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1620894974"></script>
+    <script src="/js/learn.js?1620894974"></script>
+    <script src="/js/hugo-learn.js?1620894974"></script>
 
-    <link href="/mermaid/mermaid.css?1620834822" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1620834822"></script>
+    <link href="/mermaid/mermaid.css?1620894974" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1620894974"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
