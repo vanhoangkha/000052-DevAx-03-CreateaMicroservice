@@ -119,6 +119,13 @@
 	"content": "Chúc mừng! Bây giờ bạn đã thành công:  Tạo một S3 trigger để gọi hàm Lambda để thao tác với các tập tin hình ảnh, bất cứ khi nào tập tin hình ảnh được tải lên bucket. Triển khai và cấu hình S3 trigger và hàm lambda bằng cách sử dụng tự động hóa. Tạo một microservice kết nối với một RDS instance bên trong VPC. Triển khai microservice bằng AWS Developer Tools và tự động hóa.  "
 },
 {
+	"uri": "/7-video/",
+	"title": "Video tham khảo",
+	"tags": [],
+	"description": "",
+	"content": "Link video tham khảo : Create a Microservice\n"
+},
+{
 	"uri": "/categories/",
 	"title": "Categories",
 	"tags": [],

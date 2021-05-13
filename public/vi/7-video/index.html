@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Tạo và kiểm tra hàm Lambda tại cục bộ :: DevAx - Chuyển đổi Monoliths sang Microservices - Tạo một Microservice</title>
+    <title>Video tham khảo :: DevAx - Chuyển đổi Monoliths sang Microservices - Tạo một Microservice</title>
 
     
     <link href="/css/nucleus.css?1620924021" rel="stylesheet">
@@ -36,7 +36,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/vi/2-create-serverless-microservices/1-create-lambda-function/">
+  <body class="" data-url="/vi/7-video/">
     <nav id="sidebar" class="showVisitedLinks">
 
 
@@ -177,7 +177,7 @@
   
     
     <li data-nav-id="/vi/2-create-serverless-microservices/" title="Tạo một microservice" class="dd-item 
-        parent
+        
         
         
         ">
@@ -209,7 +209,7 @@
     
     <li data-nav-id="/vi/2-create-serverless-microservices/1-create-lambda-function/" title="Tạo và kiểm tra hàm Lambda tại cục bộ" class="dd-item 
         
-        active
+        
         
         ">
       <a href="/vi/2-create-serverless-microservices/1-create-lambda-function/">
@@ -568,7 +568,7 @@
     
     <li data-nav-id="/vi/7-video/" title="Video tham khảo" class="dd-item 
         
-        
+        active
         
         ">
       <a href="/vi/7-video/">
@@ -623,7 +623,7 @@
                   
                     
                     
-                      <option id="en" value="/2-create-serverless-microservices/1-create-lambda-function/">English</option>
+                      <option id="en" value="/7-video/">English</option>
                     
                   
               
@@ -637,7 +637,7 @@
                   
                     
                     
-                      <option id="vi" value="/vi/2-create-serverless-microservices/1-create-lambda-function/" selected>Tiếng Việt</option>
+                      <option id="vi" value="/vi/7-video/" selected>Tiếng Việt</option>
                     
                   
               
@@ -708,13 +708,7 @@
             
           
           
-            
-            
-          
-          
-            <a href='/vi/'>Tạo một Microservice</a> > <a href='/vi/2-create-serverless-microservices/'>Tạo một microservice</a> > Tạo và kiểm tra hàm Lambda tại cục bộ
-          
-        
+            <a href='/vi/'>Tạo một Microservice</a> > Video tham khảo
           
         
           
@@ -725,15 +719,7 @@
                 
                     <div class="progress">
     <div class="wrapper">
-<nav id="TableOfContents">
-  <ul>
-    <li>
-      <ul>
-        <li></li>
-      </ul>
-    </li>
-  </ul>
-</nav>
+<nav id="TableOfContents"></nav>
     </div>
 </div>
 
@@ -749,7 +735,7 @@
           
             <h1>
               
-              Tạo và kiểm tra hàm Lambda tại cục bộ
+              Video tham khảo
             </h1>
           
 
@@ -757,43 +743,8 @@
 
 
 
-	<h4 id="tạo-và-kiểm-tra-hàm-lambda-tại-cục-bộ">Tạo và kiểm tra hàm Lambda tại cục bộ</h4>
-<ol>
-<li>Mở <strong>Eclipse IDE</strong> và chọn biểu tượng <strong>AWS toolkit</strong>, chọn <strong>New AWS Lambda Java Project…</strong>
-<img src="../../../images/2/1.png?width=90pc" alt="OpenIDE"></li>
-<li>Một hộp thoại <strong>New AWS Lambda Maven Project</strong> sẽ xuất hiện. Đặt Project name là <strong>TestLambda</strong>, Group ID là <strong>idevelop.lambda</strong> và Artifact ID là <strong>s3handler</strong>. Chọn <strong>Finish</strong> để tạo project.
-<img src="../../../images/2/2.png?width=90pc" alt="NewLambdaProject"></li>
-<li>Chúng ta cần cập nhật tập tin pom.xml mà Maven sử dụng lên phiên bản Mockito mới hơn.
-<img src="../../../images/2/3.png?width=90pc" alt="UpdatePomfile">
-Sau khi cập nhật các phụ thuộc của project thông qua Maven, chạy <strong>JUnit Test</strong> bằng chạy chọn <strong>Run As…|JUnit Test</strong>.
-<img src="../../../images/2/4.png?width=90pc" alt="RunJUnitTest">
-Bạn sẽ thấy kết quả đầu ra từ hàm lambda, như thể nó được kích hoạt bởi một tập tin được tải lên S3. Các tham số cho bài test được cung cấp trong test resource, ở dạng JSON payload giống với payload mà môi trường Amazon sẽ gửi đến hàm Lambda, khi S3 bucket được liên kết với hàm Lambda này nhận được tập tin được tải lên.
-<img src="../../../images/2/5.png?width=90pc" alt="RunJUnitTest">
-
-<div class="notices tip" ><p>Bạn có thể sẽ thấy một vài ảnh báo liên quan tới profile name. Bạn có thể bỏ qua cảnh báo này trong bài thực hành này.
-Để xem kết quả đầu ra của phần JUnit test, chọn tab JUnit</p>
-</div>
-</li>
-<li>Kiểm tra tập tin S3-event.put.json. Tập tin S3-event.put.json chứa những schema và giá trị mà chúng ta sẽ sử dụng cho bài thực hành này.<br>
-
-<div class="notices tip" ><p>Bạn có thể sẽ thấy một cảnh báo liên quan tới việc thiếu node. Bạn có thể bảo qua cảnh báo này một cách an toàn.
-<img src="../../../images/2/6.png?width=90pc" alt="RunJUnitTest"></p>
-</div>
-</li>
-</ol>
-<h4 id="cậo-nhật-code-được-cung-cấp-để-xử-lý-các-url-encoded-keys">Cậo nhật code được cung cấp để xử lý các URL encoded keys</h4>
-<p>Mã nguồn được cung cấp không quan tâm tới việc mã hóa được áp dụng cho key name được cung cấp trong S3 event khi nó được gửi tới hàm Lambda, do đó nếu bạn tải một tập tin để kiểm tra, và tập tin chứa khoảng trắng hoặc dấu cấu thì chuỗi này cần được decode trước khi sử dụng.<br>
-Bạn có thể giải quyết vấn đề này bằng đoạn code sau.<br>
-5.  Thêm đoạn code sau vào sau dòng 28 trong lớp <strong>LambdaFunctionHandler.java</strong> trong <em>src/main/java/idevelop.lambda.s3handler</em>:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">try</span>
-<span style="color:#f92672">{</span>
-  key <span style="color:#f92672">=</span> java<span style="color:#f92672">.</span><span style="color:#a6e22e">net</span><span style="color:#f92672">.</span><span style="color:#a6e22e">URLDecoder</span><span style="color:#f92672">.</span><span style="color:#a6e22e">decode</span><span style="color:#f92672">(</span>key<span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;UTF-8&#34;</span><span style="color:#f92672">);</span>
-<span style="color:#f92672">}</span>
-<span style="color:#66d9ef">catch</span><span style="color:#f92672">(</span>Exception ex<span style="color:#f92672">)</span>
-<span style="color:#f92672">{</span>
-  context<span style="color:#f92672">.</span><span style="color:#a6e22e">getLogger</span><span style="color:#f92672">().</span><span style="color:#a6e22e">log</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Could not decode URL for keyname... continuing...&#34;</span><span style="color:#f92672">);</span>
-<span style="color:#f92672">}</span>
-</code></pre></div><p><img src="../../../images/2/7.png?width=90pc" alt="CreatePrject"></p>
+	<p>Link video tham khảo :
+<a href="https://www.youtube.com/playlist?list=PL1_LRceP1u5hbFRR2Igf_VAH9HZ1NVhIl" title="Create a Microservice">Create a Microservice</a></p>
 
 
 
@@ -887,7 +838,6 @@ Bạn có thể giải quyết vấn đề này bằng đoạn code sau.<br>
             
                 
                     
-                    
                 
                 
 
@@ -897,76 +847,6 @@ Bạn có thể giải quyết vấn đề này bằng đoạn code sau.<br>
                     
                     
 
-                    
-                        
-            
-            
-                
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
                     
                         
             
@@ -1079,8 +959,58 @@ Bạn có thể giải quyết vấn đề này bằng đoạn code sau.<br>
 
                     
                     
+                        
+                    
                     
 
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
                     
             
         
@@ -1105,6 +1035,23 @@ Bạn có thể giải quyết vấn đề này bằng đoạn code sau.<br>
             
             
                 
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
                     
                 
                 
@@ -1126,10 +1073,10 @@ Bạn có thể giải quyết vấn đề này bằng đoạn code sau.<br>
 	 
 	 
 		
-			<a class="nav nav-prev" href="/vi/2-create-serverless-microservices/" title="Tạo một microservice"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/vi/6-conclustion/" title="Kết luận"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/vi/2-create-serverless-microservices/2-update-and-test/" title="Tải lên và kiểm tra hàm Lambda trong AWS Lambda" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/vi/1-prerequisites/" title="Chuẩn bị" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
