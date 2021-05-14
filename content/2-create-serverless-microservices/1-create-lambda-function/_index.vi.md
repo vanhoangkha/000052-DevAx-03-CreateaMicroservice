@@ -27,7 +27,7 @@ Bạn có thể sẽ thấy một cảnh báo liên quan tới việc thiếu no
 ![RunJUnitTest](../../../images/2/6.png?width=90pc)
 {{% /notice %}}
 
-#### Cậo nhật code được cung cấp để xử lý các URL encoded keys
+#### Cập nhật code được cung cấp để xử lý các URL encoded keys
 
 Mã nguồn được cung cấp không quan tâm tới việc mã hóa được áp dụng cho key name được cung cấp trong S3 event khi nó được gửi tới hàm Lambda, do đó nếu bạn tải một tập tin để kiểm tra, và tập tin chứa khoảng trắng hoặc dấu cấu thì chuỗi này cần được decode trước khi sử dụng.\
 Bạn có thể giải quyết vấn đề này bằng đoạn code sau.\
