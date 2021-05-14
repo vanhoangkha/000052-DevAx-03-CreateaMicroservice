@@ -28,7 +28,7 @@ pre = "<b>1.2. </b>"
 
 {{%notice tip%}}
 Bạn hãy tạo access key và secret access key cho user **awsstudent** được tạo ra bởi Cloud Formation Template trong phần chuẩn bị và dùng nó để cấu hình cho awscli nhé.
-Đồng thời hãy truy cập vào giao diện quản lý IAM , chọn **IAM User** awsstudent, chọn **Permissions**, **Add permissions**|**Attach existing policíe directly** và chọn **AdministratorAccess**
+Đồng thời hãy truy cập vào giao diện quản lý IAM , chọn **IAM User** awsstudent, chọn **Permissions**, **Add permissions**|**Attach existing policy directly** và chọn **AdministratorAccess**
 {{%/notice%}}
 
 ```bash
