@@ -32,4 +32,3 @@ Bây giờ bạn đã có kinh nghiệm thực tế về việc tạo và triể
 ![ImportProject](../../../images/4/8.png?width=90pc)
 Bây giờ, IDE sẽ tải các tập tin từ CodeCommit repository xuống.
 13.  Hãy dành một ít thời gian để xem cấu trúc project trước khi tiếp tục. Microservice HelloWorld biểu diễn một xử lý đơn giản, trả về trang web Hello World khi được gọi.
-![CodeStarProject](../../../images/4/9.png?width=90pc)
