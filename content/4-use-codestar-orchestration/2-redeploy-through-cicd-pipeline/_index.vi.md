@@ -74,17 +74,3 @@ Khi thêm vai trò **CodeStarWorker-dev-flight-svc-CloudFormation**, các quyề
 ![RDSEndpoint](../../../images/4/18.png?width=90pc)
 16. Khi hoàn tất, bạn sẽ có VPCConfig section như sau:
 ![VPCConfig](../../../images/4/19.png?width=90pc)
-17. Thêm đoạn code sau vào tập tin pom.yml để khai báo dependency bị thiếu
-```
-<dependency>
-			<groupId>org.junit.jupiter</groupId>
-			<artifactId>junit-jupiter-api</artifactId>
-			<version>5.5.0</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-	        <groupId>org.springframework.boot</groupId>
-	        <artifactId>spring-boot-starter-web</artifactId>
-	        <version>1.3.2.RELEASE</version>
-		</dependency>
-```
