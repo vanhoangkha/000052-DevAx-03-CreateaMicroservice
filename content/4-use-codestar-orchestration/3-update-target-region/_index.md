@@ -25,7 +25,7 @@ C:\Users\Administrator\git\dev-flight-svc>git config --global user.name "awsstud
 6. Để push thay đổi lên CodeCommit, trong Eclipse, nhất chuột phải vào project root và chọn **Teams | Push to origin…**
 ![PushCode](../../../images/4/22.png?width=90pc)
 Bạn cần push từ Eclipse vì git credentials được nhúng vào môi trường Eclipse. Bạn cũng có thể sử dụng command line, nhưng trong bài thực hành này, chúng ta sẽ không sử dụng phương pháp này.
-Sẽ tốn một khoảng thời gian để push code và bắt đầu triển khai. Hãy dành một khoảng thời gian để xem cấu trúc của project trong Eclipse IDE, đặc biệt là các tập tin buildspec.yml, swagger.yml và template.yml định nghĩa Amazon API Gateway, AWS Lambda Function và quá trình xây dựng/triển khai thông qua AWS CodeBuildBuild.
+Sẽ tốn một khoảng thời gian để push code và bắt đầu triển khai. Hãy dành một khoảng thời gian để xem cấu trúc của project trong Eclipse IDE, đặc biệt là các tập tin buildspec.yml, swagger.yml và template.yml định nghĩa Amazon API Gateway, AWS Lambda Function và quá trình xây dựng/triển khai thông qua AWS CodeBuild.
 Bạn có thể kiểm tra **status** của quá trình triển khai thông qua **Pipeline** trong CodeStar project dashboard.
 {{% notice note %}}
 Do hàm Lambda của chúng ta sử dụng **DBSecurityGroup** nên chúng ta cần cho phép **DBSecurityGroup** có thể kết nối được RDS Endpoint bằng cách cấu hình thêm như dưới đây:
