@@ -36,7 +36,8 @@ Nếu bạn tạo keypair mới hãy down file dạng .pem để có thể giả
 
 ![CloudFormation](/images/1/4.png?width=90pc)
 
-10.  Chọn **Create stack**
+10.  Đánh dấu chọn **I acknowledge that AWS CloudFormation might create IAM resources with customer names.**.\
+   Chọn **Create stack**.
 
 ![CloudFormation](/images/1/5.png?width=90pc)
 
