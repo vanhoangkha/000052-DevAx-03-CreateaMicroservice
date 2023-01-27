@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.69.0" />
+    <meta name="generator" content="Hugo 0.101.0" />
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
@@ -12,21 +12,21 @@
     <title>Tải lên và kiểm tra hàm Lambda trong AWS Lambda :: DevAx - Monoliths to Microservices - Create A Microservice</title>
 
     
-    <link href="/css/nucleus.css?1624843736" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1624843736" rel="stylesheet">
-    <link href="/css/hybrid.css?1624843736" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1624843736" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1624843736" rel="stylesheet">
-    <link href="/css/auto-complete.css?1624843736" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1624843736" rel="stylesheet">
-    <link href="/css/theme.css?1624843736" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1624843736" rel="stylesheet">
+    <link href="/css/nucleus.css?1674655585" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1674655585" rel="stylesheet">
+    <link href="/css/hybrid.css?1674655585" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1674655585" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1674655585" rel="stylesheet">
+    <link href="/css/auto-complete.css?1674655585" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1674655585" rel="stylesheet">
+    <link href="/css/theme.css?1674655585" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1674655585" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1624843736" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1674655585" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1624843736"></script>
+    <script src="/js/jquery-3.3.1.min.js?1674655585"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1624843736"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1624843736"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1674655585"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1674655585"></script>
 <script type="text/javascript">
     
         var baseurl = "";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1624843736"></script>
+<script type="text/javascript" src="/js/search.js?1674655585"></script>
 
     
   </div>
@@ -113,13 +113,13 @@
  
   
     
-    <li data-nav-id="/1-prerequisites/1-create-environment/" title="Chuẩn bị môi trường" class="dd-item 
+    <li data-nav-id="/1-prerequisites/1-create-environment/" title="Preparation" class="dd-item 
         
         
         
         ">
       <a href="/1-prerequisites/1-create-environment/">
-          <b>1.1. </b>Chuẩn bị môi trường
+          <b>1.1. </b>Preparation
           
             <i class="fas fa-check read-icon"></i>
           
@@ -671,6 +671,22 @@
     <img src="https://hitwebcounter.com/counter/counter.php?page=7830807&style=0038&nbdigits=9&type=page&initCount=0" title="Total CLoud Journey" Alt="web counter"   border="0"   />
      
 </left>
+<left>
+    <br>
+    <br>
+        <b> Last Updated </b> <br>
+        <i><font color=orange>18-01-2023</font></i>
+    </left>
+    <left>
+        <br>
+        <br>
+            <b> Team </b> <br>
+           
+            <i> <a href="https://www.linkedin.com/in/jotaguy"  style="color:orange">Gia Hưng </a> <br>
+               
+        </i>
+        </left>
+
 
 <script async defer src="https://buttons.github.io/buttons.js"></script>
 
@@ -769,7 +785,7 @@
 <li>Tại mục description, nhập <strong>Test AWS Lambda function triggered by S3 upload</strong></li>
 <li>Tại mục <strong>IAM role</strong> chọn <strong>LambdaRole</strong> được tạo tự động trong phần cấu hình bài thực hành.</li>
 <li>Tại mục <strong>S3 bucket</strong> chọn S3 bucket chúng ta đã tạo từ trước để chứ mã nguồn Lambda (idevelop-sourcecode-yourinitials).</li>
-<li>Chọn <strong>Finish</strong> để tải hàm Lambda lên AWS Account. 
+<li>Chọn <strong>Finish</strong> để tải hàm Lambda lên AWS Account.
 <img src="../../../images/2/11.png?width=90pc" alt="UpdateLambda"></li>
 <li>Việc tải lên sẽ tốn một vài phút. Khi việc tải lên hoàn tất, mở AWS Lambda Console và tìm hàm <strong>TestLambda</strong> vừa được tải lên.
 <img src="../../../images/2/12.png?width=90pc" alt="TestTestLambda"></li>
@@ -813,7 +829,7 @@
 <li>Khi việc tải lên được hoàn tất, trở lại <strong>AWS Lambda</strong>, chọn tab <strong>Monitoring</strong> của hàm <strong>TestLambda</strong>. Bạn có thể điểu chỉnh khung thời gian để xem dễ dàng hơn.
 <img src="../../../images/2/17.png?width=90pc" alt="Viewlog"></li>
 <li>Bạn sẽ thấy 2 lệnh gọi và thời lượng của chúng trong biểu đồ. Bạn thấy 2 lệnh gọi - một là tạo thư mục <strong>uploads</strong> và một là tải lên hình ảnh <strong>Puppy.jpg</strong></li>
-<li>Chọn <strong>View logs in CloudWatch</strong> để mở CloudWatch logs của hàm Lambda này. 
+<li>Chọn <strong>View logs in CloudWatch</strong> để mở CloudWatch logs của hàm Lambda này.
 <img src="../../../images/2/18.png?width=90pc" alt="Viewlog">
 Lưu ý rằng bạn sẽ thấy <strong>CONTENT TYPE</strong> output khác nhau ở 2 sự kiện này. Trong sự kiện đầu tiên, CONTENT TYPE là <em>application/x-directory</em> và ở sự kiện thứ 2 là <em>image/jpeg</em>. Trong mã nguồn mẫu của hàm Lambda đã cung cấp, chỉ ghi logs CONTENT TYPE của tập tin mà không thực hiện hành động nào khác. Chúng ta sẽ thay đổi đoạn code này trong các phần tiếp theo.</li>
 <li>Tải một tập tin bất kỳ không phải là hình ảnh lên S3 bucket và quan sát log.
@@ -1168,19 +1184,19 @@ Lưu ý rằng bạn sẽ thấy <strong>CONTENT TYPE</strong> output khác nhau
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1624843736"></script>
-    <script src="/js/perfect-scrollbar.min.js?1624843736"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1624843736"></script>
-    <script src="/js/jquery.sticky.js?1624843736"></script>
-    <script src="/js/featherlight.min.js?1624843736"></script>
-    <script src="/js/highlight.pack.js?1624843736"></script>
+    <script src="/js/clipboard.min.js?1674655585"></script>
+    <script src="/js/perfect-scrollbar.min.js?1674655585"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1674655585"></script>
+    <script src="/js/jquery.sticky.js?1674655585"></script>
+    <script src="/js/featherlight.min.js?1674655585"></script>
+    <script src="/js/highlight.pack.js?1674655585"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1624843736"></script>
-    <script src="/js/learn.js?1624843736"></script>
-    <script src="/js/hugo-learn.js?1624843736"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1674655585"></script>
+    <script src="/js/learn.js?1674655585"></script>
+    <script src="/js/hugo-learn.js?1674655585"></script>
 
-    <link href="/mermaid/mermaid.css?1624843736" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1624843736"></script>
+    <link href="/mermaid/mermaid.css?1674655585" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1674655585"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

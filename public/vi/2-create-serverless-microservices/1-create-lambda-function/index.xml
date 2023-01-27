@@ -4,10 +4,6 @@
     <title>Tạo và kiểm tra hàm Lambda tại cục bộ on DevAx - Chuyển đổi Monoliths sang Microservices - Tạo một Microservice</title>
     <link>/vi/2-create-serverless-microservices/1-create-lambda-function/</link>
     <description>Recent content in Tạo và kiểm tra hàm Lambda tại cục bộ on DevAx - Chuyển đổi Monoliths sang Microservices - Tạo một Microservice</description>
-    <generator>Hugo -- gohugo.io</generator>
-    
-	<atom:link href="/vi/2-create-serverless-microservices/1-create-lambda-function/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <generator>Hugo -- gohugo.io</generator><atom:link href="/vi/2-create-serverless-microservices/1-create-lambda-function/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

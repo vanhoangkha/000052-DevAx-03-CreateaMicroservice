@@ -8,15 +8,25 @@ pre = "<b>2.1. </b>"
 #### Tạo và kiểm tra hàm Lambda tại cục bộ
 
 1. Mở **Eclipse IDE** và chọn biểu tượng **AWS toolkit**, chọn **New AWS Lambda Java Project…**
-![OpenIDE](../../../images/2/1.png?width=90pc)
-2. Một hộp thoại **New AWS Lambda Maven Project** sẽ xuất hiện. Đặt Project name là **TestLambda**, Group ID là **idevelop.lambda** và Artifact ID là **s3handler**. Chọn **Finish** để tạo project.
-![NewLambdaProject](../../../images/2/2.png?width=90pc)
-3. Chúng ta cần cập nhật tập tin pom.xml mà Maven sử dụng lên phiên bản Mockito mới hơn.
-![UpdatePomfile](../../../images/2/3.png?width=90pc)
-Sau khi cập nhật các phụ thuộc của project thông qua Maven, chạy **JUnit Test** bằng chạy chọn **Run As…|JUnit Test**.
-![RunJUnitTest](../../../images/2/4.png?width=90pc)
+
+![OpenIDE](/images/2/1.png?width=90pc)
+
+2. Một hộp thoại **New AWS Lambda Maven Project** sẽ xuất hiện. Đặt Project name là `TestLambda`, Group ID là `idevelop.lambda` và Artifact ID là `s3handler`. Chọn **Finish** để tạo project.
+
+![NewLambdaProject](/images/2/2.png?width=90pc)
+
+3. Chúng ta cần cập nhật tập tin **pom.xml** mà Maven sử dụng lên phiên bản Mockito mới hơn.
+
+![UpdatePomfile](/images/2/3.png?width=90pc)
+
+Sau khi cập nhật các phụ thuộc của project thông qua Maven, chạy **JUnit Test** bằng chạy chọn **Run As | JUnit Test**.
+
+![RunJUnitTest](/images/2/4.png?width=90pc)
+
 Bạn sẽ thấy kết quả đầu ra từ hàm lambda, như thể nó được kích hoạt bởi một tập tin được tải lên S3. Các tham số cho bài test được cung cấp trong test resource, ở dạng JSON payload giống với payload mà môi trường Amazon sẽ gửi đến hàm Lambda, khi S3 bucket được liên kết với hàm Lambda này nhận được tập tin được tải lên.
-![RunJUnitTest](../../../images/2/5.png?width=90pc)
+
+![RunJUnitTest](/images/2/5.png?width=90pc)
+
 {{% notice tip %}}
 Bạn có thể sẽ thấy một vài cảnh báo liên quan tới profile name. \
 Bạn có thể bỏ qua cảnh báo này trong bài thực hành này.
@@ -25,7 +35,7 @@ Bạn có thể bỏ qua cảnh báo này trong bài thực hành này.
 4.  Kiểm tra tập tin S3-event.put.json. Tập tin S3-event.put.json chứa những schema và giá trị mà chúng ta sẽ sử dụng cho bài thực hành này.  
 {{% notice tip %}}
 Bạn có thể sẽ thấy một cảnh báo liên quan tới việc thiếu node. Bạn có thể bỏ qua cảnh báo này một cách an toàn.
-![RunJUnitTest](../../../images/2/6.png?width=90pc)
+![RunJUnitTest](/images/2/6.png?width=90pc)
 {{% /notice %}}
 
 #### Cập nhật code được cung cấp để xử lý các URL encoded keys
@@ -43,4 +53,5 @@ catch(Exception ex)
   context.getLogger().log("Could not decode URL for keyname... continuing...");
 }
 ```
-![CreatePrject](../../../images/2/7.png?width=90pc)
+
+![CreatePrject](/images/2/7.png?width=90pc)

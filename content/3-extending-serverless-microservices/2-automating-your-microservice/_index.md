@@ -1,19 +1,20 @@
 +++
-title = "Tự động hóa Serverless Microservice"
+title = "Serverless Microservices Automation"
 weight = 2
 chapter = false
 pre = "<b>3.2. </b>"
 +++
 
-Trong bài tập trước, bạn đã sử dụng IDE Eclipse để tạo và cập nhật một hàm Lambda bằng Bộ công cụ AWS cho Eclipse. Điều này cho phép bạn khởi tạo việc tự động tải lên hàm Lambda của mình theo cách thủ công. Tuy nhiên, cơ chế này có thể không thuận tiện cho việc tự động hóa các bước triển khai cho các hàm hoặc phối hợp triển khai và cập nhật cho các phần tử khác của ứng dụng serverless, chẳng hạn như event sources và downstream resources. Ví dụ: IDE Eclipse không cung cấp cho bạn khả năng triển khai và cập nhật S3 bucket và kết nối S3 PUT OBJECT trigger, cùng với hàm Lambda của bạn như một đơn vị triển khai.
+In the previous section, you used the IDE Eclipse to create and update a Lambda function using AWS Toolkit for Eclipse. This allow you manually initiate the auto-upload of your Lambda function. However, this mechanism may not be convenient for automating deployment steps for functions or coordinating deployment and updates for other elements of a serverless application, such as event sources and downstream resources. For example, the Eclipse IDE does not give you the ability to deploy and update an S3 bucket and connect an S3 PUT OBJECT trigger, along with your Lambda function as a deployment unit. 
 
-Bạn có thể sử dụng **AWS CloudFormation** để dễ dàng chỉ định, triển khai và định cấu hình các ứng dụng serverless. AWS CloudFormation là một dịch vụ giúp bạn lập mô hình và thiết lập các tài nguyên Amazon Web Services để bạn có thể dành ít thời gian hơn cho việc quản lý các tài nguyên đó và nhiều thời gian hơn để tập trung vào các ứng dụng chạy trong AWS của bạn. Bạn tạo một mẫu ( **Template** ) mô tả tất cả các tài nguyên AWS mà bạn muốn (như các hàm Lambda và nhóm S3) và AWS CloudFormation sẽ đảm nhận việc cung cấp và cấu hình các tài nguyên đó cho bạn.
+You can use **AWS CloudFormation** to easily specify, deploy, and configure serverless applications. AWS CloudFormation is a service that helps you model and set up Amazon Web Services resources so you can spend less time managing them and more time focusing on running applications in your AWS. You create a template (**Template**) that describes all the AWS resources you want (like Lambda functions and S3 buckets) and AWS CloudFormation takes care of provisioning and configuring those resources for you.
 
-Ngoài ra, bạn có thể sử dụng **AWS Serverless Application Model (SAM)** để thể hiện các tài nguyên bao gồm ứng dụng serverless. Các loại tài nguyên này, chẳng hạn như các hàm và API của AWS Lambda, được AWS CloudFormation hỗ trợ đầy đủ và giúp bạn xác định và triển khai ứng dụng serverless của mình dễ dàng hơn.
+Alternatively, you can use **AWS Serverless Application Model (SAM)** to expose resources including serverless applications. These resource types, such as AWS Lambda functions and APIs, are fully supported by AWS CloudFormation and make it easier for you to define and deploy your serverless application.
 
-Trong bài tập này, bạn sẽ sử dụng **AWS CLI** và **AWS CloudFormation/SAM** để đóng gói ứng dụng và triển khai nó từ đầu mà không cần phải tạo hoặc định cấu hình bất kỳ phần phụ thuộc nào theo cách thủ công.
+In this exercise, you will use **AWS CLI** and **AWS CloudFormation/SAM** to package the application and deploy it from scratch without having to create or configure any dependencies. manually.
 
-1. Right click vào Project **TestLambda** trong panel Project Explorer. Chọn **Create New File**. Đặt tên File Name là **template.yaml** file này sẽ nằm cùng cấp với file **pom.xml** của hàm **TestLambda** ở bài tập trước. Sau đó chúng ta chỉnh sửa nội dung file **template.yaml** như dưới đây.
+1. Right click the **TestLambda** project in panel Project Explorer. Select **Create New File**. Name the File Name as **template.yaml**. This file will be at the same level as the **pom.xml** file of the **TestLambda** function in the previous section. Then we edit the content of the file **template.yaml** as below.
+
 ```
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: 'AWS::Serverless-2016-10-31'
@@ -48,54 +49,75 @@ Resources:
     Properties:
       BucketName: !Sub idevelop-imagemanager-${AWS::AccountId}
 ```
-![Creattemplate](../../../images/3/15.png?width=90pc)
-Mẫu này diễn tả một S3 bucket sẽ kích hoạt hàm Lambda của chúng ta bất cứ khi nào có một tập tin được tải lên thư mục **uploads** - tương tự như S3 bucket mà chúng ta đã tạo ở phần trước.\
+
+![Creattemplate](/images/3/15.png?width=90pc)
+
+This template describes an S3 bucket that will fire our Lambda function whenever a file is uploaded to the **uploads** folder - similar to the S3 bucket we created in the previous section.
 
 {{%notice tip%}}
-Chúng ta sẽ cần cài maven , bạn có thể download và giải nén file chứa maven dưới đây.
-Sau đó tiến hành cấu hình biến môi trường MVN_HOME tới **đường dẫn đã giải nén\bin**.  Ví dụ : **C:\apache-maven-3.8.1\bin**
+We will need to install maven , you can download and extract the file containing maven below.
+Then proceed to configure the environment variable MVN_HOME to **unpacked path\bin**. Example: **C:\apache-maven-3.8.1\bin**
 {{%/notice%}}
 
 **File Apache Maven:**
 {{%attachments /%}}
-![MavenInstall](../../../images/3/maven.jpg?width=90pc)
 
-1. Tạo một artifact triển khai cho hàm Lambda - một tập tin **JAR** chứa hàm Lambda và tất cả các phụ thuộc của nó. Chúng ta có thể sử dụng commandline để làm điều này.
+![MavenInstall](/images/3/maven.png?width=90pc)
+
+2. Create an implementation artifact for the Lambda function - a **JAR** file containing the Lambda function and all its dependencies. We can use the command line to do this.
 ```bash
 mvn package shade:shade -DskipTests=true
 ```
 
+![CreateJarfile](/images/3/16.png?width=90pc)
 
-![CreateJarfile](../../../images/3/16.png?width=90pc)
-Kết quả trả về một tập tin có tên **s3handler-1.0.0.jar** trong thư mục **target**
-![UploadJarfile](../../../images/3/17.png?width=90pc)
-3. Tiếp theo, chúng ta sẽ sử dụng AWS CLI để đẩy tập tin này lên S3 bucket nơi mà nó có thể được triển khai. Chúng ta sẽ sử dụng lệnh **aws cloudformation package**
+The result returns a file named **s3handler-1.0.0.jar** in the directory **target**
+
+![UploadJarfile](/images/3/17.png?width=90pc)
+
+3. Next, we'll use the AWS CLI to push this file to the S3 bucket where it can be deployed. We will use the command **aws cloudformation package**
 ```bash
 aws cloudformation package --template-file template.yaml --s3-bucket <YOUR_CODE_BUCKET_NAME> --output-template deploy-template.yaml --profile aws-lab-env
 ```
-![PushfiletoS3](../../../images/3/18.png?width=90pc)
+
+![PushfiletoS3](/images/3/18.png?width=90pc)
+
 **Note:** Nếu bạn thấy một thông báo lỗi **‘NoneType’ object has no attribute ‘items’** hãy kiểm tra lại format của tập tin YAML.
 
-Câu lệnh **aws cloudformation package** sẽ lấy mẫu AWS SAM được cung cấp và viết lại nó trong định nghĩa của artifact được tự động tải lên S3 bucket. Trong trường hợp này,**deploy-template.yaml** được tạo và chứa giá trị **CodeUri**trỏ đến tập tin zip triển khai trong Amazon S3. Mẫu này đại diện cho ứng dụng serverless của bạn.\
-1. Bây giờ bạn đã sẵn sàng triển khai tập tin JAR dưới dạng một hàm Lambda và kết nối S3 trigger vào một S3 bucket mới. Bạn sẽ nhận thấy kết quả từ lệnh trước đó hướng dẫn chúng ta những gì cần chạy để triển khai mẫu đóng gói. Trong cửa sổ dòng lệnh, sao chép lệnh và dán lại vào dòng lệnh. Thay đổi giá trị <YOUR_STACK_NAME> thành ImageManagerDemo và thêm vào tùy chọn --profile aws-lab-env để cho phép CloudFormation tạo vai trò IAM thay mặt bạn. Lệnh của bạn sẽ giống như sau:
+The **aws cloudformation package** command will take the provisioned AWS SAM sample and rewrite it in the definition of the artifact that is automatically uploaded to the S3 bucket. In this case,**deploy-template.yaml** is generated and contains the value **CodeUri** which points to the deployment zip file in Amazon S3. This sample represents your serverless application.
+
+4. You are now ready to deploy the JAR file as a Lambda function and connect the S3 trigger to a new S3 bucket. You will notice the output from the previous command that instructs us on what to run to deploy the encapsulation pattern. In the command line window, copy the command and paste it back into the command line. Change the <YOUR_STACK_NAME> value to ImageManagerDemo and add the --profile aws-lab-env option to allow CloudFormation to create the IAM role on your behalf. Your command will look like this:
 ```bash
 aws cloudformation deploy --template-file deploy-template.yaml --stack-name ImageManagerDemo --profile aws-lab-env
 ```
-![DeployCF](../../../images/3/19.png?width=90pc)
-Khi bạn chạy lệnh **aws cloudformation deploy** nó sẽ tạo một **AWS CloudFormation ChangeSet** và triển khai chúng, đây là danh sách các thay đổi đối với AWS CloudFormation stack. Một vài mẫu stack có thể bao gồm các tài nguyên ảnh hưởng đến quyền trong tài khoản AWS, chẳng hạn như bằng cách tạo một AWS Identity and Access Management (IAM) user mới. Đối với các stack đó, bạn phải công nhận các khả năng của nó bằng các chỉ định tham số -capabilities. Để biết thêm thông tin, xem CreateChangeSet trong AWS CloudFormation API Reference.
+
+![DeployCF](/images/3/19.png?width=90pc)
+
+When you run the **aws cloudformation deploy** command it creates an **AWS CloudFormation ChangeSet** and deploys them, here is a list of changes to the AWS CloudFormation stack. Some stack templates can include resources that affect permissions in an AWS account, such as by creating a new AWS Identity and Access Management (IAM) user. For such stacks, you must acknowledge its capabilities by specifying the -capabilities parameter. For more information, see CreateChangeSet in the AWS CloudFormation API Reference.
+
 {{% notice tip %}}
-Bạn có thể xem quá trình tạo tài nguyên trực tiếp trong bảng điều khiển CloudFormation
+You can view the resource creation process directly in the CloudFormation console
 {{% /notice %}}
-Để kiểm tra kết quả, mở AWS CloudFormation console để xem stack mới nhất được tạo và vào Lambda console để xem hàm của bạn.
-CloudFormation template tạo một S3 Bucket có tên **idevelop-imagemanager-<YOUR_ACCOUNT_ID>** trong đó YOUR_ACCOUNT_ID là AWS account ID được sử dụng cho môi trường bài thực hành này. 
-![Createstack](../../../images/3/20.png?width=90pc)
-Template cũng tạo một hàm Lambda mới có tên là  ImageManagerDemo-TestLambda-XXXXXX trong đó XXXXXX là một mã định danh ngẫu nhiên được CloudFormation phân bổ để đảm bảo tính duy nhất của tên hàm.\
-5. Khi CloudFormation stack triển khai thành công, bạn đã sẵn sàng để kiểm tra hàm của mình. Sử dụng AWS S3 console, tạo một thư mục tên là **uploads** trong S3 bucket **idevelop-imagemanager-<YOUR_ACCOUNT_ID>**
-![Createfolder](../../../images/3/21.png?width=90pc)
-6. Tải một tập tin lên thư mục này. Bạn có thể sử dụng tập tin **Puppy.jpg** hoặc bất kỳ tập tin hình ảnh khác mà bạn có. Hoặc bạn có thể tải một tập tin không phải hình ảnh lên để kiểm tra cả hai trường hợp. 
-Nếu bạn tải tập tin không phải hình ảnh lên, tập tin sẽ bị xóa.
-![Uploadfile](../../../images/3/22.png?width=90pc)
-7. Nếu bạn tải một hình ảnh lên, kiểm tra thu mục **processed** trong S3 bucket. Bạn sẽ thấy một hình thu nhỏ của tập tin JPG trong thư mục này.
-![UploadImage](../../../images/3/23.png?width=90pc)
-8. Xem log trong CloudWatch logs của hàm **ImageManagerDemo-TestLambda-XXXXXX**.
-![Viewlog](../../../images/3/24.png?width=90pc)
+
+To check the results, open the AWS CloudFormation console to see the latest stack created and go to the Lambda console to view your function. The CloudFormation template creates an S3 Bucket named **idevelop-imagemanager-<YOUR_ACCOUNT_ID>** where YOUR_ACCOUNT_ID is the AWS account ID used for this exercise environment.
+
+![Createstack](/images/3/20.png?width=90pc)
+
+The template also creates a new Lambda function named ImageManagerDemo-TestLambda-XXXXXX where XXXXXX is a random identifier allocated by CloudFormation to ensure the uniqueness of the function name.
+
+5. Once the CloudFormation stack deploys successfully, you're ready to test your function. Using the AWS S3 console, create a folder named **uploads** in the S3 bucket **idevelop-imagemanager-<YOUR_ACCOUNT_ID>**
+
+![Createfolder](/images/3/21.png?width=90pc)
+
+6. Upload a file to this folder. You can use **puppy.jpg** or any other image file you have. Or you can upload a non-image file to test both cases.
+If you upload a file other than an image, the file will be deleted.
+
+![Uploadfile](/images/3/22.png?width=90pc)
+
+7. If you uploaded an image, check the **processed** folder in the S3 bucket. You will see a thumbnail of the JPG file in this folde
+
+![UploadImage](/images/3/23.png?width=90pc)
+
+8. View the log in CloudWatch logs of **ImageManagerDemo-TestLambda-XXXXXX** function.
+
+![Viewlog](/images/3/24.png?width=90pc)

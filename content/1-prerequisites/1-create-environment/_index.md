@@ -1,46 +1,48 @@
 +++
-title = "Chuẩn bị môi trường"
+title = "Preparation"
 weight = 1
 chapter = false
 pre = "<b>1.1. </b>"
 +++
 
-#### Chuẩn bị môi trường
-Trong bài thực hành này, chúng ta sẽ sử dụng CloudFormation template đã cung cấp và cài đặt sẵn các tài nguyên cần thiết.
+#### Preparation
+In this workshop, we will use CloudFormation template that provided and pre-install the necessary resource.
 
-1. Trong bài thực hành này, chúng ta sẽ sử dụng lại Keypair **KPforDevAxInstances.PEM** đã tạo ở bài thực hành trước cho các máy ảo. Hoặc bạn có thể xem lại bài thực hành trước để xem cách tạo một keypair mới.
+1. In this lab, we use **KPforDevAxInstances.PEM** Keypair again which created in the previous exercise for virtual machines. Or you can review the previous lab to see how to create a new keypair.
+
 {{%notice tip%}}
-Nếu bạn tạo keypair mới hãy down file dạng .pem để có thể giải mã password của DevAx Windows host nhé.
+If you create a new keypair, download the .pem file to be able to decrypt the password of the DevAx Windows host.
 {{%/notice%}}
 
-2. Tải tập tin CloudFormation template để cài đặt các thành phần cần thiết cho bài thực hành
+2. Download the CloudFormation template file to install the necessary resource for this lab.
 
 {{%attachments /%}}
 
-3. Truy cập **AWS CloudFormation**
+3. Access to **AWS CloudFormation**
 
 ![CloudFormation](/images/1/1.png?width=90pc)
 
-4. Chọn **Create stack**, chọn **With new resources (standard)**
-5. Tại mục **Prerequisite - Prepare template** chọn **Template is ready**
-6. Tại mục **Template source**, chọn **Upload a template file**, nhấp chọn **Choose file** và trỏ tới file template đã tải xuống. Chọn **Next**
+4. Click **Create stack**, select **With new resources (standard)**
+5. In **Prerequisite - Prepare template** section, select **Template is ready**
+6. In **Template source** section, select **Upload a template file**, click **Choose file** and point to the downloaded template file. - Click **Next**.
 
 ![CloudFormation](/images/1/2.png?width=90pc)
 
-7. Nhập tên stack tại mục **Stack name**
-8. Chọn keypair **KPforDevAxInstances** cho mục **EEKeyPair** và chọn **Next**
+7. Enter stack name in **Stack name** section.
+8. Select **KPforDevAxInstances** keypair for **EEKeyPair** section and click **Next**
 
 ![CloudFormation](/images/1/3.png?width=90pc)
 
-9. Chọn **Next** tại trang **Configure stack options**
+9. Click **Next** at **Configure stack options** page.
 
 ![CloudFormation](/images/1/4.png?width=90pc)
 
-10.  Đánh dấu chọn **I acknowledge that AWS CloudFormation might create IAM resources with customer names.**.\
-   Chọn **Create stack**.
+10. Check to **I acknowledge that AWS CloudFormation might create IAM resources with customer names.**.
+
+- Click **Create stack**.
 
 ![CloudFormation](/images/1/5.png?width=90pc)
 
-11. Chúng ta cần chờ một vài phút để các tài nguyên được khởi tạo và cấu hình.
+11. We need to wait a few minutes for the resources to be initialized and configured.
 
 ![Diagram](/images/1/0.png?width=90pc)

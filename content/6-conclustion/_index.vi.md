@@ -1,6 +1,6 @@
 +++
 title = "Kết luận"
-date = 2021
+date = 2023
 weight = 6
 chapter = false
 pre = "<b>6. </b>"

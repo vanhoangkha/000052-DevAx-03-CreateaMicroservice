@@ -1,17 +1,24 @@
 +++
-title = "Triển khai hàm Lambda ImageManager"
+title = "Implement Lambda ImageManager function"
 weight = 1
 chapter = false
 pre = "<b>3.1. </b>"
 +++
 
-Bạn sẽ chỉnh sửa đoạn code trong **handleRequest** trong tập tin **LambdaFunctionHandler.java** để những tập tin có **contentType** không phải là **image/jpeg** sẽ bị xóa bởi hàm Lambda. Điều này mô phỏng một tình huống, trong đó nếu có một tập tin tải lên sai content type, tập tin này sẽ bị loại bỏ và không xử lý. Nếu tập tin đó là **image/jpeg**, hàm Lambda sẽ thu nhỏ hình ảnh và chuyển hình thu nhỏ tới một target bucket để ứng dụng có thể sử dụng chúng.
+**Content**
+- [Implement Lambda ImageManager function](#implement-lambda-imagemanager-function)
+- [Fix error](#fix-error)
+- [Updated permissions to be able to access uploaded files](#update-policy)
 
-1. Đầu tiên, tìm dòng code sau trong tập tin **LambdaFunctionHandler.java**
+#### Implement Lambda ImageManager function
+
+You will edit the code in **handleRequest** in the file **LambdaFunctionHandler.java** so that files with **contentType** other than **image/jpeg** will be deleted by the Lambda function. This simulates a situation where if a file is uploaded with the wrong content type, the file will be deleted and not processed. If the file is **image/jpeg**, the Lambda function will shrink the images and pass the thumbnails to a target bucket so the application can use them.
+
+1. First, find the following code line in **LambdaFunctionHandler.java** file.
 ``` java
 context.getLogger().log("CONTENT TYPE: " + contentType);
 ```
-2. Sau dòng code này, thêm đoạn code sau để gọi 2 xử lý - một cho tập tin hình ảnh và một cho các tập tin không phải hình ảnh
+2. After this code line, add following code to call 2 handlers - one for image files and one for non-image files.
 ``` java
 switch ( contentType )
 {
@@ -32,8 +39,10 @@ switch ( contentType )
 		break;
 }
 ```
-![ChangeCode](../../../images/3/1.png?width=90pc)
-Bạn sẽ cần thêm các triển khai của 2 xử lý này. Ví dụ:
+
+![ChangeCode](/images/3/1.png?width=90pc)
+
+You will need additional implementations of these 2 handlers:
 ``` java
 private void handleJPEG(String bucketName, String key, InputStream imageStream) {
 
@@ -105,9 +114,11 @@ private void handleAllOtherContentTypes(String bucketName, String key) {
 	System.out.println("     Done!");
 }
 ```
-![ChangeCode](../../../images/3/2.png?width=90pc)
-Hai xử lý này nên được thêm vào lớp *LambdaFunctionHandler* như là private method. Bạn nên thêm những đoạn code này vào phần import ở đầu file **LambdaFunctionHandler.java**
-Bạn cần thêm vào các import sau:
+
+![ChangeCode](/images/3/2.png?width=90pc)
+
+These two handles should be added to the *LambdaFunctionHandler* class as private method. You should add these codes to the import section at the top of the **LambdaFunctionHandler.java** file.
+You need to add the following imports:
 ```java
 import java.awt.AlphaComposite;
 import java.awt.Graphics2D;
@@ -117,37 +128,84 @@ import java.io.File;
 import java.io.InputStream;
 import javax.imageio.ImageIO;
 ```
-![ChangeCode](../../../images/3/3.png?width=90pc)
+
+![ChangeCode](/images/3/3.png?width=90pc)
 
 {{%notice tip%}}
-Nếu gặp khó khăn, bạn có thể tham khảo file **LambdaFunctionHandler.java** mẫu dưới đây.
+If you have difficulty, you can refer to the sample **LambdaFunctionHandler.java** file below.
 {{%/notice%}}
 
 {{%attachments /%}}
 
-3. Nhấp chuột phải bên trong cửa sổ chứa mã nguồn của **LambdaFunctionHandler.java** class trong src/main/java/idevelop.lambda.s3handler. Từ menu **AWS Lambda**,
-chọn **Upload function to AWS Lambda**. Chọn **Choose an existing Lambda function**
-![Redeploy](../../../images/3/4.png?width=90pc)
-Click **Next**. Click **Finish**.
-![Redeploy](../../../images/3/5.png?width=90pc)
-4. Khi quá trình tải lên thành công, bạn sẽ sẵn sàng để kiểm tra lại các tập tin được tải lên S3 bucket. Đầy tiên, tải ảnh **Puppy.jpg** lên thư mục **uploads** và xác nhận rằng hình ảnh thu nhỏ được tạo và lưu trữ tại thư mục **processed/**. Thư mục **processed/** sẽ được tạo tự động bởi hàm Lambda khi nó tạo các hình ảnh thu nhỏ. 
-![TestDeploy](../../../images/3/6.png?width=90pc)
-Kiểm tra CloudWatch logs để xem quá trình trên diễn ra như thế nào
-![Viewlogs](../../../images/3/7.png?width=90pc)
-5. Tải lên một tập tin không phải hình ảnh vào thư mục **uploads/**
-![Uploadfile](../../../images/3/8.png?width=90pc)
-Ta nhận rằng tập tin vừa tải lên không được xử lý và bị xóa. 
-![TestDeploy](../../../images/3/9.png?width=90pc)
-Xem CloudWatch log để xem quá trình thực hiện như thế nào.
-![Viewlogs](../../../images/3/10.png?width=90pc)
+3. Nhấp chuột phải bên trong cửa sổ chứa mã nguồn của **LambdaFunctionHandler.java** class trong src/main/java/idevelop.lambda.s3handler. Từ menu **AWS Lambda**, chọn **Upload function to AWS Lambda**. Chọn **Choose an existing Lambda function**
 
-#### Cập nhật quyền để có thể truy cập tập tin đã tải lên
+![Redeploy](/images/3/4.png?width=90pc)
 
-6. Trong S3 bucket đã tải lên, nếu truy cập vào một hình ảnh trong thư mục **processed/** và thử mở tập tin này, bạn sẽ nhận được thông báo **Access Denied**.
-![AccessDenied](../../../images/3/11.png?width=90pc)
-Lý do là vì S3 bucket policy chưa cho phép người dùng ẩn danh có thể có truyền đọc các tập tin trong bucket.
-7. Để khắc phục vấn đề này, chọn thư mục **processed/**, chọn menu **Acctions**, chọn **Make Public**. 
-![UpdatePermission](../../../images/3/12.png?width=90pc)
-![UpdatePermission](../../../images/3/13.png?width=90pc)
-Truy cập lại vào tập tin trên trình duyệt web. Bây giờ ta đã có thể xem được nội dung của tập tin.
-![UpdatePermission](../../../images/3/14.png?width=90pc)
+- Click **Next**. Click **Finish**.
+
+![Redeploy](/images/3/5.png?width=90pc)
+
+{{%notice warning%}}
+If you encounter an error at this step, you can refer to the fixing error section below.
+{{%/notice%}}
+
+4. Once the upload is successful, you'll be ready to check the files that are uploaded to the S3 bucket. First, upload **Puppy.jpg** to **uploads** folder and confirm that the thumbnail image is created and stored in the **processed/** folder. The **processed/** folder will be created automatically by the Lambda function as it generates the thumbnail images. 
+
+![TestDeploy](/images/3/6.png?width=90pc)
+
+- Check CloudWatch logs to see how the above process works.
+
+![Viewlogs](/images/3/7.png?width=90pc)
+
+5. Upload a non-image file to **uploads/** folder.
+
+![Uploadfile](/images/3/8.png?width=90pc)
+
+- We get that the uploaded file was not processed and deleted.
+
+![TestDeploy](/images/3/9.png?width=90pc)
+
+- View the CloudWatch log to see how it's doing.
+
+![Viewlogs](/images/3/10.png?width=90pc)
+
+#### Fix error
+
+1. If you get the following error when uploading the code to the Lambda function, press **OK**.
+
+![UploadError](/images/3/30.png?width=90pc)
+
+2. We will manually update the code file from S3 for the Lambda function through the console.
+
+3. Open the AWS Lambda console and select **TestLambda** function.
+- In **Code** tab, click **Upload from**, then select **Amazon S3 location**.
+
+![UploadError](/images/3/28.png?width=90pc)
+
+4. Get the path of the **TestLambda.zip** file in the S3 console.
+
+![UploadError](/images/3/29.png?width=90pc)
+
+5. Paste in the following dialog, then click **Save**
+
+![UploadError](/images/3/31.png?width=60pc)
+
+#### Updated permissions to be able to access uploaded files
+
+1. The uploaded image in S3 bucket, if you access an image in the **processed/** folder and try to open the file, you will get the message **Access Denied**.
+
+![AccessDenied](/images/3/11.png?width=90pc)
+
+The reason is that the S3 bucket policy does not yet allow anonymous users to have read and write access to files in the bucket.
+
+2. To fix this problem, select the **processed/** folder, select the **Acctions** menu, select **Make public using ACL**.
+
+![UpdatePermission](/images/3/12.png?width=90pc)
+
+- Click **Make public**
+
+![UpdatePermission](/images/3/13.png?width=90pc)
+
+- Access the file again in the web browser. Now we can see the contents of the file.
+
+![UpdatePermission](/images/3/14.png?width=90pc)

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.69.0" />
+    <meta name="generator" content="Hugo 0.101.0" />
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
@@ -12,21 +12,21 @@
     <title>Triển khai hàm Lambda ImageManager :: DevAx - Monoliths to Microservices - Create A Microservice</title>
 
     
-    <link href="/css/nucleus.css?1624843736" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1624843736" rel="stylesheet">
-    <link href="/css/hybrid.css?1624843736" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1624843736" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1624843736" rel="stylesheet">
-    <link href="/css/auto-complete.css?1624843736" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1624843736" rel="stylesheet">
-    <link href="/css/theme.css?1624843736" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1624843736" rel="stylesheet">
+    <link href="/css/nucleus.css?1674655585" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1674655585" rel="stylesheet">
+    <link href="/css/hybrid.css?1674655585" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1674655585" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1674655585" rel="stylesheet">
+    <link href="/css/auto-complete.css?1674655585" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1674655585" rel="stylesheet">
+    <link href="/css/theme.css?1674655585" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1674655585" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1624843736" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1674655585" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1624843736"></script>
+    <script src="/js/jquery-3.3.1.min.js?1674655585"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1624843736"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1624843736"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1674655585"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1674655585"></script>
 <script type="text/javascript">
     
         var baseurl = "";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1624843736"></script>
+<script type="text/javascript" src="/js/search.js?1674655585"></script>
 
     
   </div>
@@ -113,13 +113,13 @@
  
   
     
-    <li data-nav-id="/1-prerequisites/1-create-environment/" title="Chuẩn bị môi trường" class="dd-item 
+    <li data-nav-id="/1-prerequisites/1-create-environment/" title="Preparation" class="dd-item 
         
         
         
         ">
       <a href="/1-prerequisites/1-create-environment/">
-          <b>1.1. </b>Chuẩn bị môi trường
+          <b>1.1. </b>Preparation
           
             <i class="fas fa-check read-icon"></i>
           
@@ -671,6 +671,22 @@
     <img src="https://hitwebcounter.com/counter/counter.php?page=7830807&style=0038&nbdigits=9&type=page&initCount=0" title="Total CLoud Journey" Alt="web counter"   border="0"   />
      
 </left>
+<left>
+    <br>
+    <br>
+        <b> Last Updated </b> <br>
+        <i><font color=orange>18-01-2023</font></i>
+    </left>
+    <left>
+        <br>
+        <br>
+            <b> Team </b> <br>
+           
+            <i> <a href="https://www.linkedin.com/in/jotaguy"  style="color:orange">Gia Hưng </a> <br>
+               
+        </i>
+        </left>
+
 
 <script async defer src="https://buttons.github.io/buttons.js"></script>
 
@@ -761,110 +777,110 @@
 <ol>
 <li>Đầu tiên, tìm dòng code sau trong tập tin <strong>LambdaFunctionHandler.java</strong></li>
 </ol>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">context<span style="color:#f92672">.</span><span style="color:#a6e22e">getLogger</span><span style="color:#f92672">().</span><span style="color:#a6e22e">log</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;CONTENT TYPE: &#34;</span> <span style="color:#f92672">+</span> contentType<span style="color:#f92672">);</span>
-</code></pre></div><ol start="2">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>context<span style="color:#f92672">.</span><span style="color:#a6e22e">getLogger</span><span style="color:#f92672">().</span><span style="color:#a6e22e">log</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;CONTENT TYPE: &#34;</span> <span style="color:#f92672">+</span> contentType<span style="color:#f92672">);</span>
+</span></span></code></pre></div><ol start="2">
 <li>Sau dòng code này, thêm đoạn code sau để gọi 2 xử lý - một cho tập tin hình ảnh và một cho các tập tin không phải hình ảnh</li>
 </ol>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">switch</span> <span style="color:#f92672">(</span> contentType <span style="color:#f92672">)</span>
-<span style="color:#f92672">{</span>
-	<span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#34;application/x-directory&#34;</span><span style="color:#f92672">:</span>
-		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;application/x-directory detected - ignoring&#34;</span><span style="color:#f92672">);</span>
-		<span style="color:#66d9ef">break</span><span style="color:#f92672">;</span>
-
-	<span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#34;image/jpeg&#34;</span><span style="color:#f92672">:</span>
-
-		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;image/jpeg detected&#34;</span><span style="color:#f92672">);</span>
-		InputStream objectData <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
-		objectData <span style="color:#f92672">=</span> response<span style="color:#f92672">.</span><span style="color:#a6e22e">getObjectContent</span><span style="color:#f92672">();</span>
-		handleJPEG<span style="color:#f92672">(</span>bucket<span style="color:#f92672">,</span> key<span style="color:#f92672">,</span> objectData<span style="color:#f92672">);</span>
-		<span style="color:#66d9ef">break</span><span style="color:#f92672">;</span>
-
-	<span style="color:#66d9ef">default</span><span style="color:#f92672">:</span>
-		handleAllOtherContentTypes<span style="color:#f92672">(</span>bucket<span style="color:#f92672">,</span> key<span style="color:#f92672">);</span>
-		<span style="color:#66d9ef">break</span><span style="color:#f92672">;</span>
-<span style="color:#f92672">}</span>
-</code></pre></div><p><img src="../../../images/3/1.png?width=90pc" alt="ChangeCode">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">switch</span> <span style="color:#f92672">(</span> contentType <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#34;application/x-directory&#34;</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;application/x-directory detected - ignoring&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">break</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#34;image/jpeg&#34;</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;image/jpeg detected&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>		InputStream objectData <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>		objectData <span style="color:#f92672">=</span> response<span style="color:#f92672">.</span><span style="color:#a6e22e">getObjectContent</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>		handleJPEG<span style="color:#f92672">(</span>bucket<span style="color:#f92672">,</span> key<span style="color:#f92672">,</span> objectData<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">break</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	default:
+</span></span><span style="display:flex;"><span>		handleAllOtherContentTypes<span style="color:#f92672">(</span>bucket<span style="color:#f92672">,</span> key<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">break</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p><img src="../../../images/3/1.png?width=90pc" alt="ChangeCode">
 Bạn sẽ cần thêm các triển khai của 2 xử lý này. Ví dụ:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">handleJPEG</span><span style="color:#f92672">(</span>String bucketName<span style="color:#f92672">,</span> String key<span style="color:#f92672">,</span> InputStream imageStream<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-
-	<span style="color:#66d9ef">final</span> <span style="color:#66d9ef">int</span> THUMBNAIL_WIDTH <span style="color:#f92672">=</span> 100<span style="color:#f92672">;</span>
-	<span style="color:#66d9ef">final</span> <span style="color:#66d9ef">int</span> THUMBNAIL_HEIGHT<span style="color:#f92672">=</span> 100<span style="color:#f92672">;</span>
-
-	<span style="color:#66d9ef">try</span>
-	<span style="color:#f92672">{</span>
-		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Starting resize process...&#34;</span><span style="color:#f92672">);</span>
-
-		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>String<span style="color:#f92672">.</span><span style="color:#a6e22e">format</span><span style="color:#f92672">(</span>
-				<span style="color:#e6db74">&#34;Starting resize process for %s/%s of type image/jpg&#34;</span><span style="color:#f92672">,</span> bucketName<span style="color:#f92672">,</span> key<span style="color:#f92672">));</span>
-
-		<span style="color:#75715e">// Resize the image
-</span><span style="color:#75715e"></span>		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;     Reading image stream from S3&#34;</span><span style="color:#f92672">);</span>
-		BufferedImage image <span style="color:#f92672">=</span> ImageIO<span style="color:#f92672">.</span><span style="color:#a6e22e">read</span><span style="color:#f92672">(</span>imageStream<span style="color:#f92672">);</span>
-		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;          done&#34;</span><span style="color:#f92672">);</span>
-
-		<span style="color:#66d9ef">final</span> BufferedImage thumbnailImage <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> BufferedImage<span style="color:#f92672">(</span>THUMBNAIL_WIDTH<span style="color:#f92672">,</span> THUMBNAIL_HEIGHT<span style="color:#f92672">,</span> BufferedImage<span style="color:#f92672">.</span><span style="color:#a6e22e">TYPE_INT_RGB</span><span style="color:#f92672">);</span>
-		<span style="color:#66d9ef">final</span> Graphics2D graphics2D <span style="color:#f92672">=</span> thumbnailImage<span style="color:#f92672">.</span><span style="color:#a6e22e">createGraphics</span><span style="color:#f92672">();</span>
-		graphics2D<span style="color:#f92672">.</span><span style="color:#a6e22e">setComposite</span><span style="color:#f92672">(</span>AlphaComposite<span style="color:#f92672">.</span><span style="color:#a6e22e">Src</span><span style="color:#f92672">);</span>
-
-		graphics2D<span style="color:#f92672">.</span><span style="color:#a6e22e">setRenderingHint</span><span style="color:#f92672">(</span>RenderingHints<span style="color:#f92672">.</span><span style="color:#a6e22e">KEY_INTERPOLATION</span><span style="color:#f92672">,</span>RenderingHints<span style="color:#f92672">.</span><span style="color:#a6e22e">VALUE_INTERPOLATION_BILINEAR</span><span style="color:#f92672">);</span>
-		graphics2D<span style="color:#f92672">.</span><span style="color:#a6e22e">setRenderingHint</span><span style="color:#f92672">(</span>RenderingHints<span style="color:#f92672">.</span><span style="color:#a6e22e">KEY_RENDERING</span><span style="color:#f92672">,</span>RenderingHints<span style="color:#f92672">.</span><span style="color:#a6e22e">VALUE_RENDER_QUALITY</span><span style="color:#f92672">);</span>
-		graphics2D<span style="color:#f92672">.</span><span style="color:#a6e22e">setRenderingHint</span><span style="color:#f92672">(</span>RenderingHints<span style="color:#f92672">.</span><span style="color:#a6e22e">KEY_ANTIALIASING</span><span style="color:#f92672">,</span>RenderingHints<span style="color:#f92672">.</span><span style="color:#a6e22e">VALUE_ANTIALIAS_ON</span><span style="color:#f92672">);</span>
-
-		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;     Drawing image...&#34;</span><span style="color:#f92672">);</span>
-		graphics2D<span style="color:#f92672">.</span><span style="color:#a6e22e">drawImage</span><span style="color:#f92672">(</span>image<span style="color:#f92672">,</span> 0<span style="color:#f92672">,</span> 0<span style="color:#f92672">,</span> THUMBNAIL_WIDTH<span style="color:#f92672">,</span> THUMBNAIL_HEIGHT<span style="color:#f92672">,</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">);</span>
-		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;          done&#34;</span><span style="color:#f92672">);</span>
-		graphics2D<span style="color:#f92672">.</span><span style="color:#a6e22e">dispose</span><span style="color:#f92672">();</span>
-
-		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;     Opening output file...&#34;</span><span style="color:#f92672">);</span>
-		File fileThumbnail <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> File<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/tmp/thumbnail.jpg&#34;</span><span style="color:#f92672">);</span>
-		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;          done&#34;</span><span style="color:#f92672">);</span>
-		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;     Writing output file...&#34;</span><span style="color:#f92672">);</span>
-		ImageIO<span style="color:#f92672">.</span><span style="color:#a6e22e">write</span><span style="color:#f92672">(</span>thumbnailImage<span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;jpg&#34;</span><span style="color:#f92672">,</span> fileThumbnail<span style="color:#f92672">);</span>
-		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;          done&#34;</span><span style="color:#f92672">);</span>
-
-		<span style="color:#75715e">//
-</span><span style="color:#75715e"></span>		<span style="color:#75715e">// Now put the finished object into the /processed subfolder
-</span><span style="color:#75715e"></span>		<span style="color:#75715e">// Note that the filename manipulation here is not meant to be
-</span><span style="color:#75715e"></span>		<span style="color:#75715e">// production-ready and robust! It will break if files without extensions
-</span><span style="color:#75715e"></span>		<span style="color:#75715e">// are uploaded!
-</span><span style="color:#75715e"></span>		<span style="color:#75715e">//
-</span><span style="color:#75715e"></span>		String fileName <span style="color:#f92672">=</span> key<span style="color:#f92672">.</span><span style="color:#a6e22e">substring</span><span style="color:#f92672">(</span> key<span style="color:#f92672">.</span><span style="color:#a6e22e">lastIndexOf</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#39;/&#39;</span><span style="color:#f92672">)</span> <span style="color:#f92672">+</span> 1<span style="color:#f92672">,</span> key<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">()</span> <span style="color:#f92672">);</span>
-		String fileNameWithoutExtn <span style="color:#f92672">=</span> fileName<span style="color:#f92672">.</span><span style="color:#a6e22e">substring</span><span style="color:#f92672">(</span>0<span style="color:#f92672">,</span> fileName<span style="color:#f92672">.</span><span style="color:#a6e22e">lastIndexOf</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#39;.&#39;</span><span style="color:#f92672">));</span>
-		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;     Pushing output file to processed folder...&#34;</span><span style="color:#f92672">);</span>
-		s3<span style="color:#f92672">.</span><span style="color:#a6e22e">putObject</span><span style="color:#f92672">(</span>bucketName<span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;processed/&#34;</span> <span style="color:#f92672">+</span> fileNameWithoutExtn <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;.thumb.jpg&#34;</span><span style="color:#f92672">,</span> fileThumbnail<span style="color:#f92672">);</span>
-		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;          done&#34;</span><span style="color:#f92672">);</span>
-	<span style="color:#f92672">}</span>
-	<span style="color:#66d9ef">catch</span><span style="color:#f92672">(</span>Exception e<span style="color:#f92672">)</span>
-	<span style="color:#f92672">{</span>
-		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>String<span style="color:#f92672">.</span><span style="color:#a6e22e">format</span><span style="color:#f92672">(</span>
-				<span style="color:#e6db74">&#34;Error processing JPEG image from stream for %s/%s&#34;</span><span style="color:#f92672">,</span> bucketName<span style="color:#f92672">,</span> key<span style="color:#f92672">));</span>
-		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>e<span style="color:#f92672">.</span><span style="color:#a6e22e">getMessage</span><span style="color:#f92672">());</span>
-	<span style="color:#f92672">}</span>
-	<span style="color:#66d9ef">finally</span>
-	<span style="color:#f92672">{</span>
-		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Ended resize&#34;</span><span style="color:#f92672">);</span>
-	<span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span>
-
-<span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">handleAllOtherContentTypes</span><span style="color:#f92672">(</span>String bucketName<span style="color:#f92672">,</span> String key<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-
-	System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>String<span style="color:#f92672">.</span><span style="color:#a6e22e">format</span><span style="color:#f92672">(</span>
-			<span style="color:#e6db74">&#34;%s/%s is an unsupported file type. It will be deleted.&#34;</span><span style="color:#f92672">,</span> bucketName<span style="color:#f92672">,</span> key<span style="color:#f92672">));</span>
-
-	s3<span style="color:#f92672">.</span><span style="color:#a6e22e">deleteObject</span><span style="color:#f92672">(</span>bucketName<span style="color:#f92672">,</span> key<span style="color:#f92672">);</span>
-	System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;     Done!&#34;</span><span style="color:#f92672">);</span>
-<span style="color:#f92672">}</span>
-</code></pre></div><p><img src="../../../images/3/2.png?width=90pc" alt="ChangeCode">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">handleJPEG</span><span style="color:#f92672">(</span>String bucketName<span style="color:#f92672">,</span> String key<span style="color:#f92672">,</span> InputStream imageStream<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">final</span> <span style="color:#66d9ef">int</span> THUMBNAIL_WIDTH <span style="color:#f92672">=</span> 100<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">final</span> <span style="color:#66d9ef">int</span> THUMBNAIL_HEIGHT<span style="color:#f92672">=</span> 100<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">try</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Starting resize process...&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>String<span style="color:#f92672">.</span><span style="color:#a6e22e">format</span><span style="color:#f92672">(</span>
+</span></span><span style="display:flex;"><span>				<span style="color:#e6db74">&#34;Starting resize process for %s/%s of type image/jpg&#34;</span><span style="color:#f92672">,</span> bucketName<span style="color:#f92672">,</span> key<span style="color:#f92672">));</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>		<span style="color:#75715e">// Resize the image
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;     Reading image stream from S3&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>		BufferedImage image <span style="color:#f92672">=</span> ImageIO<span style="color:#f92672">.</span><span style="color:#a6e22e">read</span><span style="color:#f92672">(</span>imageStream<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;          done&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">final</span> BufferedImage thumbnailImage <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> BufferedImage<span style="color:#f92672">(</span>THUMBNAIL_WIDTH<span style="color:#f92672">,</span> THUMBNAIL_HEIGHT<span style="color:#f92672">,</span> BufferedImage<span style="color:#f92672">.</span><span style="color:#a6e22e">TYPE_INT_RGB</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">final</span> Graphics2D graphics2D <span style="color:#f92672">=</span> thumbnailImage<span style="color:#f92672">.</span><span style="color:#a6e22e">createGraphics</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>		graphics2D<span style="color:#f92672">.</span><span style="color:#a6e22e">setComposite</span><span style="color:#f92672">(</span>AlphaComposite<span style="color:#f92672">.</span><span style="color:#a6e22e">Src</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>		graphics2D<span style="color:#f92672">.</span><span style="color:#a6e22e">setRenderingHint</span><span style="color:#f92672">(</span>RenderingHints<span style="color:#f92672">.</span><span style="color:#a6e22e">KEY_INTERPOLATION</span><span style="color:#f92672">,</span>RenderingHints<span style="color:#f92672">.</span><span style="color:#a6e22e">VALUE_INTERPOLATION_BILINEAR</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>		graphics2D<span style="color:#f92672">.</span><span style="color:#a6e22e">setRenderingHint</span><span style="color:#f92672">(</span>RenderingHints<span style="color:#f92672">.</span><span style="color:#a6e22e">KEY_RENDERING</span><span style="color:#f92672">,</span>RenderingHints<span style="color:#f92672">.</span><span style="color:#a6e22e">VALUE_RENDER_QUALITY</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>		graphics2D<span style="color:#f92672">.</span><span style="color:#a6e22e">setRenderingHint</span><span style="color:#f92672">(</span>RenderingHints<span style="color:#f92672">.</span><span style="color:#a6e22e">KEY_ANTIALIASING</span><span style="color:#f92672">,</span>RenderingHints<span style="color:#f92672">.</span><span style="color:#a6e22e">VALUE_ANTIALIAS_ON</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;     Drawing image...&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>		graphics2D<span style="color:#f92672">.</span><span style="color:#a6e22e">drawImage</span><span style="color:#f92672">(</span>image<span style="color:#f92672">,</span> 0<span style="color:#f92672">,</span> 0<span style="color:#f92672">,</span> THUMBNAIL_WIDTH<span style="color:#f92672">,</span> THUMBNAIL_HEIGHT<span style="color:#f92672">,</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;          done&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>		graphics2D<span style="color:#f92672">.</span><span style="color:#a6e22e">dispose</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;     Opening output file...&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>		File fileThumbnail <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> File<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/tmp/thumbnail.jpg&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;          done&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;     Writing output file...&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>		ImageIO<span style="color:#f92672">.</span><span style="color:#a6e22e">write</span><span style="color:#f92672">(</span>thumbnailImage<span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;jpg&#34;</span><span style="color:#f92672">,</span> fileThumbnail<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;          done&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>		<span style="color:#75715e">//
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>		<span style="color:#75715e">// Now put the finished object into the /processed subfolder
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>		<span style="color:#75715e">// Note that the filename manipulation here is not meant to be
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>		<span style="color:#75715e">// production-ready and robust! It will break if files without extensions
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>		<span style="color:#75715e">// are uploaded!
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>		<span style="color:#75715e">//
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>		String fileName <span style="color:#f92672">=</span> key<span style="color:#f92672">.</span><span style="color:#a6e22e">substring</span><span style="color:#f92672">(</span> key<span style="color:#f92672">.</span><span style="color:#a6e22e">lastIndexOf</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#39;/&#39;</span><span style="color:#f92672">)</span> <span style="color:#f92672">+</span> 1<span style="color:#f92672">,</span> key<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">()</span> <span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>		String fileNameWithoutExtn <span style="color:#f92672">=</span> fileName<span style="color:#f92672">.</span><span style="color:#a6e22e">substring</span><span style="color:#f92672">(</span>0<span style="color:#f92672">,</span> fileName<span style="color:#f92672">.</span><span style="color:#a6e22e">lastIndexOf</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#39;.&#39;</span><span style="color:#f92672">));</span>
+</span></span><span style="display:flex;"><span>		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;     Pushing output file to processed folder...&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>		s3<span style="color:#f92672">.</span><span style="color:#a6e22e">putObject</span><span style="color:#f92672">(</span>bucketName<span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;processed/&#34;</span> <span style="color:#f92672">+</span> fileNameWithoutExtn <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;.thumb.jpg&#34;</span><span style="color:#f92672">,</span> fileThumbnail<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;          done&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">catch</span><span style="color:#f92672">(</span>Exception e<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>String<span style="color:#f92672">.</span><span style="color:#a6e22e">format</span><span style="color:#f92672">(</span>
+</span></span><span style="display:flex;"><span>				<span style="color:#e6db74">&#34;Error processing JPEG image from stream for %s/%s&#34;</span><span style="color:#f92672">,</span> bucketName<span style="color:#f92672">,</span> key<span style="color:#f92672">));</span>
+</span></span><span style="display:flex;"><span>		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>e<span style="color:#f92672">.</span><span style="color:#a6e22e">getMessage</span><span style="color:#f92672">());</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">finally</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Ended resize&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">handleAllOtherContentTypes</span><span style="color:#f92672">(</span>String bucketName<span style="color:#f92672">,</span> String key<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>String<span style="color:#f92672">.</span><span style="color:#a6e22e">format</span><span style="color:#f92672">(</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#e6db74">&#34;%s/%s is an unsupported file type. It will be deleted.&#34;</span><span style="color:#f92672">,</span> bucketName<span style="color:#f92672">,</span> key<span style="color:#f92672">));</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	s3<span style="color:#f92672">.</span><span style="color:#a6e22e">deleteObject</span><span style="color:#f92672">(</span>bucketName<span style="color:#f92672">,</span> key<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>	System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;     Done!&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p><img src="../../../images/3/2.png?width=90pc" alt="ChangeCode">
 Hai xử lý này nên được thêm vào lớp <em>LambdaFunctionHandler</em> như là private method. Bạn nên thêm những đoạn code này vào phần import ở đầu file <strong>LambdaFunctionHandler.java</strong>
 Bạn cần thêm vào các import sau:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">import</span> java.awt.AlphaComposite<span style="color:#f92672">;</span>
-<span style="color:#f92672">import</span> java.awt.Graphics2D<span style="color:#f92672">;</span>
-<span style="color:#f92672">import</span> java.awt.RenderingHints<span style="color:#f92672">;</span>
-<span style="color:#f92672">import</span> java.awt.image.BufferedImage<span style="color:#f92672">;</span>
-<span style="color:#f92672">import</span> java.io.File<span style="color:#f92672">;</span>
-<span style="color:#f92672">import</span> java.io.InputStream<span style="color:#f92672">;</span>
-<span style="color:#f92672">import</span> javax.imageio.ImageIO<span style="color:#f92672">;</span>
-</code></pre></div><p><img src="../../../images/3/3.png?width=90pc" alt="ChangeCode"></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">import</span> java.awt.AlphaComposite<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.awt.Graphics2D<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.awt.RenderingHints<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.awt.image.BufferedImage<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.io.File<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.io.InputStream<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> javax.imageio.ImageIO<span style="color:#f92672">;</span>
+</span></span></code></pre></div><p><img src="../../../images/3/3.png?width=90pc" alt="ChangeCode"></p>
 
 <div class="notices tip" ><p>Nếu gặp khó khăn, bạn có thể tham khảo file <strong>LambdaFunctionHandler.java</strong> mẫu dưới đây.</p>
 </div>
@@ -901,13 +917,13 @@ chọn <strong>Upload function to AWS Lambda</strong>. Chọn <strong>Choose an 
 <img src="../../../images/3/4.png?width=90pc" alt="Redeploy">
 Click <strong>Next</strong>. Click <strong>Finish</strong>.
 <img src="../../../images/3/5.png?width=90pc" alt="Redeploy"></li>
-<li>Khi quá trình tải lên thành công, bạn sẽ sẵn sàng để kiểm tra lại các tập tin được tải lên S3 bucket. Đầy tiên, tải ảnh <strong>Puppy.jpg</strong> lên thư mục <strong>uploads</strong> và xác nhận rằng hình ảnh thu nhỏ được tạo và lưu trữ tại thư mục <strong>processed/</strong>. Thư mục <strong>processed/</strong> sẽ được tạo tự động bởi hàm Lambda khi nó tạo các hình ảnh thu nhỏ. 
+<li>Khi quá trình tải lên thành công, bạn sẽ sẵn sàng để kiểm tra lại các tập tin được tải lên S3 bucket. Đầy tiên, tải ảnh <strong>Puppy.jpg</strong> lên thư mục <strong>uploads</strong> và xác nhận rằng hình ảnh thu nhỏ được tạo và lưu trữ tại thư mục <strong>processed/</strong>. Thư mục <strong>processed/</strong> sẽ được tạo tự động bởi hàm Lambda khi nó tạo các hình ảnh thu nhỏ.
 <img src="../../../images/3/6.png?width=90pc" alt="TestDeploy">
 Kiểm tra CloudWatch logs để xem quá trình trên diễn ra như thế nào
 <img src="../../../images/3/7.png?width=90pc" alt="Viewlogs"></li>
 <li>Tải lên một tập tin không phải hình ảnh vào thư mục <strong>uploads/</strong>
 <img src="../../../images/3/8.png?width=90pc" alt="Uploadfile">
-Ta nhận rằng tập tin vừa tải lên không được xử lý và bị xóa. 
+Ta nhận rằng tập tin vừa tải lên không được xử lý và bị xóa.
 <img src="../../../images/3/9.png?width=90pc" alt="TestDeploy">
 Xem CloudWatch log để xem quá trình thực hiện như thế nào.
 <img src="../../../images/3/10.png?width=90pc" alt="Viewlogs"></li>
@@ -917,7 +933,7 @@ Xem CloudWatch log để xem quá trình thực hiện như thế nào.
 <li>Trong S3 bucket đã tải lên, nếu truy cập vào một hình ảnh trong thư mục <strong>processed/</strong> và thử mở tập tin này, bạn sẽ nhận được thông báo <strong>Access Denied</strong>.
 <img src="../../../images/3/11.png?width=90pc" alt="AccessDenied">
 Lý do là vì S3 bucket policy chưa cho phép người dùng ẩn danh có thể có truyền đọc các tập tin trong bucket.</li>
-<li>Để khắc phục vấn đề này, chọn thư mục <strong>processed/</strong>, chọn menu <strong>Acctions</strong>, chọn <strong>Make Public</strong>. 
+<li>Để khắc phục vấn đề này, chọn thư mục <strong>processed/</strong>, chọn menu <strong>Acctions</strong>, chọn <strong>Make Public</strong>.
 <img src="../../../images/3/12.png?width=90pc" alt="UpdatePermission">
 <img src="../../../images/3/13.png?width=90pc" alt="UpdatePermission">
 Truy cập lại vào tập tin trên trình duyệt web. Bây giờ ta đã có thể xem được nội dung của tập tin.
@@ -1268,19 +1284,19 @@ Truy cập lại vào tập tin trên trình duyệt web. Bây giờ ta đã có
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1624843736"></script>
-    <script src="/js/perfect-scrollbar.min.js?1624843736"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1624843736"></script>
-    <script src="/js/jquery.sticky.js?1624843736"></script>
-    <script src="/js/featherlight.min.js?1624843736"></script>
-    <script src="/js/highlight.pack.js?1624843736"></script>
+    <script src="/js/clipboard.min.js?1674655585"></script>
+    <script src="/js/perfect-scrollbar.min.js?1674655585"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1674655585"></script>
+    <script src="/js/jquery.sticky.js?1674655585"></script>
+    <script src="/js/featherlight.min.js?1674655585"></script>
+    <script src="/js/highlight.pack.js?1674655585"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1624843736"></script>
-    <script src="/js/learn.js?1624843736"></script>
-    <script src="/js/hugo-learn.js?1624843736"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1674655585"></script>
+    <script src="/js/learn.js?1674655585"></script>
+    <script src="/js/hugo-learn.js?1674655585"></script>
 
-    <link href="/mermaid/mermaid.css?1624843736" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1624843736"></script>
+    <link href="/mermaid/mermaid.css?1674655585" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1674655585"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

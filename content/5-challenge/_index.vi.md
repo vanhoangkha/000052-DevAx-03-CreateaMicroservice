@@ -1,6 +1,6 @@
 +++
 title = "Thử thách - Expose microservice API"
-date = 2021
+date = 2023
 weight = 5
 chapter = false
 pre = "<b>5. </b>"
@@ -11,15 +11,28 @@ Không có chia sẽ dữ liệu giữa FlightSpecials và HotelSpecials service
 Expose cả 2 dịch vụ FlightSpecials và HotelSpecials dưới dạng các API riêng biệt thông qua Amazon API Gateway, bằng cách sửa đổi định nghĩa API swagger.yaml và định nghĩa CloudFormation/SAM template.yml
 1. Sao chép tập tin **HotelSpecial.java** vào đường dẫn **.../src/main/java/devlounge/model**
 {{%attachments /%}}
-![Challenge](../../../images/5/1.png?width=90pc)
-2. Thêm đường dẫn API **/hotelspecials** vào dòng code thứ 10 trong tập tin swagger.yml
-![Challenge](../../../images/5/2.png?width=90pc)
-3. Mở tập tin template.yml và thêm các resource. Bạn có thể tham khảo tập tin template.yml sau:
 
-![Challenge](../../../images/5/3.png?width=90pc)
-![Challenge](../../../images/5/4.png?width=90pc)
+![Challenge](/images/5/1.png?width=90pc)
+
+2. Sao chép từ dòng số 10 đến dòng số 66 của tệp swagger.yaml bạn tải về vào tệp swagger.yaml trong project.
+- Cập nhật lại region và account id của bạn cho uri.
+
+![Challenge](/images/5/2.png?width=90pc)
+
+
+3. Mở tập tin template.yml và thêm các resource sau từ tệp template.yml bạn tải về.
+- Trong phần **Parameters**, sao chép các parameter chưa có.
+- Trong phần **Resources | RestAPI**, sao chép dòng **LambdaHotelSpecials: !Ref GetHotelSpecials**
+- Sao chép dòng 48 đến dòng 76.
+- Sao chép dòng 159 đến hết.
+
+![Challenge](/images/5/3.png?width=90pc)
+
+![Challenge](/images/5/4.png?width=90pc)
+
 4. Tiến hành deploy lại và kiểm tra kết quả
-![Challenge](../../../images/5/5.png?width=90pc)
+
+![Challenge](/images/5/5.png?width=90pc)
 
 #### Bài tập nâng cao tùy chọn
 

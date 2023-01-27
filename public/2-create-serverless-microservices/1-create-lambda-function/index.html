@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.69.0" />
+    <meta name="generator" content="Hugo 0.101.0" />
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
@@ -12,21 +12,21 @@
     <title>Tạo và kiểm tra hàm Lambda tại cục bộ :: DevAx - Monoliths to Microservices - Create A Microservice</title>
 
     
-    <link href="/css/nucleus.css?1624843736" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1624843736" rel="stylesheet">
-    <link href="/css/hybrid.css?1624843736" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1624843736" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1624843736" rel="stylesheet">
-    <link href="/css/auto-complete.css?1624843736" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1624843736" rel="stylesheet">
-    <link href="/css/theme.css?1624843736" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1624843736" rel="stylesheet">
+    <link href="/css/nucleus.css?1674655585" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1674655585" rel="stylesheet">
+    <link href="/css/hybrid.css?1674655585" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1674655585" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1674655585" rel="stylesheet">
+    <link href="/css/auto-complete.css?1674655585" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1674655585" rel="stylesheet">
+    <link href="/css/theme.css?1674655585" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1674655585" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1624843736" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1674655585" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1624843736"></script>
+    <script src="/js/jquery-3.3.1.min.js?1674655585"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1624843736"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1624843736"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1674655585"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1674655585"></script>
 <script type="text/javascript">
     
         var baseurl = "";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1624843736"></script>
+<script type="text/javascript" src="/js/search.js?1674655585"></script>
 
     
   </div>
@@ -113,13 +113,13 @@
  
   
     
-    <li data-nav-id="/1-prerequisites/1-create-environment/" title="Chuẩn bị môi trường" class="dd-item 
+    <li data-nav-id="/1-prerequisites/1-create-environment/" title="Preparation" class="dd-item 
         
         
         
         ">
       <a href="/1-prerequisites/1-create-environment/">
-          <b>1.1. </b>Chuẩn bị môi trường
+          <b>1.1. </b>Preparation
           
             <i class="fas fa-check read-icon"></i>
           
@@ -671,6 +671,22 @@
     <img src="https://hitwebcounter.com/counter/counter.php?page=7830807&style=0038&nbdigits=9&type=page&initCount=0" title="Total CLoud Journey" Alt="web counter"   border="0"   />
      
 </left>
+<left>
+    <br>
+    <br>
+        <b> Last Updated </b> <br>
+        <i><font color=orange>18-01-2023</font></i>
+    </left>
+    <left>
+        <br>
+        <br>
+            <b> Team </b> <br>
+           
+            <i> <a href="https://www.linkedin.com/in/jotaguy"  style="color:orange">Gia Hưng </a> <br>
+               
+        </i>
+        </left>
+
 
 <script async defer src="https://buttons.github.io/buttons.js"></script>
 
@@ -770,7 +786,7 @@ Sau khi cập nhật các phụ thuộc của project thông qua Maven, chạy <
 Bạn sẽ thấy kết quả đầu ra từ hàm lambda, như thể nó được kích hoạt bởi một tập tin được tải lên S3. Các tham số cho bài test được cung cấp trong test resource, ở dạng JSON payload giống với payload mà môi trường Amazon sẽ gửi đến hàm Lambda, khi S3 bucket được liên kết với hàm Lambda này nhận được tập tin được tải lên.
 <img src="../../../images/2/5.png?width=90pc" alt="RunJUnitTest">
 
-<div class="notices tip" ><p>Bạn có thể sẽ thấy một vài cảnh báo liên quan tới profile name.<br>
+<div class="notices tip" ><p>Bạn có thể sẽ thấy một vài cảnh báo liên quan tới profile name. <br>
 Bạn có thể bỏ qua cảnh báo này trong bài thực hành này.
 Để xem kết quả đầu ra của phần JUnit test, chọn tab JUnit</p>
 </div>
@@ -786,15 +802,15 @@ Bạn có thể bỏ qua cảnh báo này trong bài thực hành này.
 <p>Mã nguồn được cung cấp không quan tâm tới việc mã hóa được áp dụng cho key name được cung cấp trong S3 event khi nó được gửi tới hàm Lambda, do đó nếu bạn tải một tập tin để kiểm tra, và tập tin chứa khoảng trắng hoặc dấu cấu thì chuỗi này cần được decode trước khi sử dụng.<br>
 Bạn có thể giải quyết vấn đề này bằng đoạn code sau.<br>
 5.  Thêm đoạn code sau vào sau dòng 28 trong lớp <strong>LambdaFunctionHandler.java</strong> trong <em>src/main/java/idevelop.lambda.s3handler</em>:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">try</span>
-<span style="color:#f92672">{</span>
-  key <span style="color:#f92672">=</span> java<span style="color:#f92672">.</span><span style="color:#a6e22e">net</span><span style="color:#f92672">.</span><span style="color:#a6e22e">URLDecoder</span><span style="color:#f92672">.</span><span style="color:#a6e22e">decode</span><span style="color:#f92672">(</span>key<span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;UTF-8&#34;</span><span style="color:#f92672">);</span>
-<span style="color:#f92672">}</span>
-<span style="color:#66d9ef">catch</span><span style="color:#f92672">(</span>Exception ex<span style="color:#f92672">)</span>
-<span style="color:#f92672">{</span>
-  context<span style="color:#f92672">.</span><span style="color:#a6e22e">getLogger</span><span style="color:#f92672">().</span><span style="color:#a6e22e">log</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Could not decode URL for keyname... continuing...&#34;</span><span style="color:#f92672">);</span>
-<span style="color:#f92672">}</span>
-</code></pre></div><p><img src="../../../images/2/7.png?width=90pc" alt="CreatePrject"></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">try</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  key <span style="color:#f92672">=</span> java<span style="color:#f92672">.</span><span style="color:#a6e22e">net</span><span style="color:#f92672">.</span><span style="color:#a6e22e">URLDecoder</span><span style="color:#f92672">.</span><span style="color:#a6e22e">decode</span><span style="color:#f92672">(</span>key<span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;UTF-8&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">catch</span><span style="color:#f92672">(</span>Exception ex<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  context<span style="color:#f92672">.</span><span style="color:#a6e22e">getLogger</span><span style="color:#f92672">().</span><span style="color:#a6e22e">log</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Could not decode URL for keyname... continuing...&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p><img src="../../../images/2/7.png?width=90pc" alt="CreatePrject"></p>
 
 
 
@@ -1140,19 +1156,19 @@ Bạn có thể giải quyết vấn đề này bằng đoạn code sau.<br>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1624843736"></script>
-    <script src="/js/perfect-scrollbar.min.js?1624843736"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1624843736"></script>
-    <script src="/js/jquery.sticky.js?1624843736"></script>
-    <script src="/js/featherlight.min.js?1624843736"></script>
-    <script src="/js/highlight.pack.js?1624843736"></script>
+    <script src="/js/clipboard.min.js?1674655585"></script>
+    <script src="/js/perfect-scrollbar.min.js?1674655585"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1674655585"></script>
+    <script src="/js/jquery.sticky.js?1674655585"></script>
+    <script src="/js/featherlight.min.js?1674655585"></script>
+    <script src="/js/highlight.pack.js?1674655585"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1624843736"></script>
-    <script src="/js/learn.js?1624843736"></script>
-    <script src="/js/hugo-learn.js?1624843736"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1674655585"></script>
+    <script src="/js/learn.js?1674655585"></script>
+    <script src="/js/hugo-learn.js?1674655585"></script>
 
-    <link href="/mermaid/mermaid.css?1624843736" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1624843736"></script>
+    <link href="/mermaid/mermaid.css?1674655585" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1674655585"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

@@ -13,7 +13,7 @@ Ngoài ra, bạn có thể sử dụng **AWS Serverless Application Model (SAM)*
 
 Trong bài tập này, bạn sẽ sử dụng **AWS CLI** và **AWS CloudFormation/SAM** để đóng gói ứng dụng và triển khai nó từ đầu mà không cần phải tạo hoặc định cấu hình bất kỳ phần phụ thuộc nào theo cách thủ công.
 
-1. Right click vào Project **TestLambda** trong panel Project Explorer. Chọn **Create New File**. Đặt tên File Name là **template.yaml** file này sẽ nằm cùng cấp với file **pom.xml** của hàm **TestLambda** ở bài tập trước. Sau đó chúng ta chỉnh sửa nội dung file **template.yaml** như dưới đây.
+1. Ấn chuột phải vào project **TestLambda** trong panel Project Explorer. Chọn **Create New File**. Đặt tên File Name là **template.yaml**. Tệp này sẽ nằm cùng cấp với file **pom.xml** của hàm **TestLambda** ở bài tập trước. Sau đó chúng ta chỉnh sửa nội dung file **template.yaml** như dưới đây.
 ```
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: 'AWS::Serverless-2016-10-31'
@@ -48,7 +48,9 @@ Resources:
     Properties:
       BucketName: !Sub idevelop-imagemanager-${AWS::AccountId}
 ```
-![Creattemplate](../../../images/3/15.png?width=90pc)
+
+![Creattemplate](/images/3/15.png?width=90pc)
+
 Mẫu này diễn tả một S3 bucket sẽ kích hoạt hàm Lambda của chúng ta bất cứ khi nào có một tập tin được tải lên thư mục **uploads** - tương tự như S3 bucket mà chúng ta đã tạo ở phần trước.\
 
 {{%notice tip%}}
@@ -58,44 +60,62 @@ Sau đó tiến hành cấu hình biến môi trường MVN_HOME tới **đườ
 
 **File Apache Maven:**
 {{%attachments /%}}
-![MavenInstall](../../../images/3/maven.jpg?width=90pc)
 
-1. Tạo một artifact triển khai cho hàm Lambda - một tập tin **JAR** chứa hàm Lambda và tất cả các phụ thuộc của nó. Chúng ta có thể sử dụng commandline để làm điều này.
+![MavenInstall](/images/3/maven.png?width=90pc)
+
+2. Tạo một artifact triển khai cho hàm Lambda - một tập tin **JAR** chứa hàm Lambda và tất cả các phụ thuộc của nó. Chúng ta có thể sử dụng commandline để làm điều này.
 ```bash
 mvn package shade:shade -DskipTests=true
 ```
 
 
-![CreateJarfile](../../../images/3/16.png?width=90pc)
+![CreateJarfile](/images/3/16.png?width=90pc)
+
 Kết quả trả về một tập tin có tên **s3handler-1.0.0.jar** trong thư mục **target**
-![UploadJarfile](../../../images/3/17.png?width=90pc)
+
+![UploadJarfile](/images/3/17.png?width=90pc)
+
 3. Tiếp theo, chúng ta sẽ sử dụng AWS CLI để đẩy tập tin này lên S3 bucket nơi mà nó có thể được triển khai. Chúng ta sẽ sử dụng lệnh **aws cloudformation package**
 ```bash
 aws cloudformation package --template-file template.yaml --s3-bucket <YOUR_CODE_BUCKET_NAME> --output-template deploy-template.yaml --profile aws-lab-env
 ```
-![PushfiletoS3](../../../images/3/18.png?width=90pc)
+
+![PushfiletoS3](/images/3/18.png?width=90pc)
+
 **Note:** Nếu bạn thấy một thông báo lỗi **‘NoneType’ object has no attribute ‘items’** hãy kiểm tra lại format của tập tin YAML.
 
-Câu lệnh **aws cloudformation package** sẽ lấy mẫu AWS SAM được cung cấp và viết lại nó trong định nghĩa của artifact được tự động tải lên S3 bucket. Trong trường hợp này,**deploy-template.yaml** được tạo và chứa giá trị **CodeUri**trỏ đến tập tin zip triển khai trong Amazon S3. Mẫu này đại diện cho ứng dụng serverless của bạn.\
-1. Bây giờ bạn đã sẵn sàng triển khai tập tin JAR dưới dạng một hàm Lambda và kết nối S3 trigger vào một S3 bucket mới. Bạn sẽ nhận thấy kết quả từ lệnh trước đó hướng dẫn chúng ta những gì cần chạy để triển khai mẫu đóng gói. Trong cửa sổ dòng lệnh, sao chép lệnh và dán lại vào dòng lệnh. Thay đổi giá trị <YOUR_STACK_NAME> thành ImageManagerDemo và thêm vào tùy chọn --profile aws-lab-env để cho phép CloudFormation tạo vai trò IAM thay mặt bạn. Lệnh của bạn sẽ giống như sau:
+Câu lệnh **aws cloudformation package** sẽ lấy mẫu AWS SAM được cung cấp và viết lại nó trong định nghĩa của artifact được tự động tải lên S3 bucket. Trong trường hợp này,**deploy-template.yaml** được tạo và chứa giá trị **CodeUri**trỏ đến tập tin zip triển khai trong Amazon S3. Mẫu này đại diện cho ứng dụng serverless của bạn.
+
+4. Bây giờ bạn đã sẵn sàng triển khai tập tin JAR dưới dạng một hàm Lambda và kết nối S3 trigger vào một S3 bucket mới. Bạn sẽ nhận thấy kết quả từ lệnh trước đó hướng dẫn chúng ta những gì cần chạy để triển khai mẫu đóng gói. Trong cửa sổ dòng lệnh, sao chép lệnh và dán lại vào dòng lệnh. Thay đổi giá trị <YOUR_STACK_NAME> thành ImageManagerDemo và thêm vào tùy chọn --profile aws-lab-env để cho phép CloudFormation tạo vai trò IAM thay mặt bạn. Lệnh của bạn sẽ giống như sau:
 ```bash
 aws cloudformation deploy --template-file deploy-template.yaml --stack-name ImageManagerDemo --profile aws-lab-env
 ```
-![DeployCF](../../../images/3/19.png?width=90pc)
+
+![DeployCF](/images/3/19.png?width=90pc)
+
 Khi bạn chạy lệnh **aws cloudformation deploy** nó sẽ tạo một **AWS CloudFormation ChangeSet** và triển khai chúng, đây là danh sách các thay đổi đối với AWS CloudFormation stack. Một vài mẫu stack có thể bao gồm các tài nguyên ảnh hưởng đến quyền trong tài khoản AWS, chẳng hạn như bằng cách tạo một AWS Identity and Access Management (IAM) user mới. Đối với các stack đó, bạn phải công nhận các khả năng của nó bằng các chỉ định tham số -capabilities. Để biết thêm thông tin, xem CreateChangeSet trong AWS CloudFormation API Reference.
 {{% notice tip %}}
 Bạn có thể xem quá trình tạo tài nguyên trực tiếp trong bảng điều khiển CloudFormation
 {{% /notice %}}
 Để kiểm tra kết quả, mở AWS CloudFormation console để xem stack mới nhất được tạo và vào Lambda console để xem hàm của bạn.
 CloudFormation template tạo một S3 Bucket có tên **idevelop-imagemanager-<YOUR_ACCOUNT_ID>** trong đó YOUR_ACCOUNT_ID là AWS account ID được sử dụng cho môi trường bài thực hành này. 
-![Createstack](../../../images/3/20.png?width=90pc)
+
+![Createstack](/images/3/20.png?width=90pc)
+
 Template cũng tạo một hàm Lambda mới có tên là  ImageManagerDemo-TestLambda-XXXXXX trong đó XXXXXX là một mã định danh ngẫu nhiên được CloudFormation phân bổ để đảm bảo tính duy nhất của tên hàm.\
 5. Khi CloudFormation stack triển khai thành công, bạn đã sẵn sàng để kiểm tra hàm của mình. Sử dụng AWS S3 console, tạo một thư mục tên là **uploads** trong S3 bucket **idevelop-imagemanager-<YOUR_ACCOUNT_ID>**
-![Createfolder](../../../images/3/21.png?width=90pc)
+
+![Createfolder](/images/3/21.png?width=90pc)
+
 6. Tải một tập tin lên thư mục này. Bạn có thể sử dụng tập tin **Puppy.jpg** hoặc bất kỳ tập tin hình ảnh khác mà bạn có. Hoặc bạn có thể tải một tập tin không phải hình ảnh lên để kiểm tra cả hai trường hợp. 
 Nếu bạn tải tập tin không phải hình ảnh lên, tập tin sẽ bị xóa.
-![Uploadfile](../../../images/3/22.png?width=90pc)
+
+![Uploadfile](/images/3/22.png?width=90pc)
+
 7. Nếu bạn tải một hình ảnh lên, kiểm tra thu mục **processed** trong S3 bucket. Bạn sẽ thấy một hình thu nhỏ của tập tin JPG trong thư mục này.
-![UploadImage](../../../images/3/23.png?width=90pc)
+
+![UploadImage](/images/3/23.png?width=90pc)
+
 8. Xem log trong CloudWatch logs của hàm **ImageManagerDemo-TestLambda-XXXXXX**.
-![Viewlog](../../../images/3/24.png?width=90pc)
+
+![Viewlog](/images/3/24.png?width=90pc)

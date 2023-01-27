@@ -4,10 +4,6 @@
     <title>Cập nhật target region cho API on DevAx - Chuyển đổi Monoliths sang Microservices - Tạo một Microservice</title>
     <link>/vi/4-use-codestar-orchestration/3-update-target-region/</link>
     <description>Recent content in Cập nhật target region cho API on DevAx - Chuyển đổi Monoliths sang Microservices - Tạo một Microservice</description>
-    <generator>Hugo -- gohugo.io</generator>
-    
-	<atom:link href="/vi/4-use-codestar-orchestration/3-update-target-region/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <generator>Hugo -- gohugo.io</generator><atom:link href="/vi/4-use-codestar-orchestration/3-update-target-region/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

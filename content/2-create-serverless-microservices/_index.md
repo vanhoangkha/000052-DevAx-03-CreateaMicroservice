@@ -1,9 +1,9 @@
 +++
-title = "Tạo một microservice"
+title = "Create a microservice"
 date = 2021
 weight = 2
 chapter = false
 pre = "<b>2. </b>"
 +++
 
-Trong phần này, chúng ta sẽ tạo một Java serverless microservice sử dụng AWS Lambda. Chúng ta sẽ sử dụng AWS Eclipse Toolkit để tải Java Lambda template như một điểm bắt đầu. Chúng ta sẽ sử dụng điểm này để phát triển microservice của chúng ta. Microservice sẽ quản lý và tự động tạo hình thu nhỏ cho S3 bucket. Chúng ta sẽ mở rộng microservice này trong phần tiếp theo.
+In this section, we will create a Java serverless microservice using AWS Lambda. We will use AWS Eclipse Toolkit to upload Java Lambda template as a starting point. We will use this point to develop our microservice. The microservice will manage and automatically generate thumbnails for the S3 bucket. We will extend this microservice in the next section. 

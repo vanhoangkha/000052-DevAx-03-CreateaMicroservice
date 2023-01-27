@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
   <url>
     <loc>/1-prerequisites/</loc>
-    <lastmod>1970-01-01T07:33:41+07:00</lastmod>
+    <lastmod>1970-01-01T08:33:41+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
@@ -15,11 +14,9 @@
                 hreflang="en"
                 href="/1-prerequisites/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/</loc>
-    <lastmod>1970-01-01T07:33:41+07:00</lastmod>
+    <lastmod>1970-01-01T08:33:41+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
@@ -30,9 +27,7 @@
                 hreflang="en"
                 href="/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/1-prerequisites/1-create-environment/</loc>
     <xhtml:link
                 rel="alternate"
@@ -44,23 +39,7 @@
                 hreflang="en"
                 href="/1-prerequisites/1-create-environment/"
                 />
-  </url>
-  
-  <url>
-    <loc>/3-extending-serverless-microservices/1-deploy-imagemanager-lambda/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="/vi/3-extending-serverless-microservices/1-deploy-imagemanager-lambda/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/3-extending-serverless-microservices/1-deploy-imagemanager-lambda/"
-                />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/4-use-codestar-orchestration/1-create-new-branch/</loc>
     <xhtml:link
                 rel="alternate"
@@ -72,9 +51,7 @@
                 hreflang="en"
                 href="/4-use-codestar-orchestration/1-create-new-branch/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/2-create-serverless-microservices/1-create-lambda-function/</loc>
     <xhtml:link
                 rel="alternate"
@@ -86,11 +63,21 @@
                 hreflang="en"
                 href="/2-create-serverless-microservices/1-create-lambda-function/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
+    <loc>/3-extending-serverless-microservices/1-deploy-imagemanager-lambda/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="/vi/3-extending-serverless-microservices/1-deploy-imagemanager-lambda/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/3-extending-serverless-microservices/1-deploy-imagemanager-lambda/"
+                />
+  </url><url>
     <loc>/2-create-serverless-microservices/</loc>
-    <lastmod>1970-01-01T07:33:41+07:00</lastmod>
+    <lastmod>1970-01-01T08:33:41+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
@@ -101,9 +88,7 @@
                 hreflang="en"
                 href="/2-create-serverless-microservices/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/1-prerequisites/2-configure-eclipse-ide/</loc>
     <xhtml:link
                 rel="alternate"
@@ -115,23 +100,7 @@
                 hreflang="en"
                 href="/1-prerequisites/2-configure-eclipse-ide/"
                 />
-  </url>
-  
-  <url>
-    <loc>/4-use-codestar-orchestration/2-redeploy-through-cicd-pipeline/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="/vi/4-use-codestar-orchestration/2-redeploy-through-cicd-pipeline/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/4-use-codestar-orchestration/2-redeploy-through-cicd-pipeline/"
-                />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/2-create-serverless-microservices/2-update-and-test/</loc>
     <xhtml:link
                 rel="alternate"
@@ -143,9 +112,19 @@
                 hreflang="en"
                 href="/2-create-serverless-microservices/2-update-and-test/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
+    <loc>/4-use-codestar-orchestration/2-redeploy-through-cicd-pipeline/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="/vi/4-use-codestar-orchestration/2-redeploy-through-cicd-pipeline/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/4-use-codestar-orchestration/2-redeploy-through-cicd-pipeline/"
+                />
+  </url><url>
     <loc>/3-extending-serverless-microservices/2-automating-your-microservice/</loc>
     <xhtml:link
                 rel="alternate"
@@ -157,11 +136,9 @@
                 hreflang="en"
                 href="/3-extending-serverless-microservices/2-automating-your-microservice/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/3-extending-serverless-microservices/</loc>
-    <lastmod>1970-01-01T07:33:41+07:00</lastmod>
+    <lastmod>1970-01-01T08:33:41+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
@@ -172,9 +149,7 @@
                 hreflang="en"
                 href="/3-extending-serverless-microservices/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/3-extending-serverless-microservices/3-update-lambda-function/</loc>
     <xhtml:link
                 rel="alternate"
@@ -186,9 +161,7 @@
                 hreflang="en"
                 href="/3-extending-serverless-microservices/3-update-lambda-function/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/4-use-codestar-orchestration/3-update-target-region/</loc>
     <xhtml:link
                 rel="alternate"
@@ -200,11 +173,9 @@
                 hreflang="en"
                 href="/4-use-codestar-orchestration/3-update-target-region/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/4-use-codestar-orchestration/</loc>
-    <lastmod>1970-01-01T07:33:41+07:00</lastmod>
+    <lastmod>1970-01-01T08:33:41+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
@@ -215,11 +186,9 @@
                 hreflang="en"
                 href="/4-use-codestar-orchestration/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/5-challenge/</loc>
-    <lastmod>1970-01-01T07:33:41+07:00</lastmod>
+    <lastmod>1970-01-01T08:33:41+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
@@ -230,11 +199,9 @@
                 hreflang="en"
                 href="/5-challenge/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/6-conclustion/</loc>
-    <lastmod>1970-01-01T07:33:41+07:00</lastmod>
+    <lastmod>1970-01-01T08:33:41+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
@@ -245,11 +212,9 @@
                 hreflang="en"
                 href="/6-conclustion/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/7-video/</loc>
-    <lastmod>1970-01-01T07:33:40+07:00</lastmod>
+    <lastmod>1970-01-01T08:33:40+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
@@ -260,9 +225,7 @@
                 hreflang="en"
                 href="/7-video/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/categories/</loc>
     <xhtml:link
                 rel="alternate"
@@ -274,9 +237,7 @@
                 hreflang="en"
                 href="/categories/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/</loc>
     <xhtml:link
                 rel="alternate"
@@ -289,5 +250,4 @@
                 href="/tags/"
                 />
   </url>
-  
 </urlset>

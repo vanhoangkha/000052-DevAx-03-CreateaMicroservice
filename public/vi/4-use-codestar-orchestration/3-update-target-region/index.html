@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.69.0" />
+    <meta name="generator" content="Hugo 0.101.0" />
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
@@ -12,21 +12,21 @@
     <title>Cập nhật target region cho API :: DevAx - Chuyển đổi Monoliths sang Microservices - Tạo một Microservice</title>
 
     
-    <link href="/css/nucleus.css?1624843736" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1624843736" rel="stylesheet">
-    <link href="/css/hybrid.css?1624843736" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1624843736" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1624843736" rel="stylesheet">
-    <link href="/css/auto-complete.css?1624843736" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1624843736" rel="stylesheet">
-    <link href="/css/theme.css?1624843736" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1624843736" rel="stylesheet">
+    <link href="/css/nucleus.css?1674655585" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1674655585" rel="stylesheet">
+    <link href="/css/hybrid.css?1674655585" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1674655585" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1674655585" rel="stylesheet">
+    <link href="/css/auto-complete.css?1674655585" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1674655585" rel="stylesheet">
+    <link href="/css/theme.css?1674655585" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1674655585" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1624843736" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1674655585" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1624843736"></script>
+    <script src="/js/jquery-3.3.1.min.js?1674655585"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1624843736"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1624843736"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1674655585"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1674655585"></script>
 <script type="text/javascript">
     
         var baseurl = "\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1624843736"></script>
+<script type="text/javascript" src="/js/search.js?1674655585"></script>
 
     
   </div>
@@ -671,6 +671,22 @@
     <img src="https://hitwebcounter.com/counter/counter.php?page=7830807&style=0038&nbdigits=9&type=page&initCount=0" title="Total CLoud Journey" Alt="web counter"   border="0"   />
      
 </left>
+<left>
+    <br>
+    <br>
+        <b> Last Updated </b> <br>
+        <i><font color=orange>18-01-2023</font></i>
+    </left>
+    <left>
+        <br>
+        <br>
+            <b> Team </b> <br>
+           
+            <i> <a href="https://www.linkedin.com/in/jotaguy"  style="color:orange">Gia Hưng </a> <br>
+               
+        </i>
+        </left>
+
 
 <script async defer src="https://buttons.github.io/buttons.js"></script>
 
@@ -753,36 +769,36 @@
 <ol>
 <li>Trong Eclipse IDE, mở tập tin <strong>swagger.yml</strong></li>
 <li>Tìm và thay thế <strong><!-- raw HTML omitted --></strong> bằng region đang được sử dụng trong bài thực hành.</li>
-<li>Tìm và thay thế <strong><!-- raw HTML omitted --></strong> bằng AWS Account Id.
-<img src="../../../images/4/20.png?width=90pc" alt="UpdateSwaggerFile"></li>
+<li>Tìm và thay thế <strong><!-- raw HTML omitted --></strong> bằng AWS Account Id.</li>
+</ol>
+<p><img src="/images/4/20.png?width=90pc" alt="UpdateSwaggerFile"></p>
+<ol start="4">
 <li>Lưu tập tin.</li>
 <li>Sử dụng commandline để cập nhật thay đổi lên git branch <strong>new-implementation</strong> và commit thay đổi.</li>
 </ol>
 <p>Trước đó bạn sẽ cần cấu hình email và username cho git.</p>
-<pre><code>C:\Users\Administrator\git\dev-flight-svc&gt;git config --global user.email &quot;youremail&quot;
-C:\Users\Administrator\git\dev-flight-svc&gt;git config --global user.name &quot;awsstudent&quot;
-</code></pre><p><img src="../../../images/4/21.png?width=90pc" alt="Gitcommand"></p>
+<pre tabindex="0"><code>C:\Users\Administrator\git\dev-flight-svc&gt;git config --global user.email &#34;youremail&#34;
+C:\Users\Administrator\git\dev-flight-svc&gt;git config --global user.name &#34;awsstudent&#34;
+</code></pre><p><img src="/images/4/21.png?width=90pc" alt="Gitcommand"></p>
 <ol start="6">
-<li>
-<p>Để push thay đổi lên CodeCommit, trong Eclipse, nhất chuột phải vào project root và chọn <strong>Teams | Push to origin…</strong>
-<img src="../../../images/4/22.png?width=90pc" alt="PushCode">
-Bạn cần push từ Eclipse vì git credentials được nhúng vào môi trường Eclipse. Bạn cũng có thể sử dụng command line, nhưng trong bài thực hành này, chúng ta sẽ không sử dụng phương pháp này.
+<li>Để push thay đổi lên CodeCommit, trong Eclipse, nhất chuột phải vào project root và chọn <strong>Teams | Push to origin…</strong></li>
+</ol>
+<p><img src="/images/4/22.png?width=90pc" alt="PushCode"></p>
+<p>Bạn cần push từ Eclipse vì git credentials được nhúng vào môi trường Eclipse. Bạn cũng có thể sử dụng command line, nhưng trong bài thực hành này, chúng ta sẽ không sử dụng phương pháp này.
 Sẽ tốn một khoảng thời gian để push code và bắt đầu triển khai. Hãy dành một khoảng thời gian để xem cấu trúc của project trong Eclipse IDE, đặc biệt là các tập tin buildspec.yml, swagger.yml và template.yml định nghĩa Amazon API Gateway, AWS Lambda Function và quá trình xây dựng/triển khai thông qua AWS CodeBuild.
 Bạn có thể kiểm tra <strong>status</strong> của quá trình triển khai thông qua <strong>Pipeline</strong> trong CodeStar project dashboard.
 
 <div class="notices note" ><p>Do hàm Lambda của chúng ta sử dụng <strong>DBSecurityGroup</strong> nên chúng ta cần cho phép <strong>DBSecurityGroup</strong> có thể kết nối được RDS Endpoint bằng cách cấu hình thêm như dưới đây:
-<img src="../../../images/4/25.png?width=90pc" alt="ConfigureSG"></p>
+<img src="/images/4/23.png?width=90pc" alt="ConfigureSG"></p>
 </div>
 </p>
-</li>
-<li>
-<p>Khi quá trình triển khai hoàn tất, truy cập ứng dụng web bằng cách chọn <strong>View application</strong>.
-<img src="../../../images/4/23.png?width=90pc" alt="ViewApplication">
-Khi trang được mở, bạn sẽ thấy một thông báo lỗi <strong>{&ldquo;message&rdquo;:&ldquo;Missing Authentication Token&rdquo;}</strong>. Điều này xảy ra  vì bạn đang cố gắng truy cập vào gốc của API, thay vì một microservice cụ thể. Chỉnh sửa URL, thêm <strong>flightspecials</strong> vào cuối URL, ta được URL mới có dạng <strong><a href="https://xxxxxxx.execute-api.us-east-1.amazonaws.com/Prod/flightspecials">https://xxxxxxx.execute-api.us-east-1.amazonaws.com/Prod/flightspecials</a></strong>. 
-Nhấn Enter, ta nhận được kết quá như sau:
-<img src="../../../images/4/24.png?width=90pc" alt="ViewApplication"></p>
-</li>
+<ol start="7">
+<li>Khi quá trình triển khai hoàn tất, truy cập ứng dụng web bằng cách chọn <strong>View application</strong>.</li>
 </ol>
+<p><img src="/images/4/24.png?width=90pc" alt="ViewApplication"></p>
+<p>Khi trang được mở, bạn sẽ thấy một thông báo lỗi <strong>{&ldquo;message&rdquo;:&ldquo;Missing Authentication Token&rdquo;}</strong>. Điều này xảy ra  vì bạn đang cố gắng truy cập vào gốc của API, thay vì một microservice cụ thể. Chỉnh sửa URL, thêm <strong>flightspecials</strong> vào cuối URL, ta được URL mới có dạng <strong><a href="https://xxxxxxx.execute-api.us-east-1.amazonaws.com/Prod/flightspecials">https://xxxxxxx.execute-api.us-east-1.amazonaws.com/Prod/flightspecials</a></strong>.
+Nhấn Enter, ta nhận được kết quá như sau:</p>
+<p><img src="/images/4/25.png?width=90pc" alt="ViewApplication"></p>
 
 
 
@@ -1131,19 +1147,19 @@ Nhấn Enter, ta nhận được kết quá như sau:
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1624843736"></script>
-    <script src="/js/perfect-scrollbar.min.js?1624843736"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1624843736"></script>
-    <script src="/js/jquery.sticky.js?1624843736"></script>
-    <script src="/js/featherlight.min.js?1624843736"></script>
-    <script src="/js/highlight.pack.js?1624843736"></script>
+    <script src="/js/clipboard.min.js?1674655585"></script>
+    <script src="/js/perfect-scrollbar.min.js?1674655585"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1674655585"></script>
+    <script src="/js/jquery.sticky.js?1674655585"></script>
+    <script src="/js/featherlight.min.js?1674655585"></script>
+    <script src="/js/highlight.pack.js?1674655585"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1624843736"></script>
-    <script src="/js/learn.js?1624843736"></script>
-    <script src="/js/hugo-learn.js?1624843736"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1674655585"></script>
+    <script src="/js/learn.js?1674655585"></script>
+    <script src="/js/hugo-learn.js?1674655585"></script>
 
-    <link href="/mermaid/mermaid.css?1624843736" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1624843736"></script>
+    <link href="/mermaid/mermaid.css?1674655585" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1674655585"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

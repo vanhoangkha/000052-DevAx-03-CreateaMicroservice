@@ -4,10 +4,6 @@
     <title>Tự động hóa Serverless Microservice on DevAx - Monoliths to Microservices - Create A Microservice</title>
     <link>/3-extending-serverless-microservices/2-automating-your-microservice/</link>
     <description>Recent content in Tự động hóa Serverless Microservice on DevAx - Monoliths to Microservices - Create A Microservice</description>
-    <generator>Hugo -- gohugo.io</generator>
-    
-	<atom:link href="/3-extending-serverless-microservices/2-automating-your-microservice/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <generator>Hugo -- gohugo.io</generator><atom:link href="/3-extending-serverless-microservices/2-automating-your-microservice/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

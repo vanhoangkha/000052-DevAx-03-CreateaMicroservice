@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.69.0" />
+    <meta name="generator" content="Hugo 0.101.0" />
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
@@ -12,21 +12,21 @@
     <title>Tự động hóa Serverless Microservice :: DevAx - Chuyển đổi Monoliths sang Microservices - Tạo một Microservice</title>
 
     
-    <link href="/css/nucleus.css?1624843736" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1624843736" rel="stylesheet">
-    <link href="/css/hybrid.css?1624843736" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1624843736" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1624843736" rel="stylesheet">
-    <link href="/css/auto-complete.css?1624843736" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1624843736" rel="stylesheet">
-    <link href="/css/theme.css?1624843736" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1624843736" rel="stylesheet">
+    <link href="/css/nucleus.css?1674655585" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1674655585" rel="stylesheet">
+    <link href="/css/hybrid.css?1674655585" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1674655585" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1674655585" rel="stylesheet">
+    <link href="/css/auto-complete.css?1674655585" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1674655585" rel="stylesheet">
+    <link href="/css/theme.css?1674655585" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1674655585" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1624843736" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1674655585" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1624843736"></script>
+    <script src="/js/jquery-3.3.1.min.js?1674655585"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1624843736"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1624843736"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1674655585"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1674655585"></script>
 <script type="text/javascript">
     
         var baseurl = "\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1624843736"></script>
+<script type="text/javascript" src="/js/search.js?1674655585"></script>
 
     
   </div>
@@ -671,6 +671,22 @@
     <img src="https://hitwebcounter.com/counter/counter.php?page=7830807&style=0038&nbdigits=9&type=page&initCount=0" title="Total CLoud Journey" Alt="web counter"   border="0"   />
      
 </left>
+<left>
+    <br>
+    <br>
+        <b> Last Updated </b> <br>
+        <i><font color=orange>18-01-2023</font></i>
+    </left>
+    <left>
+        <br>
+        <br>
+            <b> Team </b> <br>
+           
+            <i> <a href="https://www.linkedin.com/in/jotaguy"  style="color:orange">Gia Hưng </a> <br>
+               
+        </i>
+        </left>
+
 
 <script async defer src="https://buttons.github.io/buttons.js"></script>
 
@@ -756,12 +772,12 @@
 <ol>
 <li>Right click vào Project <strong>TestLambda</strong> trong panel Project Explorer. Chọn <strong>Create New File</strong>. Đặt tên File Name là <strong>template.yaml</strong> file này sẽ nằm cùng cấp với file <strong>pom.xml</strong> của hàm <strong>TestLambda</strong> ở bài tập trước. Sau đó chúng ta chỉnh sửa nội dung file <strong>template.yaml</strong> như dưới đây.</li>
 </ol>
-<pre><code>AWSTemplateFormatVersion: '2010-09-09'
-Transform: 'AWS::Serverless-2016-10-31'
+<pre tabindex="0"><code>AWSTemplateFormatVersion: &#39;2010-09-09&#39;
+Transform: &#39;AWS::Serverless-2016-10-31&#39;
 Description: Testing lambda and S3
 Resources:
   TestLambda:
-    Type: 'AWS::Serverless::Function'
+    Type: &#39;AWS::Serverless::Function&#39;
     Properties:
       Handler: idevelop.lambda.s3handler.LambdaFunctionHandler
       Runtime: java8
@@ -777,7 +793,7 @@ Resources:
             Bucket:
               Ref: ImageManagerSrcBucket
             Events:
-              - 's3:ObjectCreated:Put'
+              - &#39;s3:ObjectCreated:Put&#39;
             Filter:
               S3Key:
                 Rules:
@@ -788,8 +804,8 @@ Resources:
     Type: AWS::S3::Bucket
     Properties:
       BucketName: !Sub idevelop-imagemanager-${AWS::AccountId}
-</code></pre><p><img src="../../../images/3/15.png?width=90pc" alt="Creattemplate">
-Mẫu này diễn tả một S3 bucket sẽ kích hoạt hàm Lambda của chúng ta bất cứ khi nào có một tập tin được tải lên thư mục <strong>uploads</strong> - tương tự như S3 bucket mà chúng ta đã tạo ở phần trước.\</p>
+</code></pre><p><img src="/images/3/15.png?width=90pc" alt="Creattemplate"></p>
+<p>Mẫu này diễn tả một S3 bucket sẽ kích hoạt hàm Lambda của chúng ta bất cứ khi nào có một tập tin được tải lên thư mục <strong>uploads</strong> - tương tự như S3 bucket mà chúng ta đã tạo ở phần trước.\</p>
 
 <div class="notices tip" ><p>Chúng ta sẽ cần cài maven , bạn có thể download và giải nén file chứa maven dưới đây.
 Sau đó tiến hành cấu hình biến môi trường MVN_HOME tới <strong>đường dẫn đã giải nén\bin</strong>.  Ví dụ : <strong>C:\apache-maven-3.8.1\bin</strong></p>
@@ -821,43 +837,51 @@ Sau đó tiến hành cấu hình biến môi trường MVN_HOME tới <strong>�
 	
 </section>
 
-
-<img src="../../../images/3/maven.jpg?width=90pc" alt="MavenInstall"></p>
-<ol>
+</p>
+<p><img src="/images/3/maven.png?width=90pc" alt="MavenInstall"></p>
+<ol start="2">
 <li>Tạo một artifact triển khai cho hàm Lambda - một tập tin <strong>JAR</strong> chứa hàm Lambda và tất cả các phụ thuộc của nó. Chúng ta có thể sử dụng commandline để làm điều này.</li>
 </ol>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mvn package shade:shade -DskipTests<span style="color:#f92672">=</span>true
-</code></pre></div><p><img src="../../../images/3/16.png?width=90pc" alt="CreateJarfile">
-Kết quả trả về một tập tin có tên <strong>s3handler-1.0.0.jar</strong> trong thư mục <strong>target</strong>
-<img src="../../../images/3/17.png?width=90pc" alt="UploadJarfile">
-3. Tiếp theo, chúng ta sẽ sử dụng AWS CLI để đẩy tập tin này lên S3 bucket nơi mà nó có thể được triển khai. Chúng ta sẽ sử dụng lệnh <strong>aws cloudformation package</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">aws cloudformation package --template-file template.yaml --s3-bucket &lt;YOUR_CODE_BUCKET_NAME&gt; --output-template deploy-template.yaml --profile aws-lab-env
-</code></pre></div><p><img src="../../../images/3/18.png?width=90pc" alt="PushfiletoS3">
-<strong>Note:</strong> Nếu bạn thấy một thông báo lỗi <strong>‘NoneType’ object has no attribute ‘items’</strong> hãy kiểm tra lại format của tập tin YAML.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mvn package shade:shade -DskipTests<span style="color:#f92672">=</span>true
+</span></span></code></pre></div><p><img src="/images/3/16.png?width=90pc" alt="CreateJarfile"></p>
+<p>Kết quả trả về một tập tin có tên <strong>s3handler-1.0.0.jar</strong> trong thư mục <strong>target</strong></p>
+<p><img src="/images/3/17.png?width=90pc" alt="UploadJarfile"></p>
+<ol start="3">
+<li>Tiếp theo, chúng ta sẽ sử dụng AWS CLI để đẩy tập tin này lên S3 bucket nơi mà nó có thể được triển khai. Chúng ta sẽ sử dụng lệnh <strong>aws cloudformation package</strong></li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>aws cloudformation package --template-file template.yaml --s3-bucket &lt;YOUR_CODE_BUCKET_NAME&gt; --output-template deploy-template.yaml --profile aws-lab-env
+</span></span></code></pre></div><p><img src="/images/3/18.png?width=90pc" alt="PushfiletoS3"></p>
+<p><strong>Note:</strong> Nếu bạn thấy một thông báo lỗi <strong>‘NoneType’ object has no attribute ‘items’</strong> hãy kiểm tra lại format của tập tin YAML.</p>
 <p>Câu lệnh <strong>aws cloudformation package</strong> sẽ lấy mẫu AWS SAM được cung cấp và viết lại nó trong định nghĩa của artifact được tự động tải lên S3 bucket. Trong trường hợp này,<strong>deploy-template.yaml</strong> được tạo và chứa giá trị <strong>CodeUri</strong>trỏ đến tập tin zip triển khai trong Amazon S3. Mẫu này đại diện cho ứng dụng serverless của bạn.\</p>
 <ol>
 <li>Bây giờ bạn đã sẵn sàng triển khai tập tin JAR dưới dạng một hàm Lambda và kết nối S3 trigger vào một S3 bucket mới. Bạn sẽ nhận thấy kết quả từ lệnh trước đó hướng dẫn chúng ta những gì cần chạy để triển khai mẫu đóng gói. Trong cửa sổ dòng lệnh, sao chép lệnh và dán lại vào dòng lệnh. Thay đổi giá trị &lt;YOUR_STACK_NAME&gt; thành ImageManagerDemo và thêm vào tùy chọn &ndash;profile aws-lab-env để cho phép CloudFormation tạo vai trò IAM thay mặt bạn. Lệnh của bạn sẽ giống như sau:</li>
 </ol>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">aws cloudformation deploy --template-file deploy-template.yaml --stack-name ImageManagerDemo --profile aws-lab-env
-</code></pre></div><p><img src="../../../images/3/19.png?width=90pc" alt="DeployCF">
-Khi bạn chạy lệnh <strong>aws cloudformation deploy</strong> nó sẽ tạo một <strong>AWS CloudFormation ChangeSet</strong> và triển khai chúng, đây là danh sách các thay đổi đối với AWS CloudFormation stack. Một vài mẫu stack có thể bao gồm các tài nguyên ảnh hưởng đến quyền trong tài khoản AWS, chẳng hạn như bằng cách tạo một AWS Identity and Access Management (IAM) user mới. Đối với các stack đó, bạn phải công nhận các khả năng của nó bằng các chỉ định tham số -capabilities. Để biết thêm thông tin, xem CreateChangeSet trong AWS CloudFormation API Reference.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>aws cloudformation deploy --template-file deploy-template.yaml --stack-name ImageManagerDemo --profile aws-lab-env
+</span></span></code></pre></div><p><img src="/images/3/19.png?width=90pc" alt="DeployCF"></p>
+<p>Khi bạn chạy lệnh <strong>aws cloudformation deploy</strong> nó sẽ tạo một <strong>AWS CloudFormation ChangeSet</strong> và triển khai chúng, đây là danh sách các thay đổi đối với AWS CloudFormation stack. Một vài mẫu stack có thể bao gồm các tài nguyên ảnh hưởng đến quyền trong tài khoản AWS, chẳng hạn như bằng cách tạo một AWS Identity and Access Management (IAM) user mới. Đối với các stack đó, bạn phải công nhận các khả năng của nó bằng các chỉ định tham số -capabilities. Để biết thêm thông tin, xem CreateChangeSet trong AWS CloudFormation API Reference.
 
 <div class="notices tip" ><p>Bạn có thể xem quá trình tạo tài nguyên trực tiếp trong bảng điều khiển CloudFormation</p>
 </div>
 
 Để kiểm tra kết quả, mở AWS CloudFormation console để xem stack mới nhất được tạo và vào Lambda console để xem hàm của bạn.
-CloudFormation template tạo một S3 Bucket có tên <strong>idevelop-imagemanager-&lt;YOUR_ACCOUNT_ID&gt;</strong> trong đó YOUR_ACCOUNT_ID là AWS account ID được sử dụng cho môi trường bài thực hành này. 
-<img src="../../../images/3/20.png?width=90pc" alt="Createstack">
-Template cũng tạo một hàm Lambda mới có tên là  ImageManagerDemo-TestLambda-XXXXXX trong đó XXXXXX là một mã định danh ngẫu nhiên được CloudFormation phân bổ để đảm bảo tính duy nhất của tên hàm.<br>
-5. Khi CloudFormation stack triển khai thành công, bạn đã sẵn sàng để kiểm tra hàm của mình. Sử dụng AWS S3 console, tạo một thư mục tên là <strong>uploads</strong> trong S3 bucket <strong>idevelop-imagemanager-&lt;YOUR_ACCOUNT_ID&gt;</strong>
-<img src="../../../images/3/21.png?width=90pc" alt="Createfolder">
-6. Tải một tập tin lên thư mục này. Bạn có thể sử dụng tập tin <strong>Puppy.jpg</strong> hoặc bất kỳ tập tin hình ảnh khác mà bạn có. Hoặc bạn có thể tải một tập tin không phải hình ảnh lên để kiểm tra cả hai trường hợp. 
-Nếu bạn tải tập tin không phải hình ảnh lên, tập tin sẽ bị xóa.
-<img src="../../../images/3/22.png?width=90pc" alt="Uploadfile">
-7. Nếu bạn tải một hình ảnh lên, kiểm tra thu mục <strong>processed</strong> trong S3 bucket. Bạn sẽ thấy một hình thu nhỏ của tập tin JPG trong thư mục này.
-<img src="../../../images/3/23.png?width=90pc" alt="UploadImage">
-8. Xem log trong CloudWatch logs của hàm <strong>ImageManagerDemo-TestLambda-XXXXXX</strong>.
-<img src="../../../images/3/24.png?width=90pc" alt="Viewlog"></p>
+CloudFormation template tạo một S3 Bucket có tên <strong>idevelop-imagemanager-&lt;YOUR_ACCOUNT_ID&gt;</strong> trong đó YOUR_ACCOUNT_ID là AWS account ID được sử dụng cho môi trường bài thực hành này.</p>
+<p><img src="/images/3/20.png?width=90pc" alt="Createstack"></p>
+<p>Template cũng tạo một hàm Lambda mới có tên là  ImageManagerDemo-TestLambda-XXXXXX trong đó XXXXXX là một mã định danh ngẫu nhiên được CloudFormation phân bổ để đảm bảo tính duy nhất của tên hàm.<br>
+5. Khi CloudFormation stack triển khai thành công, bạn đã sẵn sàng để kiểm tra hàm của mình. Sử dụng AWS S3 console, tạo một thư mục tên là <strong>uploads</strong> trong S3 bucket <strong>idevelop-imagemanager-&lt;YOUR_ACCOUNT_ID&gt;</strong></p>
+<p><img src="/images/3/21.png?width=90pc" alt="Createfolder"></p>
+<ol start="6">
+<li>Tải một tập tin lên thư mục này. Bạn có thể sử dụng tập tin <strong>Puppy.jpg</strong> hoặc bất kỳ tập tin hình ảnh khác mà bạn có. Hoặc bạn có thể tải một tập tin không phải hình ảnh lên để kiểm tra cả hai trường hợp.
+Nếu bạn tải tập tin không phải hình ảnh lên, tập tin sẽ bị xóa.</li>
+</ol>
+<p><img src="/images/3/22.png?width=90pc" alt="Uploadfile"></p>
+<ol start="7">
+<li>Nếu bạn tải một hình ảnh lên, kiểm tra thu mục <strong>processed</strong> trong S3 bucket. Bạn sẽ thấy một hình thu nhỏ của tập tin JPG trong thư mục này.</li>
+</ol>
+<p><img src="/images/3/23.png?width=90pc" alt="UploadImage"></p>
+<ol start="8">
+<li>Xem log trong CloudWatch logs của hàm <strong>ImageManagerDemo-TestLambda-XXXXXX</strong>.</li>
+</ol>
+<p><img src="/images/3/24.png?width=90pc" alt="Viewlog"></p>
 
 
 
@@ -1206,19 +1230,19 @@ Nếu bạn tải tập tin không phải hình ảnh lên, tập tin sẽ bị 
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1624843736"></script>
-    <script src="/js/perfect-scrollbar.min.js?1624843736"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1624843736"></script>
-    <script src="/js/jquery.sticky.js?1624843736"></script>
-    <script src="/js/featherlight.min.js?1624843736"></script>
-    <script src="/js/highlight.pack.js?1624843736"></script>
+    <script src="/js/clipboard.min.js?1674655585"></script>
+    <script src="/js/perfect-scrollbar.min.js?1674655585"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1674655585"></script>
+    <script src="/js/jquery.sticky.js?1674655585"></script>
+    <script src="/js/featherlight.min.js?1674655585"></script>
+    <script src="/js/highlight.pack.js?1674655585"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1624843736"></script>
-    <script src="/js/learn.js?1624843736"></script>
-    <script src="/js/hugo-learn.js?1624843736"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1674655585"></script>
+    <script src="/js/learn.js?1674655585"></script>
+    <script src="/js/hugo-learn.js?1674655585"></script>
 
-    <link href="/mermaid/mermaid.css?1624843736" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1624843736"></script>
+    <link href="/mermaid/mermaid.css?1674655585" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1674655585"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

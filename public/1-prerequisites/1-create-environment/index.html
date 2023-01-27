@@ -3,30 +3,30 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.69.0" />
+    <meta name="generator" content="Hugo 0.101.0" />
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Chuẩn bị môi trường :: DevAx - Monoliths to Microservices - Create A Microservice</title>
+    <title>Preparation :: DevAx - Monoliths to Microservices - Create A Microservice</title>
 
     
-    <link href="/css/nucleus.css?1624843736" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1624843736" rel="stylesheet">
-    <link href="/css/hybrid.css?1624843736" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1624843736" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1624843736" rel="stylesheet">
-    <link href="/css/auto-complete.css?1624843736" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1624843736" rel="stylesheet">
-    <link href="/css/theme.css?1624843736" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1624843736" rel="stylesheet">
+    <link href="/css/nucleus.css?1674655585" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1674655585" rel="stylesheet">
+    <link href="/css/hybrid.css?1674655585" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1674655585" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1674655585" rel="stylesheet">
+    <link href="/css/auto-complete.css?1674655585" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1674655585" rel="stylesheet">
+    <link href="/css/theme.css?1674655585" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1674655585" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1624843736" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1674655585" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1624843736"></script>
+    <script src="/js/jquery-3.3.1.min.js?1674655585"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1624843736"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1624843736"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1674655585"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1674655585"></script>
 <script type="text/javascript">
     
         var baseurl = "";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1624843736"></script>
+<script type="text/javascript" src="/js/search.js?1674655585"></script>
 
     
   </div>
@@ -113,13 +113,13 @@
  
   
     
-    <li data-nav-id="/1-prerequisites/1-create-environment/" title="Chuẩn bị môi trường" class="dd-item 
+    <li data-nav-id="/1-prerequisites/1-create-environment/" title="Preparation" class="dd-item 
         
         active
         
         ">
       <a href="/1-prerequisites/1-create-environment/">
-          <b>1.1. </b>Chuẩn bị môi trường
+          <b>1.1. </b>Preparation
           
             <i class="fas fa-check read-icon"></i>
           
@@ -671,6 +671,22 @@
     <img src="https://hitwebcounter.com/counter/counter.php?page=7830807&style=0038&nbdigits=9&type=page&initCount=0" title="Total CLoud Journey" Alt="web counter"   border="0"   />
      
 </left>
+<left>
+    <br>
+    <br>
+        <b> Last Updated </b> <br>
+        <i><font color=orange>18-01-2023</font></i>
+    </left>
+    <left>
+        <br>
+        <br>
+            <b> Team </b> <br>
+           
+            <i> <a href="https://www.linkedin.com/in/jotaguy"  style="color:orange">Gia Hưng </a> <br>
+               
+        </i>
+        </left>
+
 
 <script async defer src="https://buttons.github.io/buttons.js"></script>
 
@@ -712,7 +728,7 @@
             
           
           
-            <a href='/'>Tạo một Microservice</a> > <a href='/1-prerequisites/'>Chuẩn bị</a> > Chuẩn bị môi trường
+            <a href='/'>Tạo một Microservice</a> > <a href='/1-prerequisites/'>Chuẩn bị</a> > Preparation
           
         
           
@@ -749,7 +765,7 @@
           
             <h1>
               
-              Chuẩn bị môi trường
+              Preparation
             </h1>
           
 
@@ -757,19 +773,17 @@
 
 
 
-	<h4 id="chuẩn-bị-môi-trường">Chuẩn bị môi trường</h4>
-<p>Trong bài thực hành này, chúng ta sẽ sử dụng CloudFormation template đã cung cấp và cài đặt sẵn các tài nguyên cần thiết.</p>
+	<h4 id="preparation">Preparation</h4>
+<p>In this workshop, we will use CloudFormation template that provided and pre-install the necessary resource.</p>
 <ol>
-<li>
-<p>Trong bài thực hành này, chúng ta sẽ sử dụng lại Keypair <strong>KPforDevAxInstances.PEM</strong> đã tạo ở bài thực hành trước cho các máy ảo. Hoặc bạn có thể xem lại bài thực hành trước để xem cách tạo một keypair mới.
+<li>In this lab, we use <strong>KPforDevAxInstances.PEM</strong> Keypair again which created in the previous exercise for virtual machines. Or you can review the previous lab to see how to create a new keypair.</li>
+</ol>
 
-<div class="notices tip" ><p>Nếu bạn tạo keypair mới hãy down file dạng .pem để có thể giải mã password của DevAx Windows host nhé.</p>
+<div class="notices tip" ><p>If you create a new keypair, download the .pem file to be able to decrypt the password of the DevAx Windows host.</p>
 </div>
-</p>
-</li>
-<li>
-<p>Tải tập tin CloudFormation template để cài đặt các thành phần cần thiết cho bài thực hành</p>
-</li>
+
+<ol start="2">
+<li>Download the CloudFormation template file to install the necessary resource for this lab.</li>
 </ol>
 
 <section class="attachments ">
@@ -788,7 +802,7 @@
 				<a href="/1-prerequisites/1-create-environment/_index.files/Module3.template.yaml" >
 					Module3.template.yaml
 				</a>
-				(40 ko)
+				(39 ko)
 			</li>
 		
 	
@@ -798,13 +812,13 @@
 
 
 <ol start="3">
-<li>Truy cập <strong>AWS CloudFormation</strong></li>
+<li>Access to <strong>AWS CloudFormation</strong></li>
 </ol>
 <p><img src="/images/1/1.png?width=90pc" alt="CloudFormation"></p>
 <ol start="4">
-<li>Chọn <strong>Create stack</strong>, chọn <strong>With new resources (standard)</strong></li>
-<li>Tại mục <strong>Prerequisite - Prepare template</strong> chọn <strong>Template is ready</strong></li>
-<li>Tại mục <strong>Template source</strong>, chọn <strong>Upload a template file</strong>, nhấp chọn <strong>Choose file</strong> và trỏ tới file template đã tải xuống. Chọn <strong>Next</strong></li>
+<li>Click <strong>Create stack</strong>, select <strong>With new resources (standard)</strong></li>
+<li>In <strong>Prerequisite - Prepare template</strong> section, select <strong>Template is ready</strong></li>
+<li>In <strong>Template source</strong> section, select <strong>Upload a template file</strong>, click <strong>Choose file</strong> and point to the downloaded template file. - Click <strong>Next</strong>.</li>
 </ol>
 <p><img src="/images/1/2.png?width=90pc" alt="CloudFormation"></p>
 <ol start="7">
@@ -1167,19 +1181,19 @@ Chọn <strong>Create stack</strong>.</li>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1624843736"></script>
-    <script src="/js/perfect-scrollbar.min.js?1624843736"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1624843736"></script>
-    <script src="/js/jquery.sticky.js?1624843736"></script>
-    <script src="/js/featherlight.min.js?1624843736"></script>
-    <script src="/js/highlight.pack.js?1624843736"></script>
+    <script src="/js/clipboard.min.js?1674655585"></script>
+    <script src="/js/perfect-scrollbar.min.js?1674655585"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1674655585"></script>
+    <script src="/js/jquery.sticky.js?1674655585"></script>
+    <script src="/js/featherlight.min.js?1674655585"></script>
+    <script src="/js/highlight.pack.js?1674655585"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1624843736"></script>
-    <script src="/js/learn.js?1624843736"></script>
-    <script src="/js/hugo-learn.js?1624843736"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1674655585"></script>
+    <script src="/js/learn.js?1674655585"></script>
+    <script src="/js/hugo-learn.js?1674655585"></script>
 
-    <link href="/mermaid/mermaid.css?1624843736" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1624843736"></script>
+    <link href="/mermaid/mermaid.css?1674655585" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1674655585"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
