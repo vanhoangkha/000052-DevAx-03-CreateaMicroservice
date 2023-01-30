@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Mở rộng Serverless Microservices on DevAx - Monoliths to Microservices - Create A Microservice</title>
+    <title>Expanding Serverless Microservices on DevAx - Monoliths to Microservices - Create A Microservice</title>
     <link>/3-extending-serverless-microservices/</link>
-    <description>Recent content in Mở rộng Serverless Microservices on DevAx - Monoliths to Microservices - Create A Microservice</description>
+    <description>Recent content in Expanding Serverless Microservices on DevAx - Monoliths to Microservices - Create A Microservice</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 01 Jan 1970 08:33:41 +0800</lastBuildDate><atom:link href="/3-extending-serverless-microservices/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 01 Jan 1970 08:33:43 +0800</lastBuildDate><atom:link href="/3-extending-serverless-microservices/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

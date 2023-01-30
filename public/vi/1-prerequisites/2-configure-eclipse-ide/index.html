@@ -12,21 +12,21 @@
     <title>Cấu hình Eclipse IDE :: DevAx - Chuyển đổi Monoliths sang Microservices - Tạo một Microservice</title>
 
     
-    <link href="/css/nucleus.css?1674655585" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1674655585" rel="stylesheet">
-    <link href="/css/hybrid.css?1674655585" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1674655585" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1674655585" rel="stylesheet">
-    <link href="/css/auto-complete.css?1674655585" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1674655585" rel="stylesheet">
-    <link href="/css/theme.css?1674655585" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1674655585" rel="stylesheet">
+    <link href="/css/nucleus.css?1675044474" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1675044474" rel="stylesheet">
+    <link href="/css/hybrid.css?1675044474" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1675044474" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1675044474" rel="stylesheet">
+    <link href="/css/auto-complete.css?1675044474" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1675044474" rel="stylesheet">
+    <link href="/css/theme.css?1675044474" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1675044474" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1674655585" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1675044474" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1674655585"></script>
+    <script src="/js/jquery-3.3.1.min.js?1675044474"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1674655585"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1674655585"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1675044474"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1675044474"></script>
 <script type="text/javascript">
     
         var baseurl = "\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1674655585"></script>
+<script type="text/javascript" src="/js/search.js?1675044474"></script>
 
     
   </div>
@@ -357,13 +357,13 @@
  
   
     
-    <li data-nav-id="/vi/3-extending-serverless-microservices/3-update-lambda-function/" title="(Optional) Cập nhật quyền của hàm Lambda" class="dd-item 
+    <li data-nav-id="/vi/3-extending-serverless-microservices/3-update-lambda-function/" title="(Tuỳ chọn) Cập nhật quyền của hàm Lambda" class="dd-item 
         
         
         
         ">
       <a href="/vi/3-extending-serverless-microservices/3-update-lambda-function/">
-          <b>3.3. </b>(Optional) Cập nhật quyền của hàm Lambda
+          <b>3.3. </b>(Tuỳ chọn) Cập nhật quyền của hàm Lambda
           
             <i class="fas fa-check read-icon"></i>
           
@@ -787,20 +787,20 @@
 <p><img src="/images/1/6.png?width=90pc" alt="RemoteInstances"></p>
 <ol start="3">
 <li>Chọn <strong>RDP</strong> tab, sau đó ấn <strong>Download remote desktop file</strong> để tải tập tin RDP để truy cập từ xa.</li>
-<li>Chọn keypair <strong>KPforDevAxInstances</strong> để giải mã mật khẩu cho máy ảo Windows.</li>
 <li>Chọn <strong>Get password</strong>.</li>
 </ol>
 <p><img src="/images/1/7.png?width=90pc" alt="RemoteInstances"></p>
-<ol start="6">
-<li>Ấn <strong>Upload private key file</strong> để tải keypair tệp lên và ấn <strong>Decrypt password</strong>.</li>
+<ol start="5">
+<li>Ấn <strong>Upload private key file</strong> and chọn keypair <strong>KPforDevAxInstances</strong> để giải mã mật khẩu cho máy ảo Windows.</li>
+<li>Ấn <strong>Decrypt password</strong>.</li>
 </ol>
 <p><img src="/images/1/8.png?width=90pc" alt="RemoteInstances"></p>
 <ol start="7">
-<li>Copy passowrd và dùng để đăng nhập vào máy ảo Windows.</li>
+<li>Sao chép mật khẩu và dùng để đăng nhập vào máy ảo Windows.</li>
 </ol>
 <p><img src="/images/1/9.png?width=90pc" alt="RemoteInstances"></p>
 <h4 id="cấu-hình-eclipse-ide">Cấu hình Eclipse IDE</h4>
-<ol start="6">
+<ol start="8">
 <li>Mở command line và cấu hình profile cho bài thực hành</li>
 </ol>
 
@@ -812,31 +812,31 @@
 </span></span><span style="display:flex;"><span>aws configure set profile.aws-lab-env.aws_access_key_id &lt;your_access_key_id&gt;
 </span></span><span style="display:flex;"><span>aws configure set profile.aws-lab-env.aws_secret_access_key &lt;your_secret_access_key&gt;
 </span></span></code></pre></div><p><img src="/images/1/10.png?width=90pc" alt="EclipseIDE"></p>
-<ol start="7">
+<ol start="9">
 <li>Mở <strong>Eclipse IDE</strong>, trong cửa sổ Eclipse IDE Launcher , để tùy chọn mặc định và click <strong>Launch</strong>. Click <strong>Finish</strong> cho cửa sổ thu thập thông tin  của AWS Toolkit.</li>
 </ol>
 <p><img src="/images/1/11.png?width=90pc" alt="EclipseIDE"></p>
-<ol start="8">
+<ol start="10">
 <li>Click nút <strong>Restore</strong>.</li>
 </ol>
 <p><img src="/images/1/12.png?width=90pc" alt="EclipseIDE"></p>
-<ol start="9">
+<ol start="11">
 <li>Click vào biểu tượng AWS và chọn dấu mũi tên, sau đó chọn <strong>Preferences</strong>.</li>
 </ol>
 <p><img src="/images/1/13.png?width=90pc" alt="EclipseIDE"></p>
-<ol start="10">
+<ol start="12">
 <li>Đặt <strong>Default Profile</strong> là <strong>aws-lab-env</strong>.</li>
 <li>Chọn <strong>Apply and Close</strong>.</li>
 </ol>
 <p><img src="/images/1/14.png?width=90pc" alt="EclipseIDE"></p>
 <h4 id="cài-đặt-s3-buckets">Cài đặt S3 buckets</h4>
 <p>Bạn cần cài đặt 2 buckets. Một bucket sẽ chứa hàm lambda được tải lên và một bucket được sử dụng để lưu trữ hình ảnh.</p>
-<ol start="12">
+<ol start="14">
 <li>Tạo S3 bucket để lưu hàm Lambda. Bạn có thể sử dụng AWS Console hoặc dùng command line:</li>
 </ol>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>aws s3 mb s3://idevelop-sourcecode-&lt;yourinitials&gt; --region &lt;region&gt; --profile aws-lab-env
 </span></span></code></pre></div><p>trong đó <strong><!-- raw HTML omitted --></strong> là tên duy nhất cho bucket của bạn . Thay thế <strong><!-- raw HTML omitted --></strong> với region phù hợp với bài thực hành của bạn.</p>
-<ol start="13">
+<ol start="15">
 <li>Tạo một bucket khác để chứa hình ảnh tải lên. Tương tự như bước trên, ta đặt tên cho S3 bucket là <strong>idevelop-imagemanager-<!-- raw HTML omitted --></strong>. Câu lệnh sẽ như sau:</li>
 </ol>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>aws s3 mb s3://idevelop-imagemanager-&lt;yourinitials&gt; --region &lt;region&gt; --profile aws-lab-env
@@ -1188,19 +1188,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1674655585"></script>
-    <script src="/js/perfect-scrollbar.min.js?1674655585"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1674655585"></script>
-    <script src="/js/jquery.sticky.js?1674655585"></script>
-    <script src="/js/featherlight.min.js?1674655585"></script>
-    <script src="/js/highlight.pack.js?1674655585"></script>
+    <script src="/js/clipboard.min.js?1675044474"></script>
+    <script src="/js/perfect-scrollbar.min.js?1675044474"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1675044474"></script>
+    <script src="/js/jquery.sticky.js?1675044474"></script>
+    <script src="/js/featherlight.min.js?1675044474"></script>
+    <script src="/js/highlight.pack.js?1675044474"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1674655585"></script>
-    <script src="/js/learn.js?1674655585"></script>
-    <script src="/js/hugo-learn.js?1674655585"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1675044474"></script>
+    <script src="/js/learn.js?1675044474"></script>
+    <script src="/js/hugo-learn.js?1675044474"></script>
 
-    <link href="/mermaid/mermaid.css?1674655585" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1674655585"></script>
+    <link href="/mermaid/mermaid.css?1675044474" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1675044474"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

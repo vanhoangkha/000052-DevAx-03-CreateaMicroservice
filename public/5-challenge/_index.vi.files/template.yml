@@ -10,6 +10,27 @@ Parameters:
   CodeDeployRole:
     Type: String
     Description: IAM role to allow AWS CodeDeploy to manage deployment of AWS Lambda functions
+  InstanceType:
+    Type: String
+    Description: The type of Amazon EC2 Linux instance that will be launched for this project.
+  Keypairname: 
+    Type: String
+    Description: The name of existing Amazon EC2 key pair in the region the project is created, which you can use to SSH into the new Amazon EC2 Linux instances.
+  VpcID:
+    Type: String
+    Description: The ID of Amazon Virtual Private Cloud (VPC) used for the new Amazon EC2 Linux instances.
+  SubnetId:
+    Type: String
+    Description: The name of VPC subnet used for the new Amazon EC2 Linux instances launched for this project.
+  SolutionStackName:
+    Type: String
+    Description: The software stack used to launch environments and configure instance in AWS Elactic Beanstalk.
+  EBTrustRole:
+    Type: String
+    Description: The service role in IAM for AWS Elactic Beanstalk to be created for this project.
+  EBInstanceProfile:
+    Type: String
+    Description: The IAM role that will be created for the Amazon EC2 Linux instances.
   Stage:
     Type: String
     Description: The name for a project pipeline stage, such as Staging or Prod, for which resources are provisioned and deployed.

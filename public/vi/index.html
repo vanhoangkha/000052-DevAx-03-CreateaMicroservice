@@ -12,21 +12,21 @@
     <title>Tạo một Microservice :: DevAx - Chuyển đổi Monoliths sang Microservices - Tạo một Microservice</title>
 
     
-    <link href="/css/nucleus.css?1674655585" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1674655585" rel="stylesheet">
-    <link href="/css/hybrid.css?1674655585" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1674655585" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1674655585" rel="stylesheet">
-    <link href="/css/auto-complete.css?1674655585" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1674655585" rel="stylesheet">
-    <link href="/css/theme.css?1674655585" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1674655585" rel="stylesheet">
+    <link href="/css/nucleus.css?1675044474" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1675044474" rel="stylesheet">
+    <link href="/css/hybrid.css?1675044474" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1675044474" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1675044474" rel="stylesheet">
+    <link href="/css/auto-complete.css?1675044474" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1675044474" rel="stylesheet">
+    <link href="/css/theme.css?1675044474" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1675044474" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1674655585" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1675044474" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1674655585"></script>
+    <script src="/js/jquery-3.3.1.min.js?1675044474"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1674655585"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1674655585"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1675044474"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1675044474"></script>
 <script type="text/javascript">
     
         var baseurl = "\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1674655585"></script>
+<script type="text/javascript" src="/js/search.js?1675044474"></script>
 
     
   </div>
@@ -357,13 +357,13 @@
  
   
     
-    <li data-nav-id="/vi/3-extending-serverless-microservices/3-update-lambda-function/" title="(Optional) Cập nhật quyền của hàm Lambda" class="dd-item 
+    <li data-nav-id="/vi/3-extending-serverless-microservices/3-update-lambda-function/" title="(Tuỳ chọn) Cập nhật quyền của hàm Lambda" class="dd-item 
         
         
         
         ">
       <a href="/vi/3-extending-serverless-microservices/3-update-lambda-function/">
-          <b>3.3. </b>(Optional) Cập nhật quyền của hàm Lambda
+          <b>3.3. </b>(Tuỳ chọn) Cập nhật quyền của hàm Lambda
           
             <i class="fas fa-check read-icon"></i>
           
@@ -716,16 +716,16 @@
 
  
 <h1 id="tạo-một-microservice">Tạo một Microservice</h1>
-<p>Trong phần này, bạn sẽ học cách tạo một hàm AWS Lambda được kích hoạt khi có tập tin được tải lên Amazon S3 Bucket. Bạn sẽ tải đoạn mã nguồn lên hàm Lambda thông qua Eclipse IDE, sau đó kết nối thủ công tới một trình kích hoạt sự kiện S3 để gọi hàm và xem log đầu ra. Sau đó, bạn sẽ chỉnh sửa lại code và thêm các chức năng cho phép nó xử lý các loại tập tin khác nhau - cụ thể là tạo hình thu nhỏ cho các hình ảnh JPG và xóa tất cả các loại tệp khác. Cuối cùng, bạn sẽ tạo một gói triển khai và tự động hóa việc triển khai hàm cũng như các trình kích hoạt liên quan và S3 bucket, sử dụng AWS CLI.
-<img src="../../../images/1/info.png?width=50pc" alt="info">
-Phiên bản cuối cùng của hàm AWS Lambda thực hiện những nhiệm vụ sau đây:</p>
+<p>Trong phần này, bạn sẽ học cách tạo một hàm AWS Lambda được kích hoạt khi có tập tin được tải lên Amazon S3 Bucket. Bạn sẽ tải đoạn mã nguồn lên hàm Lambda thông qua Eclipse IDE, sau đó kết nối thủ công tới một trình kích hoạt sự kiện S3 để gọi hàm và xem log đầu ra. Sau đó, bạn sẽ chỉnh sửa lại code và thêm các chức năng cho phép nó xử lý các loại tập tin khác nhau - cụ thể là tạo hình thu nhỏ cho các hình ảnh JPG và xóa tất cả các loại tệp khác. Cuối cùng, bạn sẽ tạo một gói triển khai và tự động hóa việc triển khai hàm cũng như các trình kích hoạt liên quan và S3 bucket, sử dụng AWS CLI.</p>
+<p><img src="/images/1/info.png?width=50pc" alt="info"></p>
+<p>Phiên bản cuối cùng của hàm AWS Lambda thực hiện những nhiệm vụ sau đây:</p>
 <ul>
 <li>Đầu tiên, tải một tập tin lên S3 bucket.</li>
 <li>Amazon S3 kích hoạt hàm AWS Lambda được liên kết với hành động PutObject và cung cấp metadata để mô tả tập tin.</li>
 <li>Hàm Lambda kiểm tra loại nội dung của tập tin và nếu nó không phải là tập tin <strong>image/jpeg</strong>, tập tin sẽ bị xóa. Nếu tập tin là tập tin <strong>image/jpeg</strong>, đoạn code sẽ sinh ra một tập tin thu nhỏ của hình ảnh và lưu hình thu nhỏ này ở một thư mục khác trong cùng một bucket.
 Sau đó, bạn sẽ quay trở lại với ứng dụng web <em>TravelBuddy</em> và triển khai các phần monolithic codebase như một microservices độc lập, sử dụng AWS CodeStar để tạo CI/CD pipeline.</li>
 </ul>
-<p><img src="../../../images/1/monolithcallingmicro.png?width=90pc" alt="Monolithcallingmicro"></p>
+<p><img src="/images/1/monolithcallingmicro.png?width=90pc" alt="Monolithcallingmicro"></p>
 <h4 id="nội-dung">Nội dung</h4>
 <p>Sau khi hoàn thành bài thực hành này, bạn sẽ có thể:</p>
 <ul>
@@ -738,7 +738,7 @@ Sau đó, bạn sẽ quay trở lại với ứng dụng web <em>TravelBuddy</em
 <p>Để hoàn thành bài thực hành này, bạn cần quen với AWS Management Console, sử dụng trình chỉnh sửa văn bản để chỉnh sửa các lệnh.</p>
 <h4 id="môi-trường">Môi trường</h4>
 <p>Sơ đồ sau miêu tả các tài nguyên được triển khai trong bài thực hành này.</p>
-<p><img src="../../../images/1/0.png?width=50pc" alt="Diagram"></p>
+<p><img src="/images/1/0.png?width=50pc" alt="Diagram"></p>
 	
   
         
@@ -1070,19 +1070,19 @@ Sau đó, bạn sẽ quay trở lại với ứng dụng web <em>TravelBuddy</em
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1674655585"></script>
-    <script src="/js/perfect-scrollbar.min.js?1674655585"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1674655585"></script>
-    <script src="/js/jquery.sticky.js?1674655585"></script>
-    <script src="/js/featherlight.min.js?1674655585"></script>
-    <script src="/js/highlight.pack.js?1674655585"></script>
+    <script src="/js/clipboard.min.js?1675044474"></script>
+    <script src="/js/perfect-scrollbar.min.js?1675044474"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1675044474"></script>
+    <script src="/js/jquery.sticky.js?1675044474"></script>
+    <script src="/js/featherlight.min.js?1675044474"></script>
+    <script src="/js/highlight.pack.js?1675044474"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1674655585"></script>
-    <script src="/js/learn.js?1674655585"></script>
-    <script src="/js/hugo-learn.js?1674655585"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1675044474"></script>
+    <script src="/js/learn.js?1675044474"></script>
+    <script src="/js/hugo-learn.js?1675044474"></script>
 
-    <link href="/mermaid/mermaid.css?1674655585" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1674655585"></script>
+    <link href="/mermaid/mermaid.css?1675044474" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1675044474"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

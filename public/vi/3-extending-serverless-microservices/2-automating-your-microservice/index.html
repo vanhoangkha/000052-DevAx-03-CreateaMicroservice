@@ -12,21 +12,21 @@
     <title>Tự động hóa Serverless Microservice :: DevAx - Chuyển đổi Monoliths sang Microservices - Tạo một Microservice</title>
 
     
-    <link href="/css/nucleus.css?1674655585" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1674655585" rel="stylesheet">
-    <link href="/css/hybrid.css?1674655585" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1674655585" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1674655585" rel="stylesheet">
-    <link href="/css/auto-complete.css?1674655585" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1674655585" rel="stylesheet">
-    <link href="/css/theme.css?1674655585" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1674655585" rel="stylesheet">
+    <link href="/css/nucleus.css?1675044474" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1675044474" rel="stylesheet">
+    <link href="/css/hybrid.css?1675044474" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1675044474" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1675044474" rel="stylesheet">
+    <link href="/css/auto-complete.css?1675044474" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1675044474" rel="stylesheet">
+    <link href="/css/theme.css?1675044474" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1675044474" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1674655585" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1675044474" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1674655585"></script>
+    <script src="/js/jquery-3.3.1.min.js?1675044474"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1674655585"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1674655585"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1675044474"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1675044474"></script>
 <script type="text/javascript">
     
         var baseurl = "\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1674655585"></script>
+<script type="text/javascript" src="/js/search.js?1675044474"></script>
 
     
   </div>
@@ -357,13 +357,13 @@
  
   
     
-    <li data-nav-id="/vi/3-extending-serverless-microservices/3-update-lambda-function/" title="(Optional) Cập nhật quyền của hàm Lambda" class="dd-item 
+    <li data-nav-id="/vi/3-extending-serverless-microservices/3-update-lambda-function/" title="(Tuỳ chọn) Cập nhật quyền của hàm Lambda" class="dd-item 
         
         
         
         ">
       <a href="/vi/3-extending-serverless-microservices/3-update-lambda-function/">
-          <b>3.3. </b>(Optional) Cập nhật quyền của hàm Lambda
+          <b>3.3. </b>(Tuỳ chọn) Cập nhật quyền của hàm Lambda
           
             <i class="fas fa-check read-icon"></i>
           
@@ -770,7 +770,7 @@
 <p>Ngoài ra, bạn có thể sử dụng <strong>AWS Serverless Application Model (SAM)</strong> để thể hiện các tài nguyên bao gồm ứng dụng serverless. Các loại tài nguyên này, chẳng hạn như các hàm và API của AWS Lambda, được AWS CloudFormation hỗ trợ đầy đủ và giúp bạn xác định và triển khai ứng dụng serverless của mình dễ dàng hơn.</p>
 <p>Trong bài tập này, bạn sẽ sử dụng <strong>AWS CLI</strong> và <strong>AWS CloudFormation/SAM</strong> để đóng gói ứng dụng và triển khai nó từ đầu mà không cần phải tạo hoặc định cấu hình bất kỳ phần phụ thuộc nào theo cách thủ công.</p>
 <ol>
-<li>Right click vào Project <strong>TestLambda</strong> trong panel Project Explorer. Chọn <strong>Create New File</strong>. Đặt tên File Name là <strong>template.yaml</strong> file này sẽ nằm cùng cấp với file <strong>pom.xml</strong> của hàm <strong>TestLambda</strong> ở bài tập trước. Sau đó chúng ta chỉnh sửa nội dung file <strong>template.yaml</strong> như dưới đây.</li>
+<li>Ấn chuột phải vào project <strong>TestLambda</strong> trong panel Project Explorer. Chọn <strong>Create New File</strong>. Đặt tên File Name là <strong>template.yaml</strong>. Tệp này sẽ nằm cùng cấp với file <strong>pom.xml</strong> của hàm <strong>TestLambda</strong> ở bài tập trước. Sau đó chúng ta chỉnh sửa nội dung file <strong>template.yaml</strong> như dưới đây.</li>
 </ol>
 <pre tabindex="0"><code>AWSTemplateFormatVersion: &#39;2010-09-09&#39;
 Transform: &#39;AWS::Serverless-2016-10-31&#39;
@@ -852,8 +852,8 @@ Sau đó tiến hành cấu hình biến môi trường MVN_HOME tới <strong>�
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>aws cloudformation package --template-file template.yaml --s3-bucket &lt;YOUR_CODE_BUCKET_NAME&gt; --output-template deploy-template.yaml --profile aws-lab-env
 </span></span></code></pre></div><p><img src="/images/3/18.png?width=90pc" alt="PushfiletoS3"></p>
 <p><strong>Note:</strong> Nếu bạn thấy một thông báo lỗi <strong>‘NoneType’ object has no attribute ‘items’</strong> hãy kiểm tra lại format của tập tin YAML.</p>
-<p>Câu lệnh <strong>aws cloudformation package</strong> sẽ lấy mẫu AWS SAM được cung cấp và viết lại nó trong định nghĩa của artifact được tự động tải lên S3 bucket. Trong trường hợp này,<strong>deploy-template.yaml</strong> được tạo và chứa giá trị <strong>CodeUri</strong>trỏ đến tập tin zip triển khai trong Amazon S3. Mẫu này đại diện cho ứng dụng serverless của bạn.\</p>
-<ol>
+<p>Câu lệnh <strong>aws cloudformation package</strong> sẽ lấy mẫu AWS SAM được cung cấp và viết lại nó trong định nghĩa của artifact được tự động tải lên S3 bucket. Trong trường hợp này,<strong>deploy-template.yaml</strong> được tạo và chứa giá trị <strong>CodeUri</strong>trỏ đến tập tin zip triển khai trong Amazon S3. Mẫu này đại diện cho ứng dụng serverless của bạn.</p>
+<ol start="4">
 <li>Bây giờ bạn đã sẵn sàng triển khai tập tin JAR dưới dạng một hàm Lambda và kết nối S3 trigger vào một S3 bucket mới. Bạn sẽ nhận thấy kết quả từ lệnh trước đó hướng dẫn chúng ta những gì cần chạy để triển khai mẫu đóng gói. Trong cửa sổ dòng lệnh, sao chép lệnh và dán lại vào dòng lệnh. Thay đổi giá trị &lt;YOUR_STACK_NAME&gt; thành ImageManagerDemo và thêm vào tùy chọn &ndash;profile aws-lab-env để cho phép CloudFormation tạo vai trò IAM thay mặt bạn. Lệnh của bạn sẽ giống như sau:</li>
 </ol>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>aws cloudformation deploy --template-file deploy-template.yaml --stack-name ImageManagerDemo --profile aws-lab-env
@@ -1220,7 +1220,7 @@ Nếu bạn tải tập tin không phải hình ảnh lên, tập tin sẽ bị 
 			<a class="nav nav-prev" href="/vi/3-extending-serverless-microservices/1-deploy-imagemanager-lambda/" title="Triển khai hàm Lambda ImageManager"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/vi/3-extending-serverless-microservices/3-update-lambda-function/" title="(Optional) Cập nhật quyền của hàm Lambda" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/vi/3-extending-serverless-microservices/3-update-lambda-function/" title="(Tuỳ chọn) Cập nhật quyền của hàm Lambda" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -1230,19 +1230,19 @@ Nếu bạn tải tập tin không phải hình ảnh lên, tập tin sẽ bị 
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1674655585"></script>
-    <script src="/js/perfect-scrollbar.min.js?1674655585"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1674655585"></script>
-    <script src="/js/jquery.sticky.js?1674655585"></script>
-    <script src="/js/featherlight.min.js?1674655585"></script>
-    <script src="/js/highlight.pack.js?1674655585"></script>
+    <script src="/js/clipboard.min.js?1675044474"></script>
+    <script src="/js/perfect-scrollbar.min.js?1675044474"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1675044474"></script>
+    <script src="/js/jquery.sticky.js?1675044474"></script>
+    <script src="/js/featherlight.min.js?1675044474"></script>
+    <script src="/js/highlight.pack.js?1675044474"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1674655585"></script>
-    <script src="/js/learn.js?1674655585"></script>
-    <script src="/js/hugo-learn.js?1674655585"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1675044474"></script>
+    <script src="/js/learn.js?1675044474"></script>
+    <script src="/js/hugo-learn.js?1675044474"></script>
 
-    <link href="/mermaid/mermaid.css?1674655585" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1674655585"></script>
+    <link href="/mermaid/mermaid.css?1675044474" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1675044474"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
