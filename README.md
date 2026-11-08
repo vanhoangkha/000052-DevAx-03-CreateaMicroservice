@@ -1,4 +1,4 @@
-# 🔧 DevAx 03: Create a Microservice
+# DevAx 03: Create a Microservice
 
 Build and deploy microservices on AWS.
 
@@ -8,7 +8,7 @@ This is a hands-on workshop from the **AWS First Cloud Journey** series, designe
 
 ## Workshop
 
-📖 **[Start the workshop](https://vanhoangkha.github.io/000052-DevAx-03-CreateaMicroservice/)**
+**[Start the workshop](https://vanhoangkha.github.io/000052-DevAx-03-CreateaMicroservice/)**
 
 ## Prerequisites
 
